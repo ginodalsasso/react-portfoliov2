@@ -1,5 +1,5 @@
 import './App.css'
-import Logo from './components/layout/ui/Logo'
+import Logo from './components/layout/ui/Logo/Logo'
 
 function App() {
 
