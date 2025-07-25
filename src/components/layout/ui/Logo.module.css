@@ -1,0 +1,14 @@
+.logoSquare {
+    display: grid;
+    place-items: center;
+    background-color: black;
+    aspect-ratio: 1 / 1;
+}
+
+
+.logoRound {
+    width: 70%;
+    border-radius: 50%;
+    background-color: white;
+    aspect-ratio: 1 / 1;
+}

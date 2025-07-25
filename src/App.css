@@ -1,42 +1,37 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+@font-face {
+  font-family: 'Helvetica light';
+  src: url('src/fonts/HelveticaNeueLight.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Helvetica roman';
+  src: url('src/fonts/HelveticaNeueRoman.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Helvetica medium';
+  src: url('src/fonts/HelveticaNeueMedium.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Helvetica bold';
+  src: url('src/fonts/HelveticaNeueBold.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Helvetica heavy';
+  src: url('src/fonts/HelveticaNeueHeavy.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Helvetica black';
+  src: url('src/fonts/HelveticaNeueBlack.woff2') format('woff2');
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+:root {
+  --white-color: rgb(217, 217, 217);
+  --black-color: rgb(20, 20, 20);
+  --accent-color: rgb(255, 71, 20);
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+body {
+  font-family: 'Helvetica medium', sans-serif;
+  color: var(--black-color);
+  background-color: var(--white-color);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
-}
