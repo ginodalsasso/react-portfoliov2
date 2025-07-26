@@ -29,9 +29,19 @@
   --accent-color: rgb(255, 71, 20);
 }
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
   font-family: 'Helvetica medium', sans-serif;
   color: var(--black-color);
   background-color: var(--white-color);
 }
 
+a {
+  text-decoration: none;
+  color: inherit;
+}

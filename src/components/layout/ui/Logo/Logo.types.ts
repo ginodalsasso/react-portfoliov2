@@ -1,5 +1,9 @@
 export interface LogoProps {
-    size?: number;
-    href?: string;
+    size?: number | string;
     ariaLabel?: string;
+}
+
+export interface FullLogoProps {
+    href?: string;
+    fontSize?: string;
 }

@@ -1,13 +1,15 @@
-import './App.css'
-import Logo from './components/layout/ui/Logo/Logo'
+import { BrowserRouter } from "react-router";
+import "./App.css";
+import Navbar from "./components/layout/Navbar/Navbar";
 
 function App() {
-
-  return (
-    <>
-      <Logo href='https://www.google.com' />
-    </>
-  )
+    return (
+        <>
+            <BrowserRouter>
+                <Navbar />
+            </BrowserRouter>
+        </>
+    );
 }
 
-export default App
+export default App;
