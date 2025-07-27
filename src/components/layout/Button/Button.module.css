@@ -1,0 +1,41 @@
+.button {
+    display: inline-flex;
+    align-items: center;
+    border: none;
+    padding: 0.5rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.button::before {
+    content: '';
+    display: inline-block;
+    width: 1em;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    background-color: var(--white-color);
+    margin-right: 2rem;
+}
+
+.primaryButton {
+    background-color: var(--accent-color);
+    color: var(--black-color);
+}
+
+.secondaryButton {
+    background-color: var(--black-color);
+    color: var(--white-color);
+}
+
+.smallButton {
+    font-size: 14px;
+}
+
+.mediumButton {
+    font-size: 18px;
+}
+
+.largeButton {
+    font-size: 22px;
+}
