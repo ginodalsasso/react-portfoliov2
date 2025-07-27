@@ -1,26 +1,32 @@
 .button {
+    font-family: 'Helvetica medium', sans-serif;
     display: inline-flex;
     align-items: center;
     border: none;
-    padding: 0.5rem;
-    font-weight: 700;
+    padding: 0.5rem 0.75rem;
     cursor: pointer;
     transition: background-color 0.3s ease;
-}
 
-.button::before {
-    content: '';
-    display: inline-block;
-    width: 1em;
-    aspect-ratio: 1 / 1;
-    border-radius: 50%;
-    background-color: var(--white-color);
-    margin-right: 2rem;
+    &::before {
+        content: "";
+        display: inline-block;
+        width: 1em;
+        aspect-ratio: 1 / 1;
+        border-radius: 50%;
+        background-color: var(--white-color);
+        margin-right: 1rem;
+    }
 }
 
 .primaryButton {
     background-color: var(--accent-color);
     color: var(--black-color);
+    transition: ease-in-out 0.3s;
+
+    &:hover {
+        background-color: var(--black-color);
+        color: var(--white-color);
+    }
 }
 
 .secondaryButton {
@@ -29,13 +35,13 @@
 }
 
 .smallButton {
-    font-size: 14px;
+    font-size: var(--font-size-small);
 }
 
 .mediumButton {
-    font-size: 18px;
+    font-size: var(--font-size-medium);
 }
 
 .largeButton {
-    font-size: 22px;
+    font-size: var(--font-size-large);
 }
