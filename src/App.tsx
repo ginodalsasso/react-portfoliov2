@@ -1,4 +1,4 @@
-import { BrowserRouter } from "react-router";
+import { BrowserRouter, Link } from "react-router";
 import "./App.css";
 import Navbar from "./components/layout/Navbar/Navbar";
 import Button from "./components/layout/Button/Button";
@@ -55,7 +55,7 @@ function App() {
                     variant="primary"
                     size="medium"
                 >
-                    gino.dalsasso@gmail.com
+                    <Link to="mailto:gino.dalsasso@gmail.com">gino.dalsasso@gmail.com</Link>
                 </Button>
             </BrowserRouter>
         </>

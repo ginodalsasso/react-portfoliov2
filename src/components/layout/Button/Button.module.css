@@ -16,6 +16,13 @@
         background-color: var(--white-color);
         margin-right: 1rem;
     }
+    
+    &:focus {
+        outline: 1px solid var(--black-color);
+    }
+    &:active {
+        transform: scale(0.95);
+    }
 }
 
 .primaryButton {
