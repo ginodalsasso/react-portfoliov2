@@ -10,3 +10,17 @@
     display: flex;
     gap: 2rem;
 }
+
+.navLinks li a {
+    font-size: var(--font-size-medium);
+    padding: 0.25rem 0.5rem;
+
+    &:hover, &:focus {
+        color: var(--white-color);
+        transition: background-color 0.3s ease-in-out;
+        background-color: var(--black-color);
+    }
+    &:active {
+        transform: scale(0.95);
+    }
+}
