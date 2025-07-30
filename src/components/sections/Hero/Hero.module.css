@@ -1,0 +1,44 @@
+.heroSection {
+    height: 80svh;
+    padding-inline: var(--horizontal-padding-layout);
+    padding-block: var(--vertical-space-section);
+}
+
+.heroContent {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+}
+
+.heroTitle {
+    font-size: var(--font-size-xlarge);
+    font-family: "Helvetica light", sans-serif;
+    line-height: 1.2;
+    color: var(--primary-color);
+}
+
+.heroBackground {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    overflow: hidden;
+    font-size: clamp(14rem, 16vw, 32em);
+    font-family: "Helvetica bold", sans-serif;
+    color: var(--black-color);
+    opacity: 0.05;
+    pointer-events: none;
+    z-index: -1;
+}
+
+@media screen and (max-width: 400px) {
+    .heroBackground {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .heroContent {
+        flex-direction: column;
+    }
+}

@@ -2,10 +2,10 @@
     font-family: 'Helvetica medium', sans-serif;
     display: inline-flex;
     align-items: center;
-    border: none;
     padding: var(--padding-button);
     cursor: pointer;
     transition: background-color 0.3s ease;
+    border: none;
 
     &::before {
         content: "";

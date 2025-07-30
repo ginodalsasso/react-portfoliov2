@@ -23,26 +23,11 @@ export const heroAnimations = (selector: string) => {
         }
     );
 
-    // select the element to add event listeners
-    const element = document.querySelector(selector);
-    
-    const onMouseEnter = () => animation.pause();
-    const onMouseLeave = () => animation.resume();
-
     // Cleanup function to revert split text and kill animation
     const cleanup = () => {
         split.revert();
         animation.kill();
-        if (element) {
-            element.removeEventListener("mouseenter", onMouseEnter);
-            element.removeEventListener("mouseleave", onMouseLeave);
-        }
-    };
-
-    if (element) {
-        element.addEventListener("mouseenter", onMouseEnter);
-        element.addEventListener("mouseleave", onMouseLeave);
     }
 
-    return cleanup;
+    return cleanup; // Return cleanup function for useEffect
 };
