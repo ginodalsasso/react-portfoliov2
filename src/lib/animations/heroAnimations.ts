@@ -1,10 +1,11 @@
 import { gsap } from "gsap";
 import { TextPlugin } from "gsap/TextPlugin";
 import { SplitText } from "gsap/SplitText";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-gsap.registerPlugin(TextPlugin, SplitText);
+gsap.registerPlugin(TextPlugin, SplitText, ScrollTrigger);
 
-export const heroAnimations = (selector: string) => {
+export const heroAnimationsText = (selector: string) => {
     const split = new SplitText(selector, {
         type: "chars",
     });
@@ -27,7 +28,32 @@ export const heroAnimations = (selector: string) => {
     const cleanup = () => {
         split.revert();
         animation.kill();
-    }
+    };
 
     return cleanup; // Return cleanup function for useEffect
 };
+
+export function heroButtonAnimations(buttonRef: React.RefObject<HTMLDivElement | null>) {
+    const trigger = ScrollTrigger.create({
+        trigger: buttonRef.current,
+        pin: true,
+        start: "top top+=48",
+        end: "+=9999", // keep active
+        toggleClass: {
+            targets: buttonRef.current,
+            className: "stickyActive",
+        },
+    });
+
+    // Cleanup function to kill the ScrollTrigger instance
+
+    const cleanup = () => {
+        trigger.kill();
+        // remove the sticky class if needed
+        if (buttonRef.current) {
+            buttonRef.current.classList.remove("stickyActive");
+        }
+    };
+
+    return cleanup;
+}

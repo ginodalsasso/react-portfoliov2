@@ -1,15 +1,26 @@
 import { Link } from "react-router-dom";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 
 import styles from "./Hero.module.css";
 import Button from "../../layout/Button/Button";
-import { heroAnimations } from "../../../lib/animations/heroAnimations";
+import { heroAnimationsText, heroButtonAnimations } from "../../../lib/animations/heroAnimations";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+gsap.registerPlugin(ScrollTrigger);
 
 export default function Hero() {
     useEffect(() => {
-        const cleanup = heroAnimations(".split");
+        const cleanup = heroAnimationsText(".split");
         return () => {
-            cleanup();
+            if (cleanup) cleanup();
+        };
+    }, []);
+
+    const buttonRef = useRef<HTMLDivElement>(null);
+    useEffect(() => {
+        const cleanup = heroButtonAnimations(buttonRef);
+        return () => {
+            if (cleanup) cleanup();
         };
     }, []);
 
@@ -19,7 +30,7 @@ export default function Hero() {
                 <h1 className={`${styles.heroTitle} split`}>
                     Hi, I’m Gino, <br /> full-stack developer <br /> From France to NZ
                 </h1>
-                <div>
+                <div ref={buttonRef} className={styles.buttonContainer}>
                     <Button
                         aria-label="Click me"
                         variant="primary"
@@ -29,10 +40,10 @@ export default function Hero() {
                             gino.dalsasso@gmail.com
                         </Link>
                     </Button>
-                    <span aria-hidden="true" className={styles.heroBackground}>
-                        full-stack<br />developer
-                    </span>
                 </div>
+                <span aria-hidden="true" className={styles.heroBackground}>
+                    full-stack<br />developer
+                </span>
             </div>
         </section>
     );

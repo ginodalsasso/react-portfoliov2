@@ -3,6 +3,8 @@
     align-items: center;
     justify-content: space-between;
     padding: 1rem var(--horizontal-padding-layout);
+    position: sticky;
+    top: 0;
 }
 
 .navLinks {
