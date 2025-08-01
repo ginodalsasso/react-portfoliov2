@@ -5,6 +5,9 @@
     padding: 1rem var(--horizontal-padding-layout);
     position: sticky;
     top: 0;
+    background-color: var(--white-color);
+    border-bottom: var(--black-color) 1px solid;
+    z-index: 1000;
 }
 
 .navLinks {

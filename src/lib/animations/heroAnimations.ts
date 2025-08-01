@@ -37,7 +37,7 @@ export function heroButtonAnimations(buttonRef: React.RefObject<HTMLDivElement |
     const trigger = ScrollTrigger.create({
         trigger: buttonRef.current,
         pin: true,
-        start: "top top+=48",
+        start: "top top+=62",
         end: "+=9999", // keep active
         toggleClass: {
             targets: buttonRef.current,
@@ -46,7 +46,6 @@ export function heroButtonAnimations(buttonRef: React.RefObject<HTMLDivElement |
     });
 
     // Cleanup function to kill the ScrollTrigger instance
-
     const cleanup = () => {
         trigger.kill();
         // remove the sticky class if needed

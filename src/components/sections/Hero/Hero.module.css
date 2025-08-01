@@ -8,7 +8,6 @@
     display: flex;
     justify-content: space-between;
     position: relative;
-    overflow: hidden;
     padding-block: 4rem;
 }
 
@@ -35,7 +34,7 @@
 }
 
 .stickyActive {
-    top: 58px; /* spacing from the top */
+    top: 72px; /* spacing from the top */
     right: var(--horizontal-padding-layout);
     z-index: 999;
 }
