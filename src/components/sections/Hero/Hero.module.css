@@ -33,11 +33,10 @@
     z-index: -1;
 }
 
-.stickyActive {
-    top: 72px; /* spacing from the top */
-    right: var(--horizontal-padding-layout);
-    z-index: 999;
+.buttonContainer {
+    padding-right: 8px;
 }
+
 
 @media screen and (max-width: 400px) {
     .heroBackground {

@@ -5,7 +5,7 @@ import { navLinks } from "../../../constants/constants";
 
 export default function Navbar() {
     return (
-        <nav aria-label="Main Navigation" className={styles.navbar}>
+        <nav aria-label="Main Navigation" className={`navbar ${styles.navbar}`}>
             <FullLogo />
             <ul className={styles.navLinks}>
                 {navLinks.map((link) => (

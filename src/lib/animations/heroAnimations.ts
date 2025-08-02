@@ -34,24 +34,37 @@ export const heroAnimationsText = (selector: string) => {
 };
 
 export function heroButtonAnimations(buttonRef: React.RefObject<HTMLDivElement | null>) {
+    if (!buttonRef.current) return;
+
+    const navbar = document.querySelector(".navbar") as HTMLElement;
+    if (!navbar) return;
+
+    const navbarHeight = navbar.offsetHeight;
+    
     const trigger = ScrollTrigger.create({
-        trigger: buttonRef.current,
-        pin: true,
-        start: "top top+=62",
-        end: "+=9999", // keep active
-        toggleClass: {
-            targets: buttonRef.current,
-            className: "stickyActive",
-        },
-    });
+    trigger: buttonRef.current,
+    start: `top top+=${navbarHeight}`,
+    end: "+=9999", // keep active
+    pin: true,
+    onEnter: () => {
+        gsap.fromTo(
+            buttonRef.current,
+            { y: 10 }, // start position
+            { y: 0, duration: 0., ease: "power4.out" } // animate to original position
+        );
+    },
+    onLeaveBack: () => {
+        gsap.to(buttonRef.current, {
+            y: 10,
+            duration: 0.4,
+            ease: "power4.in",
+        });
+    },
+});
 
     // Cleanup function to kill the ScrollTrigger instance
     const cleanup = () => {
         trigger.kill();
-        // remove the sticky class if needed
-        if (buttonRef.current) {
-            buttonRef.current.classList.remove("stickyActive");
-        }
     };
 
     return cleanup;
