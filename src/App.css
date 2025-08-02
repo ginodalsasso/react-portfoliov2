@@ -25,10 +25,11 @@
   --font-size-large: clamp(1.25rem, 1vw + 0.5rem, 1.5rem);
   --font-size-xlarge: clamp(1.5rem, 5vw + 0.5rem, 6rem);
 
+  /*  Spacing variables */
   --horizontal-padding-layout: 2rem;
-  --padding-button: 0.5rem 0.75rem;
-
   --vertical-space-section: clamp(10rem, 20vw, 24rem);
+  --padding-button: 0.5rem 0.75rem;
+  --space-section-title-content: clamp(2rem, 5vw, 6rem);  /* Space between section title and content */
 }
 
 * {
@@ -42,6 +43,10 @@ body {
   color: var(--black-color);
   background-color: var(--white-color);
   height: 1500px; /*---------------- for testing scroll */
+}
+
+.mainContent {
+  padding-inline: var(--horizontal-padding-layout);
 }
 
 a {

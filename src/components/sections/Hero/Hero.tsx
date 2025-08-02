@@ -25,11 +25,13 @@ export default function Hero() {
     }, []);
 
     return (
-        <section className={styles.heroSection} aria-label="Hero Section">
+        <section className={styles.heroSection} aria-labelledby="hero-title">
             <div className={styles.heroContent}>
-                <h1 className={`${styles.heroTitle} split`}>
-                    Hi, I’m Gino, <br /> full-stack developer <br /> From France to NZ
-                </h1>
+                <header>
+                    <h1 id="hero-title" className={`${styles.heroTitle} split`}>
+                        Hi, I’m Gino, <br /> full-stack developer <br /> From France to NZ
+                    </h1>
+                </header>
                 <div ref={buttonRef} className={styles.buttonContainer}>
                     <Button
                         aria-label="Click me"

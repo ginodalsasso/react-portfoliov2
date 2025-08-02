@@ -1,0 +1,21 @@
+.aboutSection {
+    height: 80svh;
+    padding-block: var(--vertical-space-section);
+    display: flex;
+    gap: var(--space-section-title-content);
+}
+
+.aboutSection h2 {
+    font-family: "Helvetica roman";
+    font-size: var(--font-size-small);
+}
+
+.aboutContent {
+    width: 70vw;
+    max-width: 1000px;
+}
+
+.aboutContent p {
+    font-size: var(--font-size-large);
+    line-height: 1.2;
+}

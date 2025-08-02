@@ -1,6 +1,5 @@
 .heroSection {
     height: 80svh;
-    padding-inline: var(--horizontal-padding-layout);
     padding-block: var(--vertical-space-section);
 }
 
