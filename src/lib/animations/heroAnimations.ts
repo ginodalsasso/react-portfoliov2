@@ -33,13 +33,34 @@ export const heroAnimationsText = (selector: string) => {
     return cleanup; // Return cleanup function for useEffect
 };
 
-export function heroButtonAnimations(buttonRef: React.RefObject<HTMLDivElement | null>) {
+export function heroButtonAnimations(
+    buttonRef: React.RefObject<HTMLDivElement | null>,
+    setVariant: React.Dispatch<React.SetStateAction<"primary" | "secondary">>
+) {
     if (!buttonRef.current) return;
+    const button = buttonRef.current;
 
     const navbar = document.querySelector(".navbar") as HTMLElement;
     if (!navbar) return;
 
     const navbarHeight = navbar.offsetHeight;
+    
+    const observer = new IntersectionObserver( // Observe sections as the user scrolls
+        (entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    const sectionBg = getComputedStyle(entry.target).backgroundColor;
+                    const buttonBg = getComputedStyle(button).backgroundColor;
+
+                    const sameBg = buttonBg === sectionBg;
+                    setVariant(sameBg ? "primary" : "secondary");
+                }
+            });
+        },
+        { threshold: 0.5 }
+    );
+
+    document.querySelectorAll("section").forEach((section) => observer.observe(section));
     
     const trigger = ScrollTrigger.create({
     trigger: buttonRef.current,
@@ -50,7 +71,11 @@ export function heroButtonAnimations(buttonRef: React.RefObject<HTMLDivElement |
         gsap.fromTo(
             buttonRef.current,
             { y: 10 }, // start position
-            { y: 0, duration: 0., ease: "power4.out" } // animate to original position
+            { 
+                y: 0, 
+                duration: 0.4, 
+                ease: "power4.out" 
+            } // animate to original position
         );
     },
     onLeaveBack: () => {
@@ -65,6 +90,7 @@ export function heroButtonAnimations(buttonRef: React.RefObject<HTMLDivElement |
     // Cleanup function to kill the ScrollTrigger instance
     const cleanup = () => {
         trigger.kill();
+        observer.disconnect();
     };
 
     return cleanup;

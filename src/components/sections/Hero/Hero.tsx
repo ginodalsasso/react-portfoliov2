@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import styles from "./Hero.module.css";
 import Button from "../../layout/Button/Button";
@@ -9,6 +9,8 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 export default function Hero() {
+    const [variant, setVariant] = useState<"primary" | "secondary">("primary");
+
     useEffect(() => {
         const cleanup = heroAnimationsText(".split");
         return () => {
@@ -18,7 +20,7 @@ export default function Hero() {
 
     const buttonRef = useRef<HTMLDivElement>(null);
     useEffect(() => {
-        const cleanup = heroButtonAnimations(buttonRef);
+        const cleanup = heroButtonAnimations(buttonRef, setVariant);
         return () => {
             if (cleanup) cleanup();
         };
@@ -35,7 +37,7 @@ export default function Hero() {
                 <div ref={buttonRef} className={styles.buttonContainer}>
                     <Button
                         aria-label="Click me"
-                        variant="primary"
+                        variant={variant}
                         size="medium"
                     >
                         <Link to="mailto:gino.dalsasso@gmail.com">
