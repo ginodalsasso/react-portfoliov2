@@ -63,29 +63,29 @@ export function heroButtonAnimations(
     document.querySelectorAll("section").forEach((section) => observer.observe(section));
     
     const trigger = ScrollTrigger.create({
-    trigger: buttonRef.current,
-    start: `top top+=${navbarHeight}`,
-    end: "+=9999", // keep active
-    pin: true,
-    onEnter: () => {
-        gsap.fromTo(
-            buttonRef.current,
-            { y: 10 }, // start position
-            { 
-                y: 0, 
-                duration: 0.4, 
-                ease: "power4.out" 
-            } // animate to original position
-        );
-    },
-    onLeaveBack: () => {
-        gsap.to(buttonRef.current, {
-            y: 10,
-            duration: 0.4,
-            ease: "power4.in",
-        });
-    },
-});
+        trigger: buttonRef.current,
+        start: `top top+=${navbarHeight}`,
+        end: "+=9999", // keep active
+        pin: true,
+        onEnter: () => {
+            gsap.fromTo(
+                buttonRef.current,
+                { y: 10 }, // start position
+                { 
+                    y: 0, 
+                    duration: 0.4, 
+                    ease: "power4.out" 
+                } // animate to original position
+            );
+        },
+        onLeaveBack: () => {
+            gsap.to(buttonRef.current, {
+                y: 10,
+                duration: 0.4,
+                ease: "power4.in",
+            });
+        }, 
+    });
 
     // Cleanup function to kill the ScrollTrigger instance
     const cleanup = () => {

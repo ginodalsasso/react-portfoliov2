@@ -1,0 +1,25 @@
+.goalsSection {
+    background-color: var(--black-color);
+    color: var(--white-color);
+    padding: var(--vertical-space-section);
+    padding-inline: var(--horizontal-padding-layout);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-section-title-content);
+}
+
+.goalsSection h2 {
+    font-family: "Helvetica roman";
+    font-size: var(--font-size-small);
+}
+
+.goalsContent {
+    width: 70vw;
+    max-width: 900px;
+}
+
+.goalsContent p {
+    font-size: var(--font-size-large);
+    line-height: 1.2;
+    text-wrap: pretty;
+}

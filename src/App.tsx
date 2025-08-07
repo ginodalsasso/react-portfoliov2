@@ -4,6 +4,7 @@ import Navbar from "./components/layout/Navbar/Navbar";
 import Hero from "./components/sections/Hero/Hero";
 import About from "./components/sections/About/About";
 import Approach from "./components/sections/Approach/Approach";
+import Goals from "./components/sections/Goals/Goals";
 
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
                     <Hero />
                     <About />
                     <Approach />
+                    <Goals />
                 </main>
             </BrowserRouter>
         </>
