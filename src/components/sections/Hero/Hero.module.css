@@ -14,7 +14,7 @@
 .heroTitle {
     font-size: var(--font-size-xlarge);
     font-family: "Helvetica light", sans-serif;
-    line-height: 1.2;
+    line-height: var(--global-line-height);
     color: var(--primary-color);
 }
 

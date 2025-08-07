@@ -20,6 +20,6 @@
 
 .goalsContent p {
     font-size: var(--font-size-large);
-    line-height: 1.2;
+    line-height: var(--global-line-height);
     text-wrap: pretty;
 }
