@@ -37,31 +37,32 @@ export function heroButtonAnimations(
     buttonRef: React.RefObject<HTMLDivElement | null>,
     setVariant: React.Dispatch<React.SetStateAction<"primary" | "secondary">>
 ) {
-    if (!buttonRef.current) return;
-    const button = buttonRef.current;
-
     const navbar = document.querySelector(".navbar") as HTMLElement;
     if (!navbar) return;
 
     const navbarHeight = navbar.offsetHeight;
-    
-    const observer = new IntersectionObserver( // Observe sections as the user scrolls
-        (entries) => {
-            entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                    const sectionBg = getComputedStyle(entry.target).backgroundColor;
-                    const buttonBg = getComputedStyle(button).backgroundColor;
 
-                    const sameBg = buttonBg === sectionBg;
-                    setVariant(sameBg ? "primary" : "secondary");
-                }
-            });
+    // Get the accent color from CSS variable
+    const accentColor = getComputedStyle(document.documentElement).getPropertyValue("--accent-color").trim(); 
+
+    const observer = new IntersectionObserver(
+        (entries) => {
+            // Check if any section is intersecting
+            const visibleSection = entries.find(entry => entry.isIntersecting);
+            if (!visibleSection) return;
+
+            const sectionBg = getComputedStyle(visibleSection.target).backgroundColor;
+
+            const sameBg = sectionBg === accentColor;
+            setVariant(sameBg ? "secondary" : "primary");
         },
-        { threshold: 0.5 }
+        { threshold: 0.3 }
+    );
+    // Observe all sections
+    document.querySelectorAll("section").forEach((section) =>
+        observer.observe(section)
     );
 
-    document.querySelectorAll("section").forEach((section) => observer.observe(section));
-    
     const trigger = ScrollTrigger.create({
         trigger: buttonRef.current,
         start: `top top+=${navbarHeight}`,

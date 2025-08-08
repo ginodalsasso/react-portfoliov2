@@ -45,10 +45,6 @@ body {
   font-family: 'Helvetica medium', sans-serif;
   color: var(--black-color);
   background-color: var(--white-color);
-  height: 1500px; /*---------------- for testing scroll */
-}
-
-.mainContent {
 }
 
 a {

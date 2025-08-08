@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { useEffect, useRef, useState } from "react";
 
 import styles from "./Hero.module.css";
-import Button from "../../layout/Button/Button";
+import Button from "../../layout/ui/Button/Button";
 import { heroAnimationsText, heroButtonAnimations } from "../../../lib/animations/heroAnimations";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
