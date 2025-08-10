@@ -36,7 +36,7 @@ export default function Hero() {
                 </header>
                 <div ref={buttonRef} className={styles.buttonContainer}>
                     <Button
-                        aria-label="Click me"
+                        aria-label="Contact me"
                         variant={variant}
                         size="medium"
                     >

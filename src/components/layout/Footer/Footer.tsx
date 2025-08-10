@@ -1,29 +1,37 @@
 import { Link } from "react-router-dom";
 import FullLogo from "../ui/Logo/FullLogo";
 import styles from "./Footer.module.css";
-import { navLinks } from "../../../constants/constants";
+import Button from "../ui/Button/Button";
 
 export default function Footer() {
     return (
         <footer className={`footer ${styles.footer}`}>
             <nav aria-label="Footer Navigation" className={styles.nav}>
-                <FullLogo fontSize="clamp(8rem, 6vw, 16rem)" />
+                <FullLogo fontSize="clamp(10rem, 30vw, 18rem)" />
                 <ul className={styles.navLinks}>
-                    {navLinks.map((link) => (
-                        <li key={link.title}>
-                            <Link to={link.path}>{link.title}</Link>
-                        </li>
-                    ))}
+                    <li><Link to="https://github.com/ginodalsasso">[ github ]</Link></li>
+                    <li><Link to="https://linkedin.com/in/gino-dalsasso">[ linkedin ]</Link></li>
+                    <li>
+                        <Link to="/assets/cv.pdf" target="_blank">
+                            <Button
+                                aria-label="Download my CV"
+                                variant="secondary"
+                                size="small"
+                            >
+                                my resume
+                            </Button>
+                        </Link>
+                    </li>
                 </ul>
             </nav>
-            <p className={styles.footerInfo}>
-                &copy; 2025, made with ♥ by
+            <span className={styles.footerInfo}>
+                &copy; 2025, made with ♥ by&nbsp;
                 <address>
                     <a href="mailto:dalsasso.gino@gmail.com">
                         Gino Dalsasso
                     </a>
                 </address>
-            </p>
+            </span>
         </footer>
     );
 }
