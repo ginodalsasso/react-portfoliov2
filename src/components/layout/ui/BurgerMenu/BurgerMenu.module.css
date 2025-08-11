@@ -1,0 +1,101 @@
+.BurgerMenu {
+    position: relative;
+}
+
+.burgerButton {
+    border: none;
+    background: transparent;
+    padding: 0.5rem;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Icone burger */
+.icon {
+    position: relative;
+    width: 24px;
+    height: 18px;
+    display: inline-block;
+}
+
+/* Burger icon lines */
+.line {
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: var(--black-color);
+    transition: transform 0.2s ease, top 0.2s ease;
+}
+.line:nth-child(1) {
+    top: 0;
+}
+.line:nth-child(2) {
+    top: 8px;
+}
+.line:nth-child(3) {
+    top: 16px;
+}
+
+/* Open state */
+.openIcon .line:nth-child(1) {
+    top: 8px;
+    transform: rotate(45deg);
+    z-index: 1000;
+}
+.openIcon .line:nth-child(2) {
+    opacity: 0;
+    z-index: 1000;
+}
+.openIcon .line:nth-child(3) {
+    top: 8px;
+    transform: rotate(-45deg);
+    z-index: 1000;
+}
+
+/* Overlay */
+.menu {
+    position: fixed;
+    inset: 0;
+    background: var(--white-color);
+    color: var(--black-color);
+    opacity: 0;
+    transform: translateX(-80px);
+    pointer-events: none;
+    transition: transform 0.18s ease;
+    z-index: 999;
+
+    display: grid;
+    grid-template-rows: 1fr;
+}
+.open {
+    opacity: 1;
+    transform: none;
+    pointer-events: auto;
+}
+
+.navLinks {
+    list-style: none;
+    margin: 0;
+    padding: 2rem;
+    display: grid;
+    gap: 1rem;
+    place-content: center;
+    text-align: center;
+}
+.navLinks a {
+    font-size: var(--font-size-xlarge);
+    color: var(--black-color);
+    text-decoration: none;
+}
+.navLinks a:focus-visible {
+    outline: 1px solid var(--accent-color);
+}
+
+@media (min-width: 769px) {
+    .BurgerMenu {
+        display: none;
+    }
+}

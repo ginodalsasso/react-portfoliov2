@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import FullLogo from "../ui/Logo/FullLogo";
 import styles from "./Navbar.module.css";
 import { navLinks } from "../../../constants/constants";
+import BurgerMenu from "../ui/BurgerMenu/BurgerMenu";
 
 export default function Navbar() {
     return (
@@ -14,6 +15,9 @@ export default function Navbar() {
                     </li>
                 ))}
             </ul>
+
+            <BurgerMenu navLinks={navLinks} />
+
         </nav>
     );
 }
