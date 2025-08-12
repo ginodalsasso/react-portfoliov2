@@ -19,6 +19,7 @@
 .navLinks li a {
     font-size: var(--font-size-medium);
     padding: 0.25rem 0.5rem;
+    letter-spacing: var(--letter-spacing);
 
     &:hover,
     &:focus {

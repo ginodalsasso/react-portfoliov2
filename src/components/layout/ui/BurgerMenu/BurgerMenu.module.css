@@ -5,7 +5,6 @@
 .burgerButton {
     border: none;
     background: transparent;
-    padding: 0.5rem;
     cursor: pointer;
     display: inline-flex;
     align-items: center;
@@ -61,15 +60,17 @@
     inset: 0;
     background: var(--white-color);
     color: var(--black-color);
+    border-right: 1px solid var(--black-color);
     opacity: 0;
-    transform: translateX(-80px);
+    transform: translateX(-250px);
+    transition: transform 0.4s ease;
     pointer-events: none;
-    transition: transform 0.18s ease;
     z-index: 999;
 
     display: grid;
     grid-template-rows: 1fr;
 }
+
 .open {
     opacity: 1;
     transform: none;
@@ -89,6 +90,7 @@
     font-size: var(--font-size-xlarge);
     color: var(--black-color);
     text-decoration: none;
+    letter-spacing: var(--letter-spacing);
 }
 .navLinks a:focus-visible {
     outline: 1px solid var(--accent-color);

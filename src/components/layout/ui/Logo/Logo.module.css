@@ -16,6 +16,7 @@
     display: inline-flex;
     align-items: end;
     line-height: 0.72;
+    z-index: 1000;
 }
 
 .logoText {
