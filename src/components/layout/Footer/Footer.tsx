@@ -25,12 +25,10 @@ export default function Footer() {
                 </ul>
             </nav>
             <span className={styles.footerInfo}>
-                &copy; 2025, made with ♥ by&nbsp;
-                <address>
-                    <a href="mailto:dalsasso.gino@gmail.com">
-                        Gino Dalsasso
-                    </a>
-                </address>
+                &copy; 2025, designed by&nbsp;
+                <a href="https://www.studiotuttopasta.com/" target="_blank" rel="noopener noreferrer">
+                    Romy
+                </a>
             </span>
         </footer>
     );

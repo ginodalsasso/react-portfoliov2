@@ -55,4 +55,10 @@
         white-space: normal;  /* Permet au texte de passer à la ligne */
         word-break: break-word; /* Permet au texte de passer à la ligne si nécessaire */
     }
+
+    .buttonContainer {
+        position: fixed;
+        bottom: 1rem;
+        right: 1rem;
+    }
 }

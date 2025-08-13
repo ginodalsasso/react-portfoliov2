@@ -63,6 +63,11 @@ export function heroButtonAnimations(
         observer.observe(section)
     );
 
+    // If the window is smaller than 768px, do not create the ScrollTrigger
+    if (window.innerWidth < 768) {
+        return;
+    }
+
     const trigger = ScrollTrigger.create({
         trigger: buttonRef.current,
         start: `top top+=${navbarHeight}`,
