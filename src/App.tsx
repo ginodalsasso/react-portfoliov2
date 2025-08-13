@@ -6,6 +6,7 @@ import About from "./components/sections/About/About";
 import Approach from "./components/sections/Approach/Approach";
 import Goals from "./components/sections/Goals/Goals";
 import Footer from "./components/layout/Footer/Footer";
+import Projects from "./components/sections/Projects/Projects";
 
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
                 <main className="mainContent">
                     <Hero />
                     <About />
+                    <Projects />
                     <Approach />
                     <Goals />
                 </main>
