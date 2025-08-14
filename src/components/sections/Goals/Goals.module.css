@@ -8,11 +8,6 @@
     gap: var(--space-section-title-content);
 }
 
-.goalsSection h2 {
-    font-family: "Helvetica roman";
-    font-size: var(--font-size-small);
-}
-
 .goalsContent {
     max-width: 900px;
 }

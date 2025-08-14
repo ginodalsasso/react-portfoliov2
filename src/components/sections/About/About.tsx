@@ -4,7 +4,7 @@ export default function About() {
     return (
         <section className={styles.aboutSection} aria-labelledby="about-title">
             <header>
-                <h2>[ about me ]</h2>
+                <h2 className="section-title">[ about me ]</h2>
             </header>
             <div className={styles.aboutContent}>
                 <p>

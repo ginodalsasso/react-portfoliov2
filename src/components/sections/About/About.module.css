@@ -5,11 +5,6 @@
     gap: var(--space-section-title-content);
 }
 
-.aboutSection h2 {
-    font-family: "Helvetica roman";
-    font-size: var(--font-size-small);
-}
-
 .aboutContent {
     max-width: 1000px;
 }

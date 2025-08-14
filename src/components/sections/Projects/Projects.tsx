@@ -6,7 +6,7 @@ export default function Projects() {
     return (
         <section className={styles.projectsSection}>
             <header>
-                <h2>[ projects ]</h2>
+                <h2 className="section-title ">[ projects ]</h2>
             </header>
             <ul className={styles.projectList}>
                 {projects.map((project) => (

@@ -7,11 +7,6 @@
     gap: var(--space-section-title-content);
 }
 
-.approachSection h2 {
-    font-family: "Helvetica roman";
-    font-size: var(--font-size-small);
-}
-
 .approachContent {
     max-width: 900px;
 }

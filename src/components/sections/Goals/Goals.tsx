@@ -4,7 +4,7 @@ export default function Goals() {
     return (
         <section className={styles.goalsSection} aria-labelledby="goals-title">
             <header>
-                <h2>[ my goals in NZ ]</h2>
+                <h2 className="section-title">[ my goals in NZ ]</h2>
             </header>
             <div className={styles.goalsContent}>
                 <p>

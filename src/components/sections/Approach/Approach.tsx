@@ -7,7 +7,7 @@ export default function Approach() {
             aria-labelledby="approach-title"
         >
             <header>
-                <h2>[ my approach ]</h2>
+                <h2 className="section-title">[ my approach ]</h2>
             </header>
             <div className={styles.approachContent}>
                 <p>
