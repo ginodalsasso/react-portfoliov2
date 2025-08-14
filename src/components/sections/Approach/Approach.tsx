@@ -9,7 +9,7 @@ export default function Approach() {
             <header>
                 <h2 className="section-title">[ my approach ]</h2>
             </header>
-            <div className={styles.approachContent}>
+            <div className="section-content">
                 <p>
                     Development is a passion-driven craft that demands rigor,
                     curiosity, and total immersion. I approach each project with

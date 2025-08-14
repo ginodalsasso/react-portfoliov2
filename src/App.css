@@ -60,3 +60,10 @@ a {
     font-family: "Helvetica roman";
     font-size: var(--font-size-small);
 }
+
+.section-content {
+    font-size: var(--font-size-large);
+    line-height: var(--global-line-height);
+    text-wrap: pretty;
+    letter-spacing: var(--letter-spacing);
+}

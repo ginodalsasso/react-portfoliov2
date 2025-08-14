@@ -6,7 +6,7 @@ export default function About() {
             <header>
                 <h2 className="section-title">[ about me ]</h2>
             </header>
-            <div className={styles.aboutContent}>
+            <div className="section-content">
                 <p>
                     Hello world!
                 </p>

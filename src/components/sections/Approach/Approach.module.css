@@ -11,13 +11,6 @@
     max-width: 900px;
 }
 
-.approachContent p {
-    font-size: var(--font-size-large);
-    line-height: 1.2;
-    text-wrap: pretty;
-    letter-spacing: var(--letter-spacing);
-}
-
 .approachContentLast {
     font-size: var(--font-size-small);
     text-align: right;

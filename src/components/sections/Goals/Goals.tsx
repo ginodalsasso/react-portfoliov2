@@ -6,7 +6,7 @@ export default function Goals() {
             <header>
                 <h2 className="section-title">[ my goals in NZ ]</h2>
             </header>
-            <div className={styles.goalsContent}>
+            <div className="section-content">
                 <p>
                     New Zealand represents more than just a professional
                     opportunity for me—it’s a place where I aspire to grow,
