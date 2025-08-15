@@ -1,0 +1,5 @@
+.projectsSection {
+    background-color: var(--white-color);
+    padding: var(--vertical-space-section);
+    padding-inline: var(--horizontal-padding-layout);
+}
