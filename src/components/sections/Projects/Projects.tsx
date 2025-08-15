@@ -10,9 +10,9 @@ export default function Projects() {
             </header>
             <ul className={styles.projectList}>
                 {projects.map((project) => (
-                    <li key={project.id} className={styles.projectItem}>
-                        <article>
-                            <header>
+                    <li key={project.id}>
+                        <article className={styles.projectItem}>
+                            <header className={styles.projectHeader}>
                                 <h3>
                                     {project.href ? (
                                         <Link to={project.href}>

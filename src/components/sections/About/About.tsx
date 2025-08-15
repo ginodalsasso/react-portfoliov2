@@ -13,7 +13,7 @@ export default function About() {
                 <p>
                     Tech enthusiast since my teens, I started by building websites
                     and forums before spending 17 years in carpentry, learning
-                    precision, patience, and teamwork.
+                    precision, patience, and teamwork.  
                 </p>
                 <p>
                     During a two-year stay in Australia, I gained adaptability and

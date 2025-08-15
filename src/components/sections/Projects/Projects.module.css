@@ -1,5 +1,29 @@
 .projectsSection {
     background-color: var(--white-color);
-    padding: var(--vertical-space-section);
-    padding-inline: var(--horizontal-padding-layout);
+    /* padding: var(--vertical-space-section); */
+    /* padding-inline: var(--horizontal-padding-layout); */
+}
+
+.projectList {
+    list-style: none;
+    display: flex;
+}
+
+.projectItem {
+    background-color: var(--white-color);
+    border: 1px solid var(--black-color);
+    display: flex;
+
+}
+
+.projectHeader {
+    background-color: var(--black-color);
+    color: var(--white-color);
+}
+
+.projectHeader h3 {
+    writing-mode: vertical-rl; /* make text vertical */
+    transform: rotate(180deg); /* reverse direction of text */
+    text-align: center;
+    white-space: nowrap;
 }

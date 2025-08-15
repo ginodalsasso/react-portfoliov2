@@ -7,7 +7,3 @@
     flex-direction: column;
     gap: var(--space-section-title-content);
 }
-
-.goalsContent {
-    max-width: 900px;
-}

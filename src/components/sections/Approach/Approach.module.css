@@ -7,10 +7,6 @@
     gap: var(--space-section-title-content);
 }
 
-.approachContent {
-    max-width: 900px;
-}
-
 .approachContentLast {
     font-size: var(--font-size-small);
     text-align: right;
