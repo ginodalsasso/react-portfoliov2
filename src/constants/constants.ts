@@ -20,7 +20,7 @@ export type Project = {
 export const projects: Project[] = [
     {
         id: "1",
-        title: "Project One",
+        title: "[ Project One ]",
         description: "Description for project one.",
         href: "/projects/1",
         tags: ["React", "TypeScript"],

@@ -1,8 +1,11 @@
 import { Link } from "react-router-dom";
 import styles from "./Projects.module.css";
 import { projects } from "../../../constants/constants";
+import { useState } from "react";
 
 export default function Projects() {
+    const [drawerOpen, setDrawerOpen] = useState(false);
+
     return (
         <section className={styles.projectsSection}>
             <header>
@@ -22,20 +25,30 @@ export default function Projects() {
                                         <span>{project.title}</span>
                                     )}
                                 </h3>
+                                <button 
+                                    onClick={() => setDrawerOpen(!drawerOpen)} 
+                                    className={`${styles.toggleButton} ${drawerOpen ? styles.open : ""}`}
+                                >
+                                    +
+                                </button>
                             </header>
-                            {project.tags && (
-                                <ul className={styles.tagList}>
-                                    {project.tags.map((tag: string) => (
-                                        <li
-                                            key={`${project.id}-${tag}`}
-                                            className={styles.tag}
-                                        >
-                                            {tag}
-                                        </li>
-                                    ))}
-                                </ul>
+                            {drawerOpen && (
+                                <div className={styles.projectContent}>
+                                    {project.tags && (
+                                        <ul className={styles.tagList}>
+                                            {project.tags.map((tag: string) => (
+                                                <li
+                                                    key={`${project.id}-${tag}`}
+                                                    className={styles.tag}
+                                                >
+                                                    {tag}
+                                                </li>
+                                            ))}
+                                        </ul>
+                                    )}
+                                    <p>{project.description}</p>
+                                </div>
                             )}
-                            <p>{project.description}</p>
                         </article>
                     </li>
                 ))}
