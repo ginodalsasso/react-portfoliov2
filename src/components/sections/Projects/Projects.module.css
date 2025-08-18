@@ -22,10 +22,11 @@
 }
 
 .projectHeader {
+    position: relative;
     background-color: var(--black-color);
+    border-right: 1px solid var(--white-color);
     color: var(--white-color);
     display: flex;
-    /* align-items: flex-end; */
 }
 
 .projectHeader h3 {
@@ -46,7 +47,12 @@
     margin-bottom: 1rem;
 }
 
+/* Styles for the toggle + button */
 .toggleButton {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     background: none;
     border: none;
     color: var(--white-color);
@@ -57,16 +63,22 @@
 }
 
 .toggleButton.open {
-    transform: rotate(45deg);
+    transform: translate(-50%, -50%) rotate(45deg);
 }
 
+.toggleButton:focus-visible {
+    outline: 1px solid var(--accent-color);
+    outline-offset: 2px;
+}
 
 .projectContent {
     background-color: var(--black-color);
+    border-right: 1px solid var(--white-color);
     color: var(--white-color);
     padding: 1rem;
     display: flex;
-    flex-direction: column;
+    flex-direction: column-reverse;
+    flex: 1 1 auto;
     gap: 0.5rem;
 }
 

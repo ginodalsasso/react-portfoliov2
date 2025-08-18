@@ -6,6 +6,7 @@
     cursor: pointer;
     transition: background-color 0.1s ease;
     border: none;
+    z-index: 1000;
 
     &::before {
         content: "";

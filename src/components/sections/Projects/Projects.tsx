@@ -20,7 +20,7 @@ export default function Projects() {
                     <li key={project.id}>
                         <article className={styles.projectItem}>
                             <header className={styles.projectHeader}>
-                                <h3>
+                                <h3 id={`project-header-${project.id}`}>
                                     {project.href ? (
                                         <Link to={project.href}>
                                             {project.title}
@@ -31,15 +31,25 @@ export default function Projects() {
                                 </h3>
                                 <button
                                     onClick={() => toggleProject(project.id)}
-                                    className={`${styles.toggleButton} ${
-                                        openProjectId === project.id ? styles.open : ""
-                                    }`}
+                                    className={`
+                                        ${styles.toggleButton}
+                                        ${ openProjectId === project.id ? styles.open : "" } 
+                                    `}
+                                    aria-expanded={openProjectId === project.id} // if openProjectId is equal to project.id, button is expanded
+                                    aria-controls={`project-panel-${project.id}`} // aria-controls for the project panel
+                                    aria-label={`${openProjectId === project.id ? "Closed" : "Opened"} : ${project.title}`} // button label
                                 >
                                     +
                                 </button>
                             </header>
                             {openProjectId === project.id && (
-                                <div className={styles.projectContent}>
+                                <div 
+                                    id={`project-panel-${project.id}`}
+                                    className={styles.projectContent}
+                                    role="region"
+                                    aria-labelledby={`project-header-${project.id}`}
+                                    hidden={openProjectId !== project.id} // hide if not expanded
+                                >
                                     {project.tags && (
                                         <ul className={styles.tagList}>
                                             {project.tags.map((tag: string) => (

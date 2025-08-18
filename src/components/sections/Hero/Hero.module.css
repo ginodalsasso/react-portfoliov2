@@ -36,6 +36,7 @@
 
 .buttonContainer {
     padding-right: 8px;
+    z-index: 1000;
 }
 
 
