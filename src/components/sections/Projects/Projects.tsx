@@ -4,7 +4,11 @@ import { projects } from "../../../constants/constants";
 import { useState } from "react";
 
 export default function Projects() {
-    const [drawerOpen, setDrawerOpen] = useState(false);
+    const [openProjectId, setOpenProjectId] = useState<number | null>(null);
+
+    const toggleProject = (id: number) => {
+        setOpenProjectId(openProjectId === id ? null : id);
+    };
 
     return (
         <section className={styles.projectsSection}>
@@ -25,14 +29,16 @@ export default function Projects() {
                                         <span>{project.title}</span>
                                     )}
                                 </h3>
-                                <button 
-                                    onClick={() => setDrawerOpen(!drawerOpen)} 
-                                    className={`${styles.toggleButton} ${drawerOpen ? styles.open : ""}`}
+                                <button
+                                    onClick={() => toggleProject(project.id)}
+                                    className={`${styles.toggleButton} ${
+                                        openProjectId === project.id ? styles.open : ""
+                                    }`}
                                 >
                                     +
                                 </button>
                             </header>
-                            {drawerOpen && (
+                            {openProjectId === project.id && (
                                 <div className={styles.projectContent}>
                                     {project.tags && (
                                         <ul className={styles.tagList}>

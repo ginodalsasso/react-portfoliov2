@@ -10,7 +10,7 @@ export const navLinks: LinkItem[] = [
 ];
 
 export type Project = {
-    id: string;
+    id: number;
     title: string;
     description: string;
     href?: string ; 
@@ -19,21 +19,21 @@ export type Project = {
 
 export const projects: Project[] = [
     {
-        id: "1",
+        id: 1,
         title: "[ Project One ]",
         description: "Description for project one.",
         href: "/projects/1",
         tags: ["React", "TypeScript"],
     },
     {
-        id: "2",
+        id: 2,
         title: "Project Two",
         description: "Description for project two.",
         href: "/projects/2",
         tags: ["JavaScript", "CSS"],
     },
     {
-        id: "3",
+        id: 3,
         title: "Project Three",
         description: "Description for project three.",
         href: "/projects/3",
