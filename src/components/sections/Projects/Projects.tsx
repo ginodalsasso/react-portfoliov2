@@ -1,29 +1,38 @@
 import { Link } from "react-router-dom";
 import styles from "./Projects.module.css";
 import { projects } from "../../../constants/constants";
-import { useState } from "react";
+import { useLayoutEffect, useRef, useState } from "react";
+import { projectsAnimationsScroll } from "../../../lib/animations/projectsAnimations";
 
 export default function Projects() {
     const [openProjectId, setOpenProjectId] = useState<number | null>(null);
+    const pinRef = useRef<HTMLElement | null>(null);
+    const trackRef = useRef<HTMLUListElement | null>(null);
 
     const toggleProject = (id: number) => {
         setOpenProjectId(openProjectId === id ? null : id);
     };
 
+    useLayoutEffect(() => {
+        const cleanup = projectsAnimationsScroll(pinRef, trackRef);
+        return () => {
+            if (cleanup) cleanup();
+        };
+    }, []);
+
     return (
-        <section id="projects" className={styles.projectsSection}>
+        <section id="projects" ref={pinRef} className={styles.projectsSection} >
             <header>
                 <h2 className="section-title ">[ projects ]</h2>
             </header>
-            <ul className={styles.projectList}>
+            <ul ref={trackRef} className={styles.projectList}>
                 {projects.map((project) => (
                     <li key={project.id}>
-                        <article className={styles.projectItem}>
+                        <article className={`${styles.projectItem} project-item-animation`}>
                             <header className={styles.projectHeader}>
                                 <h3 id={`project-header-${project.id}`}>
                                     {project.href ? (
                                         <Link to={project.href}>
-                                            {project.title}
                                         </Link>
                                     ) : (
                                         <span>{project.title}</span>

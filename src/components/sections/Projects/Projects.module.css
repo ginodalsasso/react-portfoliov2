@@ -1,6 +1,7 @@
 .projectsSection {
     background-color: var(--white-color);
     padding-inline: var(--horizontal-padding-layout);
+    padding-top: 60px;
     padding-bottom: var(--vertical-space-section);
     display: flex;
     flex-direction: column;
@@ -11,6 +12,7 @@
 .projectList {
     list-style: none;
     display: flex;
+    will-change: transform; /* for smoother scrolling */
 }
 
 .projectItem {
