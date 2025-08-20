@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import FullLogo from "../ui/Logo/FullLogo";
 import styles from "./Navbar.module.css";
 import { navLinks } from "../../../constants/constants";
@@ -11,7 +10,7 @@ export default function Navbar() {
             <ul className={styles.navLinks}>
                 {navLinks.map((link) => (
                     <li key={link.title}>
-                        <Link to={link.path}>{link.title}</Link>
+                        <a href={link.path}>{link.title}</a>
                     </li>
                 ))}
             </ul>

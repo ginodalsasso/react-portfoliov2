@@ -3,6 +3,7 @@ import styles from "./Approach.module.css";
 export default function Approach() {
     return (
         <section
+            id="approach"
             className={styles.approachSection}
             aria-labelledby="approach-title"
         >

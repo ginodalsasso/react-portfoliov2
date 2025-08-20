@@ -11,7 +11,7 @@ export default function Projects() {
     };
 
     return (
-        <section className={styles.projectsSection}>
+        <section id="projects" className={styles.projectsSection}>
             <header>
                 <h2 className="section-title ">[ projects ]</h2>
             </header>
