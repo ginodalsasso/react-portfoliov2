@@ -14,7 +14,7 @@ export default function Projects() {
     };
 
     useLayoutEffect(() => {
-        const cleanup = projectsAnimationsScroll(pinRef, trackRef);
+        const cleanup = projectsAnimationsScroll({ pinRef, trackRef });
         return () => {
             if (cleanup) cleanup();
         };
@@ -46,7 +46,7 @@ export default function Projects() {
                                     `}
                                     aria-expanded={openProjectId === project.id} // if openProjectId is equal to project.id, button is expanded
                                     aria-controls={`project-panel-${project.id}`} // aria-controls for the project panel
-                                    aria-label={`${openProjectId === project.id ? "Closed" : "Opened"} : ${project.title}`} // button label
+                                    aria-label={`Open/Close : ${project.title}`} // button label
                                 >
                                     +
                                 </button>
@@ -54,7 +54,7 @@ export default function Projects() {
                             {openProjectId === project.id && (
                                 <div 
                                     id={`project-panel-${project.id}`}
-                                    className={styles.projectContent}
+                                    className={`${styles.projectContent} project-drawer`}
                                     role="region"
                                     aria-labelledby={`project-header-${project.id}`}
                                     hidden={openProjectId !== project.id} // hide if not expanded
