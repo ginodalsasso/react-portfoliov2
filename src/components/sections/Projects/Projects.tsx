@@ -21,7 +21,7 @@ export default function Projects() {
     }, []);
 
     return (
-        <section id="projects" ref={pinRef} className={styles.projectsSection} >
+        <section id="projects" ref={pinRef} className={styles.projectsSection}>
             <header>
                 <h2 className="section-title ">[ projects ]</h2>
             </header>
@@ -32,8 +32,7 @@ export default function Projects() {
                             <header className={styles.projectHeader}>
                                 <h3 id={`project-header-${project.id}`}>
                                     {project.href ? (
-                                        <Link to={project.href}>
-                                        </Link>
+                                        <Link to={project.href}></Link>
                                     ) : (
                                         <span>{project.title}</span>
                                     )}

@@ -11,16 +11,24 @@
 
 .projectList {
     list-style: none;
-    display: flex;
-    will-change: transform; /* for smoother scrolling */
+    position: relative;
+    height: 70vh;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.projectList > li {
+    position: absolute;
+    inset: 0; 
 }
 
 .projectItem {
     background-color: var(--white-color);
     border: 1px solid var(--black-color);
     display: flex;
-    height: 70vh;
-    aspect-ratio: 16 / 9;
+    height: 100%;
+    aspect-ratio: auto; 
 }
 
 .projectHeader {
