@@ -18,7 +18,8 @@ export function projectsAnimationsScroll({ pinRef, trackRef }: Refs) {
     );
     if (!panels.length) return;
 
-    const factor = 1.2; // scroll speed
+    const scrollSpeed = 1.2;
+    const totalDistance = Math.max(0, (panels.length - 1) * window.innerWidth * scrollSpeed); // total scroll distance with math max to avoid negative values
 
     // Initial setup for panels
     panels.forEach((panel, index) => {
@@ -36,7 +37,7 @@ export function projectsAnimationsScroll({ pinRef, trackRef }: Refs) {
             trigger: pin, // section to pin to the viewport
             pin: true, // pin the section
             scrub: 1, // smooth scrubbing, takes 1 second to catch up
-            end: () => "+=" + panels.length * window.innerWidth * factor, // end after scrolling through all panels
+            end: () => `+= ${totalDistance}`, // end after scrolling through all panels
             invalidateOnRefresh: true,
         },
     });
@@ -57,7 +58,7 @@ export function projectsAnimationsScroll({ pinRef, trackRef }: Refs) {
             start: "left left", // when the left edge of the panel reaches the left edge of the viewport
             end: "right right", // until the right edge reaches the right edge
             onToggle: (self) => { // on toggle, set z-index
-                gsap.set(panel, { zIndex: self.isActive ? 1000 : 1 });
+                gsap.set(panel, { zIndex: self.isActive ? 10 : 1 });
             },
         });
         zIndexTriggers.push(scrollTrigger); 
@@ -67,6 +68,6 @@ export function projectsAnimationsScroll({ pinRef, trackRef }: Refs) {
     return () => {
         timeline.scrollTrigger?.kill();
         timeline.kill();
-        zIndexTriggers.forEach((st) => st.kill());
+        // zIndexTriggers.forEach((st) => st.kill());
     };
 }
