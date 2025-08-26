@@ -28,7 +28,7 @@
     border: 1px solid var(--black-color);
     display: flex;
     height: 100%;
-    aspect-ratio: auto; 
+    /* aspect-ratio: auto;  */
 }
 
 .projectHeader {

@@ -37,7 +37,8 @@ export function projectsAnimationsScroll({ pinRef, trackRef }: Refs) {
             trigger: pin, // section to pin to the viewport
             pin: true, // pin the section
             scrub: 1, // smooth scrubbing, takes 1 second to catch up
-            end: () => `+= ${totalDistance}`, // end after scrolling through all panels
+            snap: 1 / (panels.length - 1), // snap to the closest panel
+            end: () => "+=" + totalDistance, // end after scrolling through all panels
             invalidateOnRefresh: true,
         },
     });
@@ -45,29 +46,16 @@ export function projectsAnimationsScroll({ pinRef, trackRef }: Refs) {
     // Slide panels into view
     panels.forEach((panel, index) => {
         if (index === 0) return;
-        timeline.to(panel, { xPercent: 0 }, ">");
-    });
 
-    // Manage z-index to keep the active panel on top
-    const zIndexTriggers: ScrollTrigger[] = [];
-
-    panels.forEach((panel) => {
-        const scrollTrigger = ScrollTrigger.create({
-            trigger: panel,
-            containerAnimation: timeline, // link the panel's visibility to the timeline
-            start: "left left", // when the left edge of the panel reaches the left edge of the viewport
-            end: "right right", // until the right edge reaches the right edge
-            onToggle: (self) => { // on toggle, set z-index
-                gsap.set(panel, { zIndex: self.isActive ? 10 : 1 });
-            },
-        });
-        zIndexTriggers.push(scrollTrigger); 
+        timeline.to(panel, { 
+            xPercent: 0, 
+            ease: "power1.out"
+        }, ">"); // slide in the next panel
     });
 
     // Cleanup
     return () => {
         timeline.scrollTrigger?.kill();
         timeline.kill();
-        // zIndexTriggers.forEach((st) => st.kill());
     };
 }
