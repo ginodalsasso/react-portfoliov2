@@ -18,7 +18,7 @@ export function projectsAnimationsScroll({ pinRef, trackRef }: Refs) {
     );
     if (!panels.length) return;
 
-    const scrollSpeed = 1.2;
+    const scrollSpeed = 2;
     const totalDistance = Math.max(0, (panels.length - 1) * window.innerWidth * scrollSpeed); // total scroll distance with math max to avoid negative values
 
     // Initial setup for panels
@@ -49,7 +49,7 @@ export function projectsAnimationsScroll({ pinRef, trackRef }: Refs) {
 
         timeline.to(panel, { 
             xPercent: 0, 
-            ease: "power1.out"
+            ease: "power2.out"
         }, ">"); // slide in the next panel
     });
 
