@@ -25,6 +25,7 @@ export default function Projects() {
             <header>
                 <h2 className="section-title ">[ projects ]</h2>
             </header>
+            <span>01</span>
             <ul ref={trackRef} className={styles.projectList}>
                 {projects.map((project) => (
                     <li key={project.id}>
