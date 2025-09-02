@@ -9,6 +9,25 @@
     overflow: hidden;
 }
 
+.projectIdDisplay {
+    position: absolute;
+    left: var(--horizontal-padding-layout);
+    top: 50%;
+    transform: translateY(-50%);
+    height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.projectNumber {
+    font-size: clamp(30rem, 34vw, 38rem);
+    font-weight: bold;
+    color: var(--black-color);
+    opacity: 0.1;
+}
+
+
 .projectList {
     list-style: none;
     position: relative;
@@ -109,7 +128,20 @@
 }
 
 @media (max-width: 1024px) {
+    .projectIdDisplay {
+        position: relative;
+        left: auto;
+        width: 100%;
+        height: auto;
+    }
+    
+    .projectNumber {
+        font-size: 3rem;
+        opacity: 0.2;
+    }
+    
     .projectList {
-        width: 100vw;
+        width: 100%;
+        margin: 0 auto;
     }
 }

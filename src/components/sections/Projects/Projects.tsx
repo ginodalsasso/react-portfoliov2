@@ -6,6 +6,7 @@ import { projectsAnimationsScroll } from "../../../lib/animations/projectsAnimat
 
 export default function Projects() {
     const [openProjectId, setOpenProjectId] = useState<number | null>(null);
+    const [currentProjectIndex, setCurrentProjectIndex] = useState(0);
     const pinRef = useRef<HTMLElement | null>(null);
     const trackRef = useRef<HTMLUListElement | null>(null);
 
@@ -14,7 +15,11 @@ export default function Projects() {
     };
 
     useLayoutEffect(() => {
-        const cleanup = projectsAnimationsScroll({ pinRef, trackRef });
+        const cleanup = projectsAnimationsScroll({ 
+            pinRef, 
+            trackRef,
+            onProjectChange: setCurrentProjectIndex 
+    });
         return () => {
             if (cleanup) cleanup();
         };
@@ -23,9 +28,18 @@ export default function Projects() {
     return (
         <section id="projects" ref={pinRef} className={styles.projectsSection}>
             <header>
-                <h2 className="section-title ">[ projects ]</h2>
+                <h2 className="section-title">[ projects ]</h2>
             </header>
-            <span>01</span>
+            
+            {/* Displaying ID project */}
+            <div className={styles.projectIdDisplay}>
+                <span className={styles.projectNumber}>
+                    {projects[currentProjectIndex]?.id.toString()}
+                </span>
+                <p>{projects[currentProjectIndex]?.description}</p>
+            </div>
+
+            {/* List of all projects */}
             <ul ref={trackRef} className={styles.projectList}>
                 {projects.map((project) => (
                     <li key={project.id}>

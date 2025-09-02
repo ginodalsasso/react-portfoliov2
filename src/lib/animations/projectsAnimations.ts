@@ -6,9 +6,10 @@ gsap.registerPlugin(ScrollTrigger);
 type Refs = {
     pinRef: React.RefObject<HTMLElement | null>;
     trackRef: React.RefObject<HTMLUListElement | null>;
+    onProjectChange?: (index: number) => void;
 };
 
-export function projectsAnimationsScroll({ pinRef, trackRef }: Refs) {
+export function projectsAnimationsScroll({ pinRef, trackRef, onProjectChange }: Refs) {
     const pin = pinRef.current;
     const track = trackRef.current;
     if (!pin || !track) return;
@@ -38,8 +39,18 @@ export function projectsAnimationsScroll({ pinRef, trackRef }: Refs) {
             pin: true, // pin the section
             scrub: 1, // smooth scrubbing, takes 1 second to catch up
             snap: 1 / (panels.length - 1), // snap to the closest panel
-            end: () => "+=" + totalDistance, // end after scrolling through all panels
+            end: () => "+=" + totalDistance,
             invalidateOnRefresh: true,
+            onUpdate: (self) => {
+                // Calculate which project is currently visible
+                const progress = self.progress;
+                const currentIndex = Math.round(progress * (panels.length - 1));
+                
+                // Call the callback to update the current project index
+                if (onProjectChange) {
+                    onProjectChange(currentIndex);
+                }
+            }
         },
     });
 
@@ -48,8 +59,7 @@ export function projectsAnimationsScroll({ pinRef, trackRef }: Refs) {
         if (index === 0) return;
 
         timeline.to(panel, { 
-            xPercent: 0, 
-            ease: "power2.out"
+            xPercent: 0,
         }, ">"); // slide in the next panel
     });
 
