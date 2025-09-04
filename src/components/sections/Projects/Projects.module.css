@@ -9,22 +9,23 @@
     overflow: hidden;
 }
 
+.projectsWrapper {
+    display: flex;
+}
+
 .projectIdDisplay {
-    position: absolute;
-    left: var(--horizontal-padding-layout);
-    top: 50%;
-    transform: translateY(-50%);
-    height: 70vh;
     display: flex;
     align-items: center;
     justify-content: center;
+    pointer-events: none;
+    user-select: none;
 }
 
 .projectNumber {
     font-size: clamp(30rem, 34vw, 38rem);
     font-weight: bold;
     color: var(--black-color);
-    opacity: 0.1;
+    opacity: 0.03;
 }
 
 
@@ -77,29 +78,21 @@
     margin-bottom: 1rem;
 }
 
-/* Styles for the toggle + button */
-.toggleButton {
+.githubIcon {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: none;
-    border: none;
-    color: var(--white-color);
-    cursor: pointer;
-    padding: 0.5rem;
-    font-size: 2rem;
-    transition: transform 0.3s ease-in-out;
+    top: 0.5rem;
+    right: 0.5rem;
+    width: 1.5rem;
+    aspect-ratio: 1;
+
+    animation: flash 3s infinite;
 }
 
-.toggleButton.open {
-    transform: translate(-50%, -50%) rotate(45deg);
-}
-
-.toggleButton:focus-visible {
-    outline: 1px solid var(--accent-color);
-    outline-offset: 2px;
-}
+@keyframes flash {
+    0% { opacity: 1; }
+    50% { opacity: 0; }
+    100% { opacity: 1; }
+} 
 
 .projectContent {
     background-color: var(--black-color);
