@@ -58,6 +58,7 @@ export function heroButtonAnimations(
         },
         { threshold: 0.3 }
     );
+
     // Observe all sections
     document.querySelectorAll("section").forEach((section) =>
         observer.observe(section)
@@ -71,7 +72,7 @@ export function heroButtonAnimations(
     const trigger = ScrollTrigger.create({
         trigger: buttonRef.current,
         start: `top top+=${navbarHeight}`,
-        end: "+=9999", // keep active
+        end: "+=99999", // keep active
         pin: true,
         onEnter: () => {
             gsap.fromTo(

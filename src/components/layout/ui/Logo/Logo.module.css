@@ -1,3 +1,9 @@
+.logoWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .logoSquare {
     display: grid;
     place-items: center;
@@ -22,4 +28,16 @@
 .logoText {
     font-weight: bold;
     color: var(--black-color);
+}
+
+.accent {
+    background-color: var(--accent-color);
+}
+
+.black {
+    background-color: var(--black-color);
+}
+
+.white {
+    background-color: var(--white-color);
 }
