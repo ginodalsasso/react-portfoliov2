@@ -1,6 +1,6 @@
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import type { projectsAnimationsScrollType } from "./types";
+import type { projectsAnimationsScrollType } from "./Animations.types";
 
 gsap.registerPlugin(ScrollTrigger);
 

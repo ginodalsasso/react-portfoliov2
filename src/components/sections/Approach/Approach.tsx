@@ -1,3 +1,4 @@
+import Logo from "../../layout/ui/Logo/Logo";
 import styles from "./Approach.module.css";
 
 export default function Approach() {
@@ -27,6 +28,7 @@ export default function Approach() {
             <p className={styles.approachContentLast}>
                 My approach is built on stability and sincerity.
             </p>
+            <Logo size={36} bgColor="black" roundColor="accent" />
         </section>
     );
 }

@@ -40,8 +40,8 @@ export default function Hero() {
                         variant={variant}
                         size="medium"
                     >
-                        <Link to="mailto:gino.dalsasso@gmail.com">
-                            gino.dalsasso@gmail.com
+                        <Link to="mailto:dalsasso.gino@gmail.com">
+                            dalsasso.gino@gmail.com
                         </Link>
                     </Button>
                 </div>

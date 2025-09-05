@@ -1,3 +1,4 @@
+import Logo from "../../layout/ui/Logo/Logo";
 import styles from "./Goals.module.css";
 
 export default function Goals() {
@@ -24,6 +25,7 @@ export default function Goals() {
                     empathy, and a shared vision.
                 </p>
             </div>
+            <Logo size={36} bgColor="white" roundColor="black" />
         </section>
     );
 }

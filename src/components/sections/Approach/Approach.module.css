@@ -1,10 +1,14 @@
 .approachSection {
     background-color: var(--accent-color);
-    padding: var(--vertical-space-section);
+    padding-top: var(--vertical-space-section);
     padding-inline: var(--horizontal-padding-layout);
     display: flex;
     flex-direction: column;
     gap: var(--space-section-title-content);
+}
+
+.approachcontent {
+    padding-bottom: (--vertical-space-section);
 }
 
 .approachContentLast {

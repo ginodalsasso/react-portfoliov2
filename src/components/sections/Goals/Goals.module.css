@@ -1,7 +1,7 @@
 .goalsSection {
     background-color: var(--black-color);
     color: var(--white-color);
-    padding: var(--vertical-space-section);
+    padding-top: var(--vertical-space-section);
     padding-inline: var(--horizontal-padding-layout);
     display: flex;
     flex-direction: column;

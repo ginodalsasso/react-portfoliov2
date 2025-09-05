@@ -1,5 +1,5 @@
 .aboutSection {
-    padding-block: var(--vertical-space-section);
+    padding-top: var(--vertical-space-section);
     padding-inline: var(--horizontal-padding-layout);
     display: flex;
     gap: var(--space-section-title-content);

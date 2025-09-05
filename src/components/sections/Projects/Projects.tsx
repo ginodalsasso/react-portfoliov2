@@ -73,7 +73,7 @@ export default function Projects() {
                     ))}
                 </ul>
             </div>
-            <Logo size={36} color="accent" />
+            <Logo size={36} bgColor="accent" roundColor="white" />
         </section>
     );
 }
