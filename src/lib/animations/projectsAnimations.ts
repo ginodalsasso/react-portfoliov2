@@ -1,13 +1,8 @@
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import type { projectsAnimationsScrollType } from "./types";
 
 gsap.registerPlugin(ScrollTrigger);
-
-type Refs = {
-    pinRef: React.RefObject<HTMLElement | null>;
-    trackRef: React.RefObject<HTMLUListElement | null>;
-    onProjectChange?: (index: number) => void;
-};
 
 function setupInitialPanelStates(panels: HTMLElement[]): void {
     panels.forEach((panel, index) => {
@@ -60,7 +55,11 @@ function buildTimeline(
     return timeline;
 }
 
-export function projectsAnimationsScroll({ pinRef, trackRef, onProjectChange }: Refs) {
+export function projectsAnimationsScroll({ 
+    pinRef, 
+    trackRef, 
+    onProjectChange 
+}: projectsAnimationsScrollType) {
     const pin = pinRef.current;
     const track = trackRef.current;
     if (!pin || !track) return;

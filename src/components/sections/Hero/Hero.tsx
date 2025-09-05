@@ -20,7 +20,7 @@ export default function Hero() {
 
     const buttonRef = useRef<HTMLDivElement>(null);
     useEffect(() => {
-        const cleanup = heroButtonAnimations(buttonRef, setVariant);
+        const cleanup = heroButtonAnimations({ buttonRef, setVariant });
         return () => {
             if (cleanup) cleanup();
         };

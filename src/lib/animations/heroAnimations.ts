@@ -2,9 +2,11 @@ import { gsap } from "gsap";
 import { TextPlugin } from "gsap/TextPlugin";
 import { SplitText } from "gsap/SplitText";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import type { ButtonAnimationType } from "./types";
 
 gsap.registerPlugin(TextPlugin, SplitText, ScrollTrigger);
 
+// ________ TEXT ANIMATIONS __________
 export const heroAnimationsText = (selector: string) => {
     const split = new SplitText(selector, {
         type: "chars",
@@ -33,18 +35,23 @@ export const heroAnimationsText = (selector: string) => {
     return cleanup; // Return cleanup function for useEffect
 };
 
-export function heroButtonAnimations(
-    buttonRef: React.RefObject<HTMLDivElement | null>,
+// ________ BUTTON ANIMATIONS __________
+function getNavbarHeight(): number {
+    const navbar = document.querySelector(".navbar") as HTMLElement;
+    return navbar?.offsetHeight || 0;
+}
+
+function getAccentColor() {
+    return getComputedStyle(document.documentElement)
+        .getPropertyValue("--accent-color")
+        .trim();
+}
+
+function setupSectionObserver(
     setVariant: React.Dispatch<React.SetStateAction<"primary" | "secondary">>
 ) {
-    const navbar = document.querySelector(".navbar") as HTMLElement;
-    if (!navbar) return;
-
-    const navbarHeight = navbar.offsetHeight;
-
-    // Get the accent color from CSS variable
-    const accentColor = getComputedStyle(document.documentElement).getPropertyValue("--accent-color").trim(); 
-
+    const accentColor = getAccentColor();
+    
     const observer = new IntersectionObserver(
         (entries) => {
             // Check if any section is intersecting
@@ -52,7 +59,6 @@ export function heroButtonAnimations(
             if (!visibleSection) return;
 
             const sectionBg = getComputedStyle(visibleSection.target).backgroundColor;
-
             const sameBg = sectionBg === accentColor;
             setVariant(sameBg ? "secondary" : "primary");
         },
@@ -64,19 +70,21 @@ export function heroButtonAnimations(
         observer.observe(section)
     );
 
-    // If the window is smaller than 768px, do not create the ScrollTrigger
-    if (window.innerWidth < 768) {
-        return;
-    }
+    return observer;
+}
 
-    const trigger = ScrollTrigger.create({
-        trigger: buttonRef.current,
+function createButtonScrollTrigger(
+    buttonElement: HTMLDivElement,
+    navbarHeight: number
+) {
+    return ScrollTrigger.create({
+        trigger: buttonElement,
         start: `top top+=${navbarHeight}`,
         end: "+=99999", // keep active
         pin: true,
         onEnter: () => {
             gsap.fromTo(
-                buttonRef.current,
+                buttonElement,
                 { y: 10 }, // start position
                 { 
                     y: 0, 
@@ -86,19 +94,36 @@ export function heroButtonAnimations(
             );
         },
         onLeaveBack: () => {
-            gsap.to(buttonRef.current, {
+            gsap.to(buttonElement, {
                 y: 10,
                 duration: 0.4,
                 ease: "power4.in",
             });
         }, 
     });
+}
 
-    // Cleanup function to kill the ScrollTrigger instance
-    const cleanup = () => {
+export function heroButtonAnimations({ buttonRef, setVariant }: ButtonAnimationType) {
+    const navbarHeight = getNavbarHeight();
+    if (!navbarHeight) return;
+
+    // Setup section observer for variant changes
+    const observer = setupSectionObserver(setVariant);
+
+    // Early return for mobile
+    if (window.innerWidth < 768) {
+        return () => observer.disconnect();
+    }
+
+    // Create scroll trigger for desktop
+    const button = buttonRef.current;
+    if (!button) return () => observer.disconnect();
+
+    const trigger = createButtonScrollTrigger(button, navbarHeight);
+
+    // Cleanup function
+    return () => {
         trigger.kill();
         observer.disconnect();
     };
-
-    return cleanup;
 }
