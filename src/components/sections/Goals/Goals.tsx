@@ -1,11 +1,15 @@
+import { useLayeredAnimation } from "../../../lib/animations/sectionAnimations";
 import Logo from "../../layout/ui/Logo/Logo";
 import styles from "./Goals.module.css";
 
 export default function Goals() {
+    const sectionRef = useLayeredAnimation(); // use of layered pin animation hook
+    
     return (
         <section
             id="goals"
-            className={styles.goalsSection}
+            className={`${styles.goalsSection} layered-animation`}
+            ref={sectionRef}
             aria-labelledby="goals-title"
         >
             <header>

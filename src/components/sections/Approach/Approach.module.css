@@ -7,8 +7,8 @@
     gap: var(--space-section-title-content);
 }
 
-.approachcontent {
-    padding-bottom: (--vertical-space-section);
+.approachContent {
+    padding-bottom: var(--vertical-space-section);
 }
 
 .approachContentLast {

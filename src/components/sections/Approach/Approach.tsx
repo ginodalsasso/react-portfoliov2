@@ -1,12 +1,16 @@
+import { useLayeredAnimation } from "../../../lib/animations/sectionAnimations";
 import Logo from "../../layout/ui/Logo/Logo";
 import styles from "./Approach.module.css";
 
 export default function Approach() {
+    const sectionRef = useLayeredAnimation(); // use of layered pin animation hook
+
     return (
         <section
             id="approach"
-            className={styles.approachSection}
+            className={`${styles.approachSection} layered-animation`}
             aria-labelledby="approach-title"
+            ref={sectionRef}
         >
             <header>
                 <h2 className="section-title">[ my approach ]</h2>

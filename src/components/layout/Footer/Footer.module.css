@@ -1,6 +1,7 @@
 .footer {
+    background-color: var(--white-color);
     padding-inline: var(--horizontal-padding-layout);
-    padding-top: var(--vertical-space-section) ;
+    padding-top: var(--vertical-space-section);
 }
 
 .nav {

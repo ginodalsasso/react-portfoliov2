@@ -31,7 +31,11 @@
     --horizontal-padding-layout: 2rem;
     --vertical-space-section: clamp(10rem, 20vw, 24rem);
     --padding-button: 0.5rem 0.75rem;
-    --space-section-title-content: clamp(1rem, 4vw, 2rem); /* Space between section title and content */
+    --space-section-title-content: clamp(
+        1rem,
+        4vw,
+        2rem
+    ); /* Space between section title and content */
     --letter-spacing: -0.06rem;
 }
 
@@ -56,6 +60,10 @@ a {
     color: inherit;
 }
 
+.main-content {
+    position: relative;
+}
+
 .section-title {
     font-family: "Helvetica roman";
     font-size: var(--font-size-small);
@@ -71,4 +79,8 @@ a {
     line-height: var(--global-line-height);
     text-wrap: pretty;
     letter-spacing: var(--letter-spacing);
+}
+
+.layered-animation {
+    min-height: 200vh;
 }

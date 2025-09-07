@@ -45,7 +45,7 @@ function buildTimeline(
 
     // Slide panels into view
     panels.forEach((panel, index) => {
-        if (index === 0) return;
+        if (index === 0) return; // Skip the first panel
 
         timeline.to(panel, { 
             xPercent: 0,
