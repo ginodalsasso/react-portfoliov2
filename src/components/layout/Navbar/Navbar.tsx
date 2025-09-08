@@ -1,6 +1,6 @@
 import FullLogo from "../ui/Logo/FullLogo";
 import styles from "./Navbar.module.css";
-import { navLinks } from "../../../constants/constants";
+import { navLinks } from "../../../lib/constants/constants";
 import BurgerMenu from "../ui/BurgerMenu/BurgerMenu";
 
 export default function Navbar() {

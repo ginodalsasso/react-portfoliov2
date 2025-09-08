@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import styles from "./BurgerMenu.module.css";
 import { Link } from "react-router-dom";
-import type { LinkItem } from "../../../../constants/constants";
+import type { LinkItem } from "../../../../lib/constants/constants";
 
 export default function BurgerMenu({ navLinks }: { navLinks: LinkItem[] }) {
     const [open, setOpen] = useState(false);

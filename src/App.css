@@ -1,18 +1,18 @@
 @font-face {
     font-family: "Helvetica light";
-    src: url("src/fonts/HelveticaNeue-Light.woff2") format("woff2");
+    src: url("src/lib/fonts/HelveticaNeue-Light.woff2") format("woff2");
 }
 @font-face {
     font-family: "Helvetica roman";
-    src: url("src/fonts/HelveticaNeue-Roman.woff2") format("woff2");
+    src: url("src/lib/fonts/HelveticaNeue-Roman.woff2") format("woff2");
 }
 @font-face {
     font-family: "Helvetica medium";
-    src: url("src/fonts/HelveticaNeue-Medium.woff2") format("woff2");
+    src: url("src/lib/fonts/HelveticaNeue-Medium.woff2") format("woff2");
 }
 @font-face {
     font-family: "Helvetica bold";
-    src: url("src/fonts/HelveticaNeue-Bold.woff2") format("woff2");
+    src: url("src/lib/fonts/HelveticaNeue-Bold.woff2") format("woff2");
 }
 
 :root {

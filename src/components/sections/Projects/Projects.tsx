@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import styles from "./Projects.module.css";
-import { projects } from "../../../constants/constants";
+import { projects } from "../../../lib/constants/constants";
 import { useLayoutEffect, useRef, useState } from "react";
 import { projectsAnimationsScroll } from "../../../lib/animations/projectsAnimations";
 import gituhubIcon from "../../../assets/icons/github.svg";
