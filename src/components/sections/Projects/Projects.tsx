@@ -15,6 +15,7 @@ export default function Projects() {
         const cleanup = projectsAnimationsScroll({ 
             pinRef, 
             trackRef,
+            pannelSelector: ".project-item-animation",
             onProjectChange: setCurrentProjectIndex 
     });
         return () => {

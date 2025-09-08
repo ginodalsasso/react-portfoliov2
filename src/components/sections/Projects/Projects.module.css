@@ -4,8 +4,9 @@
     padding-top: 60px;
     display: flex;
     flex-direction: column;
-    gap: var(--space-section-title-content);
+    /* gap: var(--space-section-title-content); */
     overflow: hidden;
+    min-height: 100vh;
 }
 
 .projectsWrapper {

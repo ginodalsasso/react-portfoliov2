@@ -57,7 +57,8 @@ function buildTimeline(
 
 export function projectsAnimationsScroll({ 
     pinRef, 
-    trackRef, 
+    trackRef,
+    pannelSelector,
     onProjectChange 
 }: projectsAnimationsScrollType) {
     const pin = pinRef.current;
@@ -65,7 +66,7 @@ export function projectsAnimationsScroll({
     if (!pin || !track) return;
 
     const panels = gsap.utils.toArray<HTMLElement>(
-        track.querySelectorAll(".project-item-animation")
+        track.querySelectorAll(pannelSelector)
     );
     if (!panels.length) return;
 

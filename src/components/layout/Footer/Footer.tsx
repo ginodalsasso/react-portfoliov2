@@ -2,11 +2,11 @@ import { Link } from "react-router-dom";
 import FullLogo from "../ui/Logo/FullLogo";
 import styles from "./Footer.module.css";
 import Button from "../ui/Button/Button";
-import { useLayeredPin } from "../../../lib/animations/sectionAnimations";
+import { useLayeredAnimation } from "../../../lib/animations/sectionAnimations";
 
 export default function Footer() {
-    const footerRef = useLayeredPin(); // use of layered pin animation hook
-    
+    const footerRef = useLayeredAnimation(); // use of layered pin animation hook
+
     return (
         <footer className={`${styles.footer} layered-animation`} ref={footerRef}>
             <nav aria-label="Footer Navigation" className={styles.nav}>

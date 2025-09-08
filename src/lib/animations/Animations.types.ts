@@ -1,6 +1,7 @@
 export type projectsAnimationsScrollType = {
     pinRef: React.RefObject<HTMLElement | null>;
     trackRef: React.RefObject<HTMLUListElement | null>;
+    pannelSelector: string;
     onProjectChange?: (index: number) => void;
 };
 
