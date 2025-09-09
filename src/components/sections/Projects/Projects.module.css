@@ -1,13 +1,12 @@
 .projectsSection {
     background-color: var(--white-color);
     padding-inline: var(--horizontal-padding-layout);
-    padding-top: 60px;
+    padding-top: 100px;
+    padding-bottom: var(--vertical-space-section);
     display: flex;
     flex-direction: column;
     justify-content: end;
-    /* gap: 4rem; */
     overflow: hidden;
-    min-height: 100vh;
 }
 
 .projectsWrapper {

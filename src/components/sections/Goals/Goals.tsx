@@ -12,6 +12,9 @@ export default function Goals() {
             ref={sectionRef}
             aria-labelledby="goals-title"
         >
+            <div className="centered-section-logo">
+                <Logo size={36} bgColor="black" roundColor="accent" />
+            </div>
             <header>
                 <h2 className="section-title">[ my goals in NZ ]</h2>
             </header>
@@ -29,7 +32,6 @@ export default function Goals() {
                     empathy, and a shared vision.
                 </p>
             </div>
-            <Logo size={36} bgColor="white" roundColor="black" />
         </section>
     );
 }

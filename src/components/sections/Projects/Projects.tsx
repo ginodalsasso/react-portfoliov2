@@ -4,7 +4,6 @@ import { projects } from "../../../lib/constants/constants";
 import { useLayoutEffect, useRef, useState } from "react";
 import { projectsAnimationsScroll } from "../../../lib/animations/projectsAnimations";
 import gituhubIcon from "../../../assets/icons/github.svg";
-import Logo from "../../layout/ui/Logo/Logo";
 
 export default function Projects() {
     const [currentProjectIndex, setCurrentProjectIndex] = useState(0);
@@ -74,7 +73,6 @@ export default function Projects() {
                     ))}
                 </ul>
             </div>
-            <Logo size={36} bgColor="accent" roundColor="white" />
         </section>
     );
 }

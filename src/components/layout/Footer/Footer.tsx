@@ -3,12 +3,16 @@ import FullLogo from "../ui/Logo/FullLogo";
 import styles from "./Footer.module.css";
 import Button from "../ui/Button/Button";
 import { useLayeredAnimation } from "../../../lib/animations/sectionAnimations";
+import Logo from "../ui/Logo/Logo";
 
 export default function Footer() {
     const footerRef = useLayeredAnimation(); // use of layered pin animation hook
 
     return (
         <footer className={`${styles.footer} layered-animation`} ref={footerRef}>
+            <div className="centered-section-logo">
+                <Logo size={36} bgColor="white" roundColor="black" />
+            </div>
             <nav aria-label="Footer Navigation" className={styles.nav}>
                 <FullLogo fontSize="clamp(10rem, 30vw, 18rem)" />
                 <ul className={styles.navLinks}>

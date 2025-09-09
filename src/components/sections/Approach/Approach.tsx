@@ -12,6 +12,9 @@ export default function Approach() {
             aria-labelledby="approach-title"
             ref={sectionRef}
         >
+            <div className="centered-section-logo">
+                <Logo size={36} bgColor="accent" roundColor="white" />
+            </div>
             <header>
                 <h2 className="section-title">[ my approach ]</h2>
             </header>
@@ -32,7 +35,6 @@ export default function Approach() {
             <p className={styles.approachContentLast}>
                 My approach is built on stability and sincerity.
             </p>
-            <Logo size={36} bgColor="black" roundColor="accent" />
         </section>
     );
 }

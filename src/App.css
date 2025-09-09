@@ -81,6 +81,13 @@ a {
     letter-spacing: var(--letter-spacing);
 }
 
+.centered-section-logo {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -100%);
+}
+
 .layered-animation {
     min-height: 200vh;
 }
