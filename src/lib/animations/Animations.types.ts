@@ -9,3 +9,9 @@ export type ButtonAnimationType = {
     buttonRef: React.RefObject<HTMLDivElement | null>;
     setVariant: React.Dispatch<React.SetStateAction<"primary" | "secondary">>;
 };
+
+export type UseLayeredPinType = {
+    start?: string;
+    end?: string;
+    pinSpacing?: boolean;
+};
