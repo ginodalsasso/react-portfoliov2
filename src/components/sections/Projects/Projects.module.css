@@ -119,6 +119,10 @@
 }
 
 @media (max-width: 1024px) {
+    .projectsWrapper {
+        flex-direction: column;
+    }
+
     .projectIdDisplay {
         position: relative;
         left: auto;
@@ -134,5 +138,19 @@
     .projectList {
         width: 100%;
         margin: 0 auto;
+    }
+
+    .projectHeader h3 {
+        writing-mode: unset;
+        transform: unset;
+    }
+
+    .projectHeader h3:before {
+        margin-bottom: unset;
+    }
+
+    .projectItem {
+        display: flex;
+        flex-direction: column-reverse;
     }
 }

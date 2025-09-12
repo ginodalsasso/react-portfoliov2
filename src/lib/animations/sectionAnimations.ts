@@ -4,7 +4,11 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
-function initializeOffset() {
+function calculateOffset (index: number, firstLayerStep: number, layerStep: number) {
+    return index === 0 ? firstLayerStep : index * layerStep + firstLayerStep;
+};
+
+function setupOffset() {
     const navbar = document.querySelector(".navbar") as HTMLElement;
     const navHeight = navbar.offsetHeight;
 
@@ -15,10 +19,6 @@ function initializeOffset() {
     return { firstLayerStep, layerStep };
 }
 
-function calculateOffset (index: number, firstLayerStep: number, layerStep: number) {
-    return index === 0 ? firstLayerStep : index * layerStep + firstLayerStep;
-};
-
 export function useLayeredAnimation() {
     const ref = useRef<HTMLElement | null>(null);
 
@@ -28,20 +28,35 @@ export function useLayeredAnimation() {
 
         const sections = Array.from(document.querySelectorAll(".layered-animation")) as HTMLElement[];
         const index = sections.indexOf(element);
-        const { firstLayerStep, layerStep } = initializeOffset();
+        const { firstLayerStep, layerStep } = setupOffset();
         const offset = calculateOffset(index, firstLayerStep, layerStep);
+
+        const isLastLayer = index === sections.length - 1;
 
         const ctx = gsap.context(() => {
             ScrollTrigger.create({
                 trigger: element,
                 start: () => `top top+=${offset}`,
+                end: isLastLayer ? "bottom bottom" : "max", 
                 pin: true,
                 pinSpacing: false,
-            });
+                anticipatePin: 1,
+                invalidateOnRefresh: true,
+                markers: true,
+                refreshPriority: -1,
 
+            });
         });
 
-        return () => ctx.revert();
+        setTimeout(() => {
+            ScrollTrigger.refresh();
+        }, 100);
+
+        return () => {
+            ctx.revert();
+            ScrollTrigger.refresh();
+        };
+
     }, []);
     return ref;
 }
