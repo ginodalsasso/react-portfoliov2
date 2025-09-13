@@ -31,26 +31,21 @@ export function useLayeredAnimation() {
         const { firstLayerStep, layerStep } = setupOffset();
         const offset = calculateOffset(index, firstLayerStep, layerStep);
 
-        const isLastLayer = index === sections.length - 1;
-
         const ctx = gsap.context(() => {
             ScrollTrigger.create({
                 trigger: element,
                 start: () => `top top+=${offset}`,
-                end: isLastLayer ? "bottom bottom" : "max", 
+                end: "max", 
                 pin: true,
                 pinSpacing: false,
                 anticipatePin: 1,
                 invalidateOnRefresh: true,
                 markers: true,
                 refreshPriority: -1,
-
             });
         });
-
-        setTimeout(() => {
-            ScrollTrigger.refresh();
-        }, 100);
+        
+        ScrollTrigger.refresh();
 
         return () => {
             ctx.revert();
@@ -58,6 +53,7 @@ export function useLayeredAnimation() {
         };
 
     }, []);
+    
     return ref;
 }
 

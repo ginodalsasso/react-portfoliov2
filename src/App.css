@@ -53,6 +53,7 @@ body {
     font-family: "Helvetica medium", Arial, sans-serif;
     color: var(--black-color);
     background-color: var(--white-color);
+    overflow-x: hidden;
 }
 
 a {
@@ -89,5 +90,5 @@ a {
 }
 
 .layered-animation {
-    height: 100vh;
+    height: 200vh;
 }
