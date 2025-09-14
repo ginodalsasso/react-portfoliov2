@@ -11,22 +11,25 @@
 
 .projectsWrapper {
     display: flex;
-    justify-content: space-between;
+    /* justify-content: space-between; */
+    gap: 20%;
+    position: relative;
 }
 
-.projectIdDisplay {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.projectNumber {
+    font-size: clamp(24rem, 27vw, 30rem);
+    font-weight: bold;
+    color: var(--black-color);
+    opacity: 0.03;
     pointer-events: none;
     user-select: none;
 }
 
-.projectNumber {
-    font-size: clamp(30rem, 34vw, 38rem);
-    font-weight: bold;
-    color: var(--black-color);
-    opacity: 0.03;
+.projectDescription {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    max-width: 500px;
 }
 
 
@@ -64,16 +67,16 @@
     white-space: nowrap;
     padding: 0.5rem;
     font-weight: 100;
-}
 
-.projectHeader h3:before {
-    content: "";
-    display: inline-flex;
-    width: 1.5rem;
-    aspect-ratio: 1;
-    border-radius: 50%;
-    background-color: var(--white-color);
-    margin-bottom: 1rem;
+    &:before{
+        content: "";
+        display: inline-flex;
+        width: 1.5rem;
+        aspect-ratio: 1;
+        border-radius: 50%;
+        background-color: var(--white-color);
+        margin-bottom: 1rem;
+    }
 }
 
 .githubIcon {
@@ -84,6 +87,10 @@
     aspect-ratio: 1;
 
     animation: flash 3s infinite;
+
+    &:hover{
+        transform: scale(1.2);
+    }
 }
 
 @keyframes flash {

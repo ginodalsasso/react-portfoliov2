@@ -3,7 +3,7 @@ import styles from "./Projects.module.css";
 import { projects } from "../../../lib/constants/constants";
 import { useLayoutEffect, useRef, useState } from "react";
 import { projectsAnimationsScroll } from "../../../lib/animations/projectsAnimations";
-import gituhubIcon from "../../../assets/icons/github.svg";
+// import gituhubIcon from "../../../assets/icons/github.svg";
 
 export default function Projects() {
     const [currentProjectIndex, setCurrentProjectIndex] = useState(0);
@@ -30,12 +30,10 @@ export default function Projects() {
 
             <div className={styles.projectsWrapper}>
                 {/* Displaying ID project */}
-                <div className={styles.projectIdDisplay}>
-                    <span className={styles.projectNumber}>
-                        {projects[currentProjectIndex]?.id.toString()}
-                    </span>
-                    <p>{projects[currentProjectIndex]?.description}</p>
+                <div className={styles.projectNumber}>
+                    {projects[currentProjectIndex]?.id.toString()}
                 </div>
+                <p className={styles.projectDescription}>{projects[currentProjectIndex]?.description}</p>
 
                 {/* List of all projects */}
                 <ul ref={trackRef} className={styles.projectList}>
@@ -50,9 +48,9 @@ export default function Projects() {
                                             <span>{project.title}</span>
                                         )}
                                     </h3>
-                                    {gituhubIcon && project.href && (
+                                    {project.icon && project.href && (
                                         <Link to={project.href} target="_blank" rel="noopener noreferrer">
-                                            <img src={gituhubIcon} className={styles.githubIcon} alt="GitHub" />
+                                            <img src={project.icon} className={styles.githubIcon} alt="link icon" />
                                         </Link>
                                     )}
                                 </header>

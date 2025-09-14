@@ -70,7 +70,7 @@ export function projectsAnimationsScroll({
     );
     if (!panels.length) return;
 
-    const scrollSpeed = 2;
+    const scrollSpeed = 1;
     const totalDistance = Math.max(0, (panels.length - 1) * window.innerWidth * scrollSpeed); // total scroll distance with math max to avoid negative values
 
     setupInitialPanelStates(panels);
