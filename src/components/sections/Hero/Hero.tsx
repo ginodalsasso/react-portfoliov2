@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 
 import styles from "./Hero.module.css";
 import Button from "../../layout/ui/Button/Button";
@@ -19,7 +19,7 @@ export default function Hero() {
     }, []);
 
     const buttonRef = useRef<HTMLDivElement>(null);
-    useEffect(() => {
+    useLayoutEffect(() => {
         const cleanup = heroButtonAnimations({ buttonRef, setVariant });
         return () => {
             if (cleanup) cleanup();

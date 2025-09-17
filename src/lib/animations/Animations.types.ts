@@ -15,3 +15,11 @@ export type UseLayeredPinType = {
     end?: string;
     pinSpacing?: boolean;
 };
+
+export type TextRevealOptions = {
+    selector?: string;
+    y?: number;
+    start?: string;
+    end?: string;
+    scrub?: boolean | number;
+};

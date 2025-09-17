@@ -3,6 +3,7 @@ import { TextPlugin } from "gsap/TextPlugin";
 import { SplitText } from "gsap/SplitText";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import type { ButtonAnimationType } from "./Animations.types";
+import React from "react";
 
 gsap.registerPlugin(TextPlugin, SplitText, ScrollTrigger);
 

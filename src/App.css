@@ -45,15 +45,12 @@
     box-sizing: border-box;
 }
 
-html {
-    scroll-behavior: smooth;
-}
-
 body {
     font-family: "Helvetica medium", Arial, sans-serif;
     color: var(--black-color);
     background-color: var(--white-color);
     overflow-x: hidden;
+    scroll-behavior: smooth;
 }
 
 a {

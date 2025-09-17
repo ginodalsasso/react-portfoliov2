@@ -17,6 +17,7 @@ function setupInitialPanelStates(panels: HTMLElement[]): void {
 function buildTimeline(
     pin: HTMLElement,
     panels: HTMLElement[],
+    totalDistance: number,
     onProjectChange?: (index: number) => void
 ) {
     // Slide timeline for horizontal scrolling
@@ -27,6 +28,7 @@ function buildTimeline(
             pin: true, // pin the section
             scrub: 1, // smooth scrubbing, takes 1 second to catch up
             snap: 1 / (panels.length - 1), // snap to the closest panel
+            end: () => "+=" + totalDistance,
             invalidateOnRefresh: true,
             onUpdate: (self) => {
                 // Calculate which project is currently visible
@@ -68,9 +70,14 @@ export function projectsAnimationsScroll({
     );
     if (!panels.length) return;
 
+
+    const scrollSpeed = 0.5;
+    const totalDistance = Math.max(0, (panels.length - 1) * window.innerWidth * scrollSpeed); // total scroll distance with math max to avoid negative values
+
     setupInitialPanelStates(panels);
 
-    const timeline = buildTimeline(pin, panels, onProjectChange);
+    const timeline = buildTimeline(pin, panels, totalDistance, onProjectChange);
+
 
     // Cleanup
     return () => {
