@@ -23,3 +23,10 @@ export type TextRevealOptions = {
     end?: string;
     scrub?: boolean | number;
 };
+
+export type WordRevealOptions = {
+    selector?: string;
+    stagger?: number;
+    duration?: number;
+    ease?: string;
+};

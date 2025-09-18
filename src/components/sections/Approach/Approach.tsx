@@ -2,7 +2,7 @@ import { useLayoutEffect } from "react";
 import { useLayeredAnimation } from "../../../lib/animations/sectionAnimations";
 import Logo from "../../layout/ui/Logo/Logo";
 import styles from "./Approach.module.css";
-import { textRevealUpAnimation } from "../../../lib/animations/textAnimation";
+import { textRevealUpAnimation, wordRevealAnimation } from "../../../lib/animations/textAnimation";
 
 export default function Approach() {
     const sectionRef = useLayeredAnimation(); // use of layered pin animation hook
@@ -10,10 +10,13 @@ export default function Approach() {
         const section = sectionRef.current;
         if (!section) return;
 
-        // Attache l’anim (tu peux ajuster les options si tu veux)
-        const cleanup = textRevealUpAnimation(section);
+        const textRevealCleanup = textRevealUpAnimation(section);
+        const wordCleanup = wordRevealAnimation(section);
 
-        return cleanup; // nettoyage au unmount
+        return () => {
+            textRevealCleanup();
+            wordCleanup();
+        };
     }, [sectionRef]);
 
     return (
@@ -29,7 +32,7 @@ export default function Approach() {
             <header>
                 <h2 className="section-title" data-reveal-up>[ my approach ]</h2>
             </header>
-            <div className="section-content" data-reveal-up>
+            <div className="section-content" data-reveal-up data-word-reveal>
                 <p>
                     Development is a passion-driven craft that demands rigor,
                     curiosity, and total immersion. I approach each project with

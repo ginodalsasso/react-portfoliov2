@@ -1,8 +1,9 @@
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import type { TextRevealOptions } from "./Animations.types";
+import { SplitText } from "gsap/SplitText";
+import type { TextRevealOptions, WordRevealOptions } from "./Animations.types";
 
-gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(SplitText, ScrollTrigger);
 
 export function textRevealUpAnimation(
     container: HTMLElement,
@@ -19,9 +20,9 @@ export function textRevealUpAnimation(
     const ctx = gsap.context(() => {
         const targets = container.querySelectorAll<HTMLElement>(selector);
 
-        targets.forEach((el) => {
+        targets.forEach((element) => {
             gsap.fromTo(
-                el,
+                element,
                 { y: 0 },
                 {
                     y: -y,
@@ -35,6 +36,42 @@ export function textRevealUpAnimation(
                     },
                 }
             );
+        });
+    }, container);
+
+    return () => ctx.revert();
+}
+
+export function wordRevealAnimation(
+    container: HTMLElement,
+    opts: WordRevealOptions = {}
+) {
+    const {
+        selector = "[data-word-reveal]",
+        stagger = 0.08,
+        duration = 0.6,
+        ease = "power2.out"
+    } = opts;
+    const ctx = gsap.context(() => {
+        const targets = container.querySelectorAll(selector);
+
+        targets.forEach((element) => {
+            const split = new SplitText(element, { type: "words" });
+
+            gsap.set(split.words, { opacity: 0.2, y: 20 });
+
+            gsap.to(split.words, {
+                opacity: 1,
+                y: 0,
+                duration,
+                stagger,
+                ease,
+                scrollTrigger: {
+                    trigger: element,
+                    start: "top 80%",
+                    toggleActions: "play none none reverse",
+                },
+            });
         });
     }, container);
 
