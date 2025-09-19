@@ -1,7 +1,7 @@
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { SplitText } from "gsap/SplitText";
-import type { TextRevealOptions, WordRevealOptions } from "./Animations.types";
+import type { CharsRevealOptions, TextRevealOptions, WordRevealOptions } from "./Animations.types";
 
 gsap.registerPlugin(SplitText, ScrollTrigger);
 
@@ -52,6 +52,7 @@ export function wordRevealAnimation(
         duration = 0.6,
         ease = "power2.out"
     } = opts;
+    
     const ctx = gsap.context(() => {
         const targets = container.querySelectorAll(selector);
 
@@ -77,3 +78,43 @@ export function wordRevealAnimation(
 
     return () => ctx.revert();
 }
+
+
+// ________ TEXT ANIMATIONS __________
+export function charsRevealAnimation(
+    selector: string,
+    opts: CharsRevealOptions = {}
+) {
+    const {
+        ease = "none",
+        duration = 0.6,
+        stagger = 0.08,
+        yoyo = true,
+    } = opts;
+
+    const split = new SplitText(selector, {
+        type: "chars",
+    });
+
+    const animation = gsap.fromTo(
+        split.chars,
+        { opacity: 0 },
+        {
+            opacity: 1,
+            ease,
+            duration,
+            stagger,
+            repeat: -1,
+            yoyo,
+            repeatDelay: 1,
+        }
+    );
+
+    // Cleanup function to revert split text and kill animation
+    const cleanup = () => {
+        split.revert();
+        animation.kill();
+    };
+
+    return cleanup; // Return cleanup function for useEffect
+};

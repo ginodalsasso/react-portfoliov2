@@ -1,18 +1,18 @@
 import { Link } from "react-router-dom";
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
-
 import styles from "./Hero.module.css";
 import Button from "../../layout/ui/Button/Button";
-import { heroAnimationsText, heroButtonAnimations } from "../../../lib/animations/heroAnimations";
+import { heroButtonAnimations } from "../../../lib/animations/heroAnimations";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { charsRevealAnimation } from "../../../lib/animations/textAnimations";
 gsap.registerPlugin(ScrollTrigger);
 
 export default function Hero() {
     const [variant, setVariant] = useState<"primary" | "secondary">("primary");
 
     useEffect(() => {
-        const cleanup = heroAnimationsText(".split");
+        const cleanup = charsRevealAnimation(".split");
         return () => {
             if (cleanup) cleanup();
         };

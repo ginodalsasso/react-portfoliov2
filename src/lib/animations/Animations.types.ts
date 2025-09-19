@@ -30,3 +30,10 @@ export type WordRevealOptions = {
     duration?: number;
     ease?: string;
 };
+
+export type CharsRevealOptions= {
+    ease?: string;
+    duration?: number;
+    stagger?: number;
+    yoyo?: boolean;
+};

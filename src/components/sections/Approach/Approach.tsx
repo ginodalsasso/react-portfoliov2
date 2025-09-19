@@ -2,7 +2,7 @@ import { useLayoutEffect } from "react";
 import { useLayeredAnimation } from "../../../lib/animations/sectionAnimations";
 import Logo from "../../layout/ui/Logo/Logo";
 import styles from "./Approach.module.css";
-import { textRevealUpAnimation, wordRevealAnimation } from "../../../lib/animations/textAnimation";
+import { textRevealUpAnimation, wordRevealAnimation } from "../../../lib/animations/textAnimations";
 
 export default function Approach() {
     const sectionRef = useLayeredAnimation(); // use of layered pin animation hook
