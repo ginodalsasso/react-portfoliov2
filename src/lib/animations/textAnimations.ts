@@ -48,9 +48,9 @@ export function wordRevealAnimation(
 ) {
     const {
         selector = "[data-word-reveal]",
-        stagger = 0.08,
+        stagger = 0.06,
         duration = 0.6,
-        ease = "power2.out"
+        ease = "power3.out"
     } = opts;
     
     const ctx = gsap.context(() => {

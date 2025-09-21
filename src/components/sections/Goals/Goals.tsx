@@ -1,9 +1,24 @@
+import { useLayoutEffect } from "react";
 import { useLayeredAnimation } from "../../../lib/animations/sectionAnimations";
 import Logo from "../../layout/ui/Logo/Logo";
 import styles from "./Goals.module.css";
+import { textRevealUpAnimation, wordRevealAnimation } from "../../../lib/animations/textAnimations";
 
 export default function Goals() {
     const sectionRef = useLayeredAnimation(); // use of layered pin animation hook
+
+    useLayoutEffect(() => {
+        const section = sectionRef.current;
+        if (!section) return;
+
+        const textRevealCleanup = textRevealUpAnimation(section);
+        const wordCleanup = wordRevealAnimation(section);
+
+        return () => {
+            textRevealCleanup();
+            wordCleanup();
+        };
+    }, [sectionRef]);
     
     return (
         <section
@@ -16,9 +31,9 @@ export default function Goals() {
                 <Logo size={36} bgColor="black" roundColor="accent" />
             </div>
             <header>
-                <h2 className="section-title">[ my goals in NZ ]</h2>
+                <h2 className="section-title" data-reveal-up>[ my goals in NZ ]</h2>
             </header>
-            <div className="section-content">
+            <div className="section-content" data-reveal-up data-word-reveal>
                 <p>
                     New Zealand represents more than just a professional
                     opportunity for me—it’s a place where I aspire to grow,
