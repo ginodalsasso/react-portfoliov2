@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { useEffect, useLayoutEffect, useRef, useState } from "react";
+import { useLayoutEffect, useRef, useState } from "react";
 import styles from "./Hero.module.css";
 import Button from "../../layout/ui/Button/Button";
 import { heroButtonAnimations } from "../../../lib/animations/heroAnimations";
@@ -11,18 +11,14 @@ gsap.registerPlugin(ScrollTrigger);
 export default function Hero() {
     const [variant, setVariant] = useState<"primary" | "secondary">("primary");
 
-    useEffect(() => {
-        const cleanup = charsRevealAnimation(".split");
-        return () => {
-            if (cleanup) cleanup();
-        };
-    }, []);
-
     const buttonRef = useRef<HTMLDivElement>(null);
     useLayoutEffect(() => {
-        const cleanup = heroButtonAnimations({ buttonRef, setVariant });
+        const heroButtonCleanup = heroButtonAnimations({ buttonRef, setVariant });
+        const charsCleanup = charsRevealAnimation(".split");
+
         return () => {
-            if (cleanup) cleanup();
+            if (heroButtonCleanup) heroButtonCleanup();
+            charsCleanup();
         };
     }, []);
 

@@ -87,7 +87,7 @@ export function charsRevealAnimation(
 ) {
     const {
         ease = "none",
-        duration = 0.6,
+        duration = 0.05,
         stagger = 0.08,
         yoyo = true,
     } = opts;

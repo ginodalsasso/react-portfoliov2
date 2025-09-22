@@ -1,16 +1,32 @@
+import { useLayoutEffect, useRef } from "react";
 import styles from "./About.module.css";
+import { textRevealUpAnimation } from "../../../lib/animations/textAnimations";
 
 export default function About() {
+    const sectionRef = useRef<HTMLElement | null>(null);
+
+    useLayoutEffect(() => {
+        const section = sectionRef.current;
+        if (!section) return;
+
+        const textRevealCleanup = textRevealUpAnimation(section);
+
+        return () => {
+            textRevealCleanup();
+        };
+    }, [sectionRef]);
+
     return (
         <section
             id="about"
             className={styles.aboutSection}
             aria-labelledby="about-title"
+            ref={sectionRef}
         >
             <header>
                 <h2 className="section-title">[ about me ]</h2>
             </header>
-            <div className="section-content">
+            <div className="section-content" data-reveal-up>
                 <p>Hello world!</p>
                 <p>
                     Tech enthusiast since my teens, I started by building
