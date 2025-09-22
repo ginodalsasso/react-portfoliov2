@@ -18,6 +18,7 @@ export type UseLayeredPinType = {
 
 export type TextRevealOptions = {
     selector?: string;
+    x?: number;
     y?: number;
     start?: string;
     end?: string;

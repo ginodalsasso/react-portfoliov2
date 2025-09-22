@@ -56,7 +56,7 @@ function createButtonScrollTrigger(
         pin: true,
         onEnter: () => {
             gsap.fromTo(
-                buttonElement,
+                buttonElement, // reference to the button element
                 { y: 10 }, // start position
                 { 
                     y: 0, 

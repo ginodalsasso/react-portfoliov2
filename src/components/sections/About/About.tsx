@@ -9,7 +9,7 @@ export default function About() {
         const section = sectionRef.current;
         if (!section) return;
 
-        const textRevealCleanup = textRevealUpAnimation(section);
+        const textRevealCleanup = textRevealUpAnimation(section, { y: 0, x: 96 });
 
         return () => {
             textRevealCleanup();

@@ -11,6 +11,7 @@ export function textRevealUpAnimation(
 ) {
     const {
         selector = "[data-reveal-up]",
+        x = 0,
         y = 96,
         start = "top bottom", // when top of section hit the bottom of viewport
         end = "bottom top", // until bottom hit top of viewport
@@ -23,9 +24,13 @@ export function textRevealUpAnimation(
         targets.forEach((element) => {
             gsap.fromTo(
                 element,
-                { y: 0 },
+                { 
+                    y: 0,
+                    x: 0
+                },
                 {
                     y: -y,
+                    x,
                     ease: "none",
                     scrollTrigger: {
                         trigger: container,
