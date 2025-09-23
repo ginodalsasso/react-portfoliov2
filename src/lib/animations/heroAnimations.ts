@@ -54,13 +54,14 @@ function createButtonScrollTrigger(
         start: `top top+=${navbarHeight}`,
         end: "+=99999", // keep active
         pin: true,
+        anticipatePin: 1,
         onEnter: () => {
             gsap.fromTo(
                 buttonElement, // reference to the button element
                 { y: 10 }, // start position
                 { 
                     y: 0, 
-                    duration: 0.4, 
+                    duration: 0.8, 
                     ease: "power4.out" 
                 } // animate to original position
             );
@@ -68,7 +69,7 @@ function createButtonScrollTrigger(
         onLeaveBack: () => {
             gsap.to(buttonElement, {
                 y: 10,
-                duration: 0.4,
+                duration: 0.8,
                 ease: "power4.in",
             });
         }, 
