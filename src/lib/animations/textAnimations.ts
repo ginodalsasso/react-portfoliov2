@@ -12,7 +12,7 @@ export function textRevealUpAnimation(
     const {
         selector = "[data-reveal-up]",
         x = 0,
-        y = 96,
+        y = 180,
         start = "top bottom", // when top of section hit the bottom of viewport
         end = "bottom top", // until bottom hit top of viewport
         scrub = 1, // smooth

@@ -84,7 +84,6 @@
     display: grid;
     gap: 1rem;
     place-content: center;
-    text-align: center;
 }
 .navLinks a {
     font-size: var(--font-size-xlarge);

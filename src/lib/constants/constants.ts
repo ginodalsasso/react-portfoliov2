@@ -10,6 +10,7 @@ export const navLinks: LinkItem[] = [
     { title: "about", path: "#about" },
     { title: "projects", path: "#projects" },
     { title: "approach", path: "#approach" },
+    { title: "goals", path: "#goals" },
 ];
 
 export type Project = {
@@ -84,6 +85,9 @@ export const projects: Project[] = [
         href: "https://github.com/ginodalsasso/react-portfolio",
         tags: ["React", "Three.js", "JavaScript", "Tailwind"],
     },
-
-
+        
+    
+    
 ];
+
+export const WINDOWS_INNER_WIDTH = 768;

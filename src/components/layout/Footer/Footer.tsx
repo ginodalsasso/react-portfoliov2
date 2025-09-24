@@ -16,8 +16,8 @@ export default function Footer() {
             <nav aria-label="Footer Navigation" className={styles.nav}>
                 <FullLogo fontSize="clamp(10rem, 30vw, 18rem)" />
                 <ul className={styles.navLinks}>
-                    <li><Link to="https://github.com/ginodalsasso">[ github ]</Link></li>
-                    <li><Link to="https://linkedin.com/in/gino-dalsasso">[ linkedin ]</Link></li>
+                    <li><Link target="_blank" to="https://github.com/ginodalsasso">[ github ]</Link></li>
+                    <li><Link target="_blank" to="https://linkedin.com/in/gino-dalsasso">[ linkedin ]</Link></li>
                     <li>
                         <Link to="/assets/cv.pdf" target="_blank">
                             <Button

@@ -11,7 +11,6 @@
 
 .projectsWrapper {
     display: flex;
-    /* justify-content: space-between; */
     gap: 20%;
     position: relative;
 }
@@ -129,17 +128,9 @@
     .projectsWrapper {
         flex-direction: column;
     }
-
-    .projectIdDisplay {
-        position: relative;
-        left: auto;
-        width: 100%;
-        height: auto;
-    }
     
     .projectNumber {
-        font-size: 3rem;
-        opacity: 0.2;
+        display: none;
     }
     
     .projectList {

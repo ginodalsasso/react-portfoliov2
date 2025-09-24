@@ -8,6 +8,7 @@ export default function About() {
     useLayoutEffect(() => {
         const section = sectionRef.current;
         if (!section) return;
+        if(window.innerWidth < 768) return; // Skip animation on mobile
 
         const textRevealCleanup = textRevealUpAnimation(section, { y: 0, x: 96 });
 
