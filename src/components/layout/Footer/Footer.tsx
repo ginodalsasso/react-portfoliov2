@@ -34,7 +34,7 @@ export default function Footer() {
             <span className={styles.footerInfo}>
                 &copy; 2025, designed by&nbsp;
                 <a href="https://www.studiotuttopasta.com/" target="_blank" rel="noopener noreferrer">
-                    Romy
+                    Romane
                 </a>
             </span>
         </footer>

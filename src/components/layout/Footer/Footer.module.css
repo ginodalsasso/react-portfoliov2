@@ -1,13 +1,12 @@
 .footer {
     background-color: var(--white-color);
     padding-inline: var(--horizontal-padding-layout);
-    padding-top: calc(var(--vertical-space-section));    
+    padding-top: calc(var(--vertical-space-section));
 }
 
 .nav {
     display: flex;
     flex-direction: column-reverse;
-    /* gap: 2rem; */
 
 }
 
@@ -39,5 +38,14 @@
     color: var(--grey-color);
     display: flex;
     justify-self: end;
-    margin-top: 4rem;
+}
+
+.footerInfo a {
+    font-weight: bold;
+    text-decoration: underline;
+
+    &:hover,
+    &:focus {
+        font-weight: unset;
+    }
 }

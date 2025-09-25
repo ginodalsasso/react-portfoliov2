@@ -22,11 +22,10 @@
 
     --font-size-small: clamp(0.875rem, 1vw + 0.5rem, 1rem);
     --font-size-medium: clamp(1rem, 1vw + 0.5rem, 1.25rem);
-    --font-size-large: clamp(1.8rem, 1vw + 0.5rem, 3rem);
+    --font-size-large: clamp(1.5rem, 1.4vw + 0.5rem, 2.4rem);
     --font-size-xlarge: clamp(2.4rem, 5vw + 0.5rem, 6rem);
 
-    --global-line-height: 1.2;
-
+    
     /*  Spacing variables */
     --horizontal-padding-layout: 2rem;
     --vertical-space-section: clamp(10rem, 20vw, 24rem);
@@ -35,8 +34,11 @@
         1rem,
         4vw,
         2rem
-    ); /* Space between section title and content */
-    --letter-spacing: -0.06rem;
+        ); /* Space between section title and content */
+
+
+    --letter-spacing: -0.07rem;
+    --global-line-height: 1;
 }
 
 * {
@@ -87,5 +89,5 @@ a {
 }
 
 .layered-animation {
-    /* height: 250vh; */
+    height: 200vh;
 }

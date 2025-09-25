@@ -36,7 +36,7 @@
     list-style: none;
     position: relative;
     height: 70vh;
-    width: calc(50% + 1.25rem);
+    width: calc(50% + 1.25rem); 
 }
 
 /* project list that contains all project items */
@@ -125,6 +125,10 @@
 }
 
 @media (max-width: 1024px) {
+    .projectsSection {
+        gap: var(--space-section-title-content);
+    }
+
     .projectsWrapper {
         flex-direction: column;
     }
