@@ -11,7 +11,7 @@ export default function Approach() {
         if (!section) return;
 
         const textRevealCleanup = textRevealUpAnimation(section);
-        const wordCleanup = wordRevealAnimation(section);
+        const wordCleanup = wordRevealAnimation(section, { childSelector: "[data-word-reveal]" });
 
         return () => {
             textRevealCleanup();

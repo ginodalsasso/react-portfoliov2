@@ -6,20 +6,24 @@ import type { CharsRevealOptions, TextRevealOptions, WordRevealOptions } from ".
 gsap.registerPlugin(SplitText, ScrollTrigger);
 
 export function textRevealUpAnimation(
-    container: HTMLElement,
+    target: HTMLElement | string,
     opts: TextRevealOptions = {}
 ) {
     const {
-        selector = "[data-reveal-up]",
+        childSelector = "[data-reveal-up]",
         x = 0,
         y = 180,
         start = "top bottom", // when top of section hit the bottom of viewport
         end = "bottom top", // until bottom hit top of viewport
         scrub = 1, // smooth
     } = opts;
+    // Determine the container and target selector based on the type of 'target'
+
+    const container = typeof target === "string" ? document : target;
+    const targetSelector = typeof target === "string" ? target : childSelector;
 
     const ctx = gsap.context(() => {
-        const targets = container.querySelectorAll<HTMLElement>(selector);
+        const targets = container.querySelectorAll<HTMLElement>(targetSelector);
 
         targets.forEach((element) => {
             gsap.fromTo(
@@ -33,7 +37,7 @@ export function textRevealUpAnimation(
                     x,
                     ease: "none",
                     scrollTrigger: {
-                        trigger: container,
+                        trigger: container as HTMLElement,
                         start,
                         end,
                         scrub,
@@ -47,19 +51,24 @@ export function textRevealUpAnimation(
     return () => ctx.revert();
 }
 
+// Word Reveal Animation giving whether a reference to a container or a selector string
 export function wordRevealAnimation(
-    container: HTMLElement,
+    target : HTMLElement | string,
     opts: WordRevealOptions = {}
 ) {
     const {
-        selector = "[data-word-reveal]",
+        childSelector = "[data-word-reveal]",
         stagger = 0.06,
         duration = 0.6,
         ease = "power3.out"
     } = opts;
-    
+
+    // Determine the container and target selector based on the type of 'target'
+    const container = typeof target === "string" ? document : target;
+    const targetSelector = typeof target === "string" ? target : childSelector;
+
     const ctx = gsap.context(() => {
-        const targets = container.querySelectorAll(selector);
+        const targets = container.querySelectorAll(targetSelector);
 
         targets.forEach((element) => {
             const split = new SplitText(element, { type: "words" });
@@ -83,7 +92,6 @@ export function wordRevealAnimation(
 
     return () => ctx.revert();
 }
-
 
 // ________ TEXT ANIMATIONS __________
 export function charsRevealAnimation(

@@ -12,7 +12,7 @@ export default function Goals() {
         if (!section) return;
 
         const textRevealCleanup = textRevealUpAnimation(section);
-        const wordCleanup = wordRevealAnimation(section);
+        const wordCleanup = wordRevealAnimation(section, { childSelector: "[data-word-reveal]" });
 
         return () => {
             textRevealCleanup();

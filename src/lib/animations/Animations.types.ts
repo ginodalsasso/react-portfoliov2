@@ -17,7 +17,7 @@ export type UseLayeredPinType = {
 };
 
 export type TextRevealOptions = {
-    selector?: string;
+    childSelector?: string;
     x?: number;
     y?: number;
     start?: string;
@@ -26,7 +26,7 @@ export type TextRevealOptions = {
 };
 
 export type WordRevealOptions = {
-    selector?: string;
+    childSelector?: string;
     stagger?: number;
     duration?: number;
     ease?: string;
