@@ -8,11 +8,8 @@
     position: relative;
 }
 
-.approachContent {
-    padding-bottom: var(--vertical-space-section);
-}
-
 .approachContentLast {
     font-size: var(--font-size-small);
     text-align: right;
+    margin-top: -100px;
 }

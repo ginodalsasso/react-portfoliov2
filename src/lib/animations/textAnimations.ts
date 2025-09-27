@@ -60,7 +60,9 @@ export function wordRevealAnimation(
         childSelector = "[data-word-reveal]",
         stagger = 0.06,
         duration = 0.6,
-        ease = "power3.out"
+        ease = "power3.out",
+        initialY = 20,
+        initialOpacity = 0,
     } = opts;
 
     // Determine the container and target selector based on the type of 'target'
@@ -73,7 +75,7 @@ export function wordRevealAnimation(
         targets.forEach((element) => {
             const split = new SplitText(element, { type: "words" });
 
-            gsap.set(split.words, { opacity: 0.2, y: 20 });
+            gsap.set(split.words, { opacity: initialOpacity, y: initialY });
 
             gsap.to(split.words, {
                 opacity: 1,

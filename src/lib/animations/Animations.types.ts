@@ -30,6 +30,8 @@ export type WordRevealOptions = {
     stagger?: number;
     duration?: number;
     ease?: string;
+    initialY?: number;
+    initialOpacity?: number;
 };
 
 export type CharsRevealOptions= {

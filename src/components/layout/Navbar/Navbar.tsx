@@ -14,6 +14,9 @@ export default function Navbar() {
 
         const wordCleanup = wordRevealAnimation(nav, {
             childSelector: "[data-word-reveal]",
+            stagger: 0.2,
+            duration: 0,
+            ease: "none",
         });
 
         return () => {

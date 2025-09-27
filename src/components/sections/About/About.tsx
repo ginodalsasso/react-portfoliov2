@@ -8,9 +8,13 @@ export default function About() {
     useLayoutEffect(() => {
         const section = sectionRef.current;
         if (!section) return;
-        if(window.innerWidth < 768) return; // Skip animation on mobile
+        if (window.innerWidth < 768) return; // Skip animation on mobile
 
-        const textRevealCleanup = textRevealUpAnimation(section, { y: 0, x: 96 });
+        const textRevealCleanup = textRevealUpAnimation(section, {
+            childSelector: "[data-reveal]",
+            y: 0,
+            x: 96,
+        });
 
         return () => {
             textRevealCleanup();
@@ -25,21 +29,29 @@ export default function About() {
             ref={sectionRef}
         >
             <header>
-                <h2 className="section-title">[ about me ]</h2>
+                <h2 className="section-title" data-reveal>
+                    [ about me ]
+                </h2>
             </header>
-            <div className="section-content" data-reveal-up>
+            <div className="section-content" data-reveal>
                 <p>Hello world!</p>
                 <p>
-                    Tech enthusiast since my teens, I started by building
-                    websites and forums before spending 17 years in carpentry,
-                    learning precision, patience, and teamwork.
+                    A <strong>tech enthusiast</strong> since my teens, I first
+                    built websites and forums before spending{" "}
+                    <em>17 years in carpentry</em>, honing precision and
+                    teamwork—my path wasn't linear.
                 </p>
                 <p>
-                    During a two-year stay in Australia, I gained adaptability
-                    and improved my English. But my passion for tech never truly
-                    faded. It led me to a full career shift: one year of
-                    intensive formal training, followed by two years of hands-on
-                    projects and self-learning driven by insatiable curiosity.
+                    A transformative stay in <strong>Australia</strong>{" "}
+                    reignited my dormant passion for technology.
+                </p>
+                <p>
+                    That spark became a flame: one year of intensive training,
+                    two years of relentless self-learning, and countless
+                    projects fueled by pure curiosity.
+                </p>
+                <p>
+                    Sometimes the best journeys take you full circle.
                 </p>
             </div>
         </section>
