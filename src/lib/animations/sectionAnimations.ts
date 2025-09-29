@@ -36,7 +36,6 @@ export function useLayeredAnimation() {
                 trigger: element,
                 start: () => `top top+=${offset}`,
                 end: "max",
-                // end: () => `+=${window.innerHeight * 2}`, // la section reste pin 2x la hauteur de l’écran 
                 pin: true,
                 pinSpacing: false,
                 anticipatePin: 1,

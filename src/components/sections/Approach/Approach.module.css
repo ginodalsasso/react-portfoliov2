@@ -6,10 +6,12 @@
     flex-direction: column;
     gap: var(--space-section-title-content);
     position: relative;
+        transition: transform 3s ease-out; /* Adoucit les mouvements */
+
 }
 
 .approachContentLast {
     font-size: var(--font-size-small);
     text-align: right;
-    margin-top: -100px;
+    margin-top: -200px;
 }
