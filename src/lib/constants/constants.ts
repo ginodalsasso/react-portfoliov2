@@ -1,6 +1,13 @@
 import gituhubIcon from "../../assets/icons/github.svg";
 import tuttoPastaIcon from "../../assets/icons/tuttoPasta.svg";
 
+
+export const BREAKPOINTS = {
+    mobile: "(max-width: 767px)",
+    desktop: "(min-width: 768px)",
+    reducedMotion: "(prefers-reduced-motion: reduce)",
+} as const;
+
 export type LinkItem = {
     title: string;
     path: string;
@@ -11,14 +18,14 @@ export const navLinks: LinkItem[] = [
     { title: "projects", path: "#projects" },
     { title: "approach", path: "#approach" },
     { title: "goals", path: "#goals" },
-];
+] as const;
 
 export type Project = {
     id: number;
     icon?: string,
     title: string;
     description: string;
-    href?: string ; 
+    href?: string;
     tags?: string[];
 };
 
@@ -88,6 +95,4 @@ export const projects: Project[] = [
         
     
     
-];
-
-export const WINDOWS_INNER_WIDTH = 768;
+] as const;

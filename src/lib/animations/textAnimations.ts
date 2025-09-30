@@ -1,7 +1,11 @@
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { SplitText } from "gsap/SplitText";
-import type { CharsRevealOptions, TextRevealOptions, WordRevealOptions } from "./Animations.types";
+import type {
+    CharsRevealOptions,
+    TextRevealOptions,
+    WordRevealOptions,
+} from "./utils/Animations.types";
 
 gsap.registerPlugin(SplitText, ScrollTrigger);
 
@@ -28,9 +32,9 @@ export function textRevealUpAnimation(
         targets.forEach((element) => {
             gsap.fromTo(
                 element,
-                { 
+                {
                     y: 0,
-                    x: 0
+                    x: 0,
                 },
                 {
                     y: -y,
@@ -53,7 +57,7 @@ export function textRevealUpAnimation(
 
 // Word Reveal Animation giving whether a reference to a container or a selector string
 export function wordRevealAnimation(
-    target : HTMLElement | string,
+    target: HTMLElement | string,
     opts: WordRevealOptions = {}
 ) {
     const {
@@ -132,4 +136,4 @@ export function charsRevealAnimation(
     };
 
     return cleanup; // Return cleanup function for useEffect
-};
+}

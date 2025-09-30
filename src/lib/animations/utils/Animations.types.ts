@@ -1,3 +1,9 @@
+export type ResponsiveConditions = {
+    isMobile: boolean;
+    isDesktop: boolean;
+    isReducedMotion: boolean;
+};
+
 export type projectsAnimationsScrollType = {
     pinRef: React.RefObject<HTMLElement | null>;
     trackRef: React.RefObject<HTMLUListElement | null>;

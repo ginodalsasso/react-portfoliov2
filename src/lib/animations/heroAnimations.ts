@@ -2,9 +2,8 @@ import { gsap } from "gsap";
 import { TextPlugin } from "gsap/TextPlugin";
 import { SplitText } from "gsap/SplitText";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import type { ButtonAnimationType } from "./Animations.types";
+import type { ButtonAnimationType } from "./utils/Animations.types";
 import React from "react";
-import { WINDOWS_INNER_WIDTH } from "../constants/constants";
 
 gsap.registerPlugin(TextPlugin, SplitText, ScrollTrigger);
 
@@ -83,11 +82,6 @@ export function heroButtonAnimations({ buttonRef, setVariant }: ButtonAnimationT
 
     // Setup section observer for variant changes
     const observer = setupSectionObserver(setVariant);
-
-    // Early return for mobile
-    if (window.innerWidth < WINDOWS_INNER_WIDTH) {
-        return () => observer.disconnect();
-    }
 
     // Create scroll trigger for desktop
     const button = buttonRef.current;
