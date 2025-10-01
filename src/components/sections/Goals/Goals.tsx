@@ -6,6 +6,7 @@ import {
     textRevealUpAnimation,
     wordRevealAnimation,
 } from "../../../lib/animations/textAnimations";
+import { withResponsive } from "../../../lib/animations/utils/withResponsive";
 
 export default function Goals() {
     const sectionRef = useLayeredAnimation(); // use of layered pin animation hook
@@ -14,18 +15,23 @@ export default function Goals() {
         const section = sectionRef.current;
         if (!section) return;
 
-        const textRevealCleanup = textRevealUpAnimation(section, {
-            childSelector: "[data-reveal-up]",
-            y: 250,
-        });
-        const wordCleanup = wordRevealAnimation(section, {
-            childSelector: "[data-word-reveal]",
-        });
+        const cleanup = withResponsive(({ isMobile, isReducedMotion }) => {
+            if (isReducedMotion) return () => {}; // Skip animations if reduced motion is preferred
 
-        return () => {
-            textRevealCleanup();
-            wordCleanup();
-        };
+            const textRevealCleanup = textRevealUpAnimation(section, {
+                childSelector: "[data-reveal-up]",
+                y: isMobile ? 250 : 50,
+            });
+            const wordCleanup = wordRevealAnimation(section, {
+                childSelector: "[data-word-reveal]",
+            });
+
+            return () => {
+                textRevealCleanup();
+                wordCleanup();
+            };
+        });
+        return cleanup;
     }, [sectionRef]);
 
     return (

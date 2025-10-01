@@ -1,3 +1,4 @@
+import { gsap } from "gsap";
 import { BREAKPOINTS } from "../../constants/constants";
 import type { ResponsiveConditions } from "./Animations.types";
 
