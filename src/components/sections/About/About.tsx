@@ -1,6 +1,7 @@
 import { useLayoutEffect, useRef } from "react";
 import styles from "./About.module.css";
 import { textRevealUpAnimation } from "../../../lib/animations/textAnimations";
+import { withResponsive } from "../../../lib/animations/utils/withResponsive";
 
 export default function About() {
     const sectionRef = useRef<HTMLElement | null>(null);
@@ -8,17 +9,21 @@ export default function About() {
     useLayoutEffect(() => {
         const section = sectionRef.current;
         if (!section) return;
-        if (window.innerWidth < 768) return; // Skip animation on mobile
 
-        const textRevealCleanup = textRevealUpAnimation(section, {
-            childSelector: "[data-reveal]",
-            y: 0,
-            x: 96,
+        const cleanup = withResponsive(({ isMobile, isReducedMotion }) => {
+            if (isReducedMotion) return () => {}; // Skip animations if reduced motion is preferred
+
+            const textRevealCleanup = textRevealUpAnimation(section, {
+                childSelector: "[data-reveal]",
+                y: isMobile ? 0 : 50,
+                x: isMobile ? 96 : 0,
+            });
+
+            return () => {
+                textRevealCleanup();
+            };
         });
-
-        return () => {
-            textRevealCleanup();
-        };
+        return cleanup;
     }, [sectionRef]);
 
     return (
@@ -50,9 +55,7 @@ export default function About() {
                     two years of relentless self-learning, and countless
                     projects fueled by pure curiosity.
                 </p>
-                <p>
-                    Sometimes the best journeys take you full circle.
-                </p>
+                <p>Sometimes the best journeys take you full circle.</p>
             </div>
         </section>
     );
