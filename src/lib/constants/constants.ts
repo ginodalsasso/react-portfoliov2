@@ -3,9 +3,9 @@ import tuttoPastaIcon from "../../assets/icons/tuttoPasta.svg";
 
 
 export const BREAKPOINTS = {
-    mobile: "(max-width: 767px)",
-    desktop: "(min-width: 768px)",
-    reducedMotion: "(prefers-reduced-motion: reduce)",
+    isMobile: "(max-width: 767px)",
+    isDesktop: "(min-width: 768px)",
+    isReducedMotion: "(prefers-reduced-motion: reduce)",
 } as const;
 
 export type LinkItem = {

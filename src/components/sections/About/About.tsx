@@ -15,8 +15,8 @@ export default function About() {
 
             const textRevealCleanup = textRevealUpAnimation(section, {
                 childSelector: "[data-reveal]",
-                y: isMobile ? 0 : 50,
-                x: isMobile ? 96 : 0,
+                y: isMobile ? 50 : 0,
+                x: isMobile ? 0 : 96,
             });
 
             return () => {

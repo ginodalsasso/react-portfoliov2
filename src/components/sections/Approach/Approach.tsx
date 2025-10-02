@@ -20,8 +20,10 @@ export default function Approach() {
 
             const textRevealCleanup = textRevealUpAnimation(section, {
                 childSelector: "[data-reveal-up]",
-                y: isMobile ? 120 : 50,
+                y: isMobile ? 50 : 120,
             });
+
+            console.log("isMobile:", isMobile);
             const wordCleanup = wordRevealAnimation(section, {
                 childSelector: "[data-word-reveal]",
             });
