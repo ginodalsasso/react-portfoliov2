@@ -33,8 +33,7 @@ function setupSectionObserver(
             const sectionBg = getComputedStyle(visibleSection.target).backgroundColor;
             const sameBg = sectionBg === accentColor;
             setVariant(sameBg ? "secondary" : "primary");
-        },
-        { threshold: 0.3 }
+        }
     );
 
     // Observe all sections
@@ -76,7 +75,11 @@ function createButtonScrollTrigger(
     });
 }
 
-export function heroButtonAnimations({ buttonRef, setVariant }: ButtonAnimationType) {
+export function heroButtonAnimations({ 
+    buttonRef, 
+    setVariant, 
+    enableScrollTrigger = true,
+}: ButtonAnimationType): (() => void) {
     const navbarHeight = getNavbarHeight();
     if (!navbarHeight) return () => {}; 
 
@@ -85,7 +88,8 @@ export function heroButtonAnimations({ buttonRef, setVariant }: ButtonAnimationT
 
     // Create scroll trigger for desktop
     const button = buttonRef.current;
-    if (!button) return () => observer.disconnect();
+    if (!button || !enableScrollTrigger) 
+        return () => observer.disconnect();
 
     const trigger = createButtonScrollTrigger(button, navbarHeight);
 

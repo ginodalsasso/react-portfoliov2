@@ -129,7 +129,7 @@
     .projectsSection {
         gap: var(--space-section-title-content);
     }
-
+    
     .projectsWrapper {
         flex-direction: column;
     }
@@ -149,6 +149,7 @@
     }
 
     .projectHeader h3:before {
+        margin-right: 1rem;
         margin-bottom: unset;
     }
 

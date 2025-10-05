@@ -8,3 +8,9 @@
     gap: var(--space-section-title-content);
     position: relative;
 }
+
+@media screen and (max-width: 768px) {
+    .goalsSection {
+        padding-top: calc(var(--vertical-space-section) / 2);
+    }
+}

@@ -48,13 +48,12 @@
 
 @media screen and (max-width: 768px) {
     .heroContent {
-        flex-direction: column;
         gap: 1rem;
     }
 
     .heroTitle {
-        white-space: normal;  /* Permet au texte de passer à la ligne */
-        word-break: break-word; /* Permet au texte de passer à la ligne si nécessaire */
+        white-space: normal;
+        word-break: break-word;
     }
 
     .buttonContainer {

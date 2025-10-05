@@ -14,6 +14,7 @@ export type projectsAnimationsScrollType = {
 export type ButtonAnimationType = {
     buttonRef: React.RefObject<HTMLDivElement | null>;
     setVariant: React.Dispatch<React.SetStateAction<"primary" | "secondary">>;
+    enableScrollTrigger?: boolean;
 };
 
 export type UseLayeredPinType = {

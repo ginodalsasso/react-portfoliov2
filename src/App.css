@@ -27,14 +27,11 @@
 
     
     /*  Spacing variables */
-    --horizontal-padding-layout: 2rem;
+    --horizontal-padding-layout: clamp(1rem, 2vw, 2rem);
     --vertical-space-section: clamp(10rem, 20vw, 24rem);
     --padding-button: 0.5rem 0.75rem;
-    --space-section-title-content: clamp(
-        1rem,
-        4vw,
-        2rem
-        ); /* Space between section title and content */
+    --space-section-title-content: clamp(1rem, 4vw, 2rem
+); /* Space between section title and content */
 
 
     --letter-spacing: -0.07rem;
@@ -90,4 +87,14 @@ a {
 
 .layered-animation {
     height: 500vh;
+}
+
+@media screen and (max-width: 768px) {
+    .section-content {
+        padding-bottom: calc(var(--vertical-space-section) / 2);
+    }   
+
+    .layered-animation {
+        height: 300vh;
+    }
 }

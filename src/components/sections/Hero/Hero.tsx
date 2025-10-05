@@ -14,22 +14,21 @@ export default function Hero() {
 
     const buttonRef = useRef<HTMLDivElement>(null);
     useLayoutEffect(() => {
-        const cleanup = withResponsive(({ isDesktop, isReducedMotion }) => {
+        const cleanup = withResponsive(({ isDesktop, isMobile, isReducedMotion }) => {
             if (isReducedMotion) return () => {}; // Skip animations if reduced motion is preferred
 
-            if (isDesktop) {
-                const heroButtonCleanup = heroButtonAnimations({
-                    buttonRef,
-                    setVariant,
-                });
+            const heroButtonCleanup = heroButtonAnimations({
+                buttonRef,
+                setVariant,
+                enableScrollTrigger: isDesktop && !isMobile,
+            });
 
-                const charsCleanup = charsRevealAnimation(".split");
+            const charsCleanup = charsRevealAnimation(".split");
 
-                return () => {
-                    if (heroButtonCleanup) heroButtonCleanup();
-                    charsCleanup();
-                };
-            }
+            return () => {
+                heroButtonCleanup();
+                charsCleanup?.();
+            };
         });
         return cleanup;
     }, []);
@@ -39,7 +38,7 @@ export default function Hero() {
             <div className={styles.heroContent}>
                 <header>
                     <h1 id="hero-title" className={`${styles.heroTitle} split`}>
-                        Hi, I’m Gino, <br /> full-stack developer <br /> From
+                        Hi, I’m Gino, <br /> full-stack developer <br /> from
                         France to NZ
                     </h1>
                 </header>

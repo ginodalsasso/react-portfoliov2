@@ -95,7 +95,7 @@
     outline: 1px solid var(--accent-color);
 }
 
-@media (min-width: 769px) {
+@media screen and (min-width: 769px) {
     .BurgerMenu {
         display: none;
     }
