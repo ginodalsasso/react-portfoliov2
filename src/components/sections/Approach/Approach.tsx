@@ -23,7 +23,6 @@ export default function Approach() {
                 y: isMobile ? 50 : 120,
             });
 
-            console.log("isMobile:", isMobile);
             const wordCleanup = wordRevealAnimation(section, {
                 childSelector: "[data-word-reveal]",
             });

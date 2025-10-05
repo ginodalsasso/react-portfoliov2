@@ -78,7 +78,7 @@ function createButtonScrollTrigger(
 
 export function heroButtonAnimations({ buttonRef, setVariant }: ButtonAnimationType) {
     const navbarHeight = getNavbarHeight();
-    if (!navbarHeight) return;
+    if (!navbarHeight) return () => {}; 
 
     // Setup section observer for variant changes
     const observer = setupSectionObserver(setVariant);
@@ -90,8 +90,10 @@ export function heroButtonAnimations({ buttonRef, setVariant }: ButtonAnimationT
     const trigger = createButtonScrollTrigger(button, navbarHeight);
 
     // Cleanup function
-    return () => {
+    const cleanup = () => {
         trigger.kill();
         observer.disconnect();
     };
+    
+    return cleanup;
 }
