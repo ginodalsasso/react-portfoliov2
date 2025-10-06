@@ -15,14 +15,14 @@ export default function Goals() {
         const section = sectionRef.current;
         if (!section) return;
 
-        const cleanup = withResponsive(({ isMobile, isReducedMotion }) => {
+        const cleanup = withResponsive(async ({ isMobile, isReducedMotion }) => {
             if (isReducedMotion) return () => {}; // Skip animations if reduced motion is preferred
 
-            const textRevealCleanup = textRevealUpAnimation(section, {
+            const textRevealCleanup = await textRevealUpAnimation(section, {
                 childSelector: "[data-reveal-up]",
                 y: isMobile ? 40 : 150,
             });
-            const wordCleanup = wordRevealAnimation(section, {
+            const wordCleanup = await wordRevealAnimation(section, {
                 childSelector: "[data-word-reveal]",
             });
 

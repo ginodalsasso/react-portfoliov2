@@ -14,7 +14,7 @@ export default function Hero() {
 
     const buttonRef = useRef<HTMLDivElement>(null);
     useLayoutEffect(() => {
-        const cleanup = withResponsive(({ isDesktop, isMobile, isReducedMotion }) => {
+        const cleanup = withResponsive(async ({ isDesktop, isMobile, isReducedMotion }) => {
             if (isReducedMotion) return () => {}; // Skip animations if reduced motion is preferred
 
             const heroButtonCleanup = heroButtonAnimations({
@@ -23,7 +23,7 @@ export default function Hero() {
                 enableScrollTrigger: isDesktop && !isMobile,
             });
 
-            const charsCleanup = charsRevealAnimation(".split");
+            const charsCleanup = await charsRevealAnimation(".split");
 
             return () => {
                 heroButtonCleanup();

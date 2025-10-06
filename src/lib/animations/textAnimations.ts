@@ -6,13 +6,16 @@ import type {
     TextRevealOptions,
     WordRevealOptions,
 } from "./utils/Animations.types";
+import { ensureFontsReady } from "./utils/ensureFontsReady";
 
 gsap.registerPlugin(SplitText, ScrollTrigger);
 
-export function textRevealUpAnimation(
+export async function textRevealUpAnimation(
     target: HTMLElement | string,
     opts: TextRevealOptions = {}
 ) {
+    await ensureFontsReady();
+    
     const {
         childSelector = "[data-reveal-up]",
         x = 0,
@@ -56,10 +59,12 @@ export function textRevealUpAnimation(
 }
 
 // Word Reveal Animation giving whether a reference to a container or a selector string
-export function wordRevealAnimation(
+export async function wordRevealAnimation(
     target: HTMLElement | string,
     opts: WordRevealOptions = {}
 ) {
+    await ensureFontsReady();
+
     const {
         childSelector = "[data-word-reveal]",
         stagger = 0.06,
@@ -77,6 +82,7 @@ export function wordRevealAnimation(
         const targets = container.querySelectorAll(targetSelector);
 
         targets.forEach((element) => {
+
             const split = new SplitText(element, { type: "words" });
 
             gsap.set(split.words, { opacity: initialOpacity, y: initialY });
@@ -100,10 +106,12 @@ export function wordRevealAnimation(
 }
 
 // ________ TEXT ANIMATIONS __________
-export function charsRevealAnimation(
+export async function charsRevealAnimation(
     selector: string,
     opts: CharsRevealOptions = {}
 ) {
+    await ensureFontsReady();
+    
     const {
         ease = "none",
         duration = 0.05,

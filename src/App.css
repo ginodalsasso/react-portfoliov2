@@ -1,18 +1,12 @@
 @font-face {
-    font-family: "Helvetica light";
-    src: url("src/lib/fonts/HelveticaNeue-Light.woff2") format("woff2");
-}
-@font-face {
     font-family: "Helvetica roman";
-    src: url("src/lib/fonts/HelveticaNeue-Roman.woff2") format("woff2");
+    src: url("/fonts/HelveticaNeue-Roman.woff2") format("woff2");
+    font-display: swap;
 }
 @font-face {
     font-family: "Helvetica medium";
-    src: url("src/lib/fonts/HelveticaNeue-Medium.woff2") format("woff2");
-}
-@font-face {
-    font-family: "Helvetica bold";
-    src: url("src/lib/fonts/HelveticaNeue-Bold.woff2") format("woff2");
+    src: url("/fonts/HelveticaNeue-Medium.woff2") format("woff2");
+    font-display: swap;
 }
 
 :root {
@@ -34,7 +28,7 @@
 ); /* Space between section title and content */
 
 
-    --letter-spacing: -0.07rem;
+    --letter-spacing: -0.05rem;
     --global-line-height: 1;
 }
 
@@ -45,7 +39,7 @@
 }
 
 body {
-    font-family: "Helvetica medium", Arial, sans-serif;
+    font-family: "Helvetica medium", "Inter", "Roboto", sans-serif;
     color: var(--black-color);
     background-color: var(--white-color);
     overflow-x: hidden;
