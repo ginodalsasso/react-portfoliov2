@@ -7,7 +7,6 @@
 .nav {
     display: flex;
     flex-direction: column-reverse;
-
 }
 
 .navLinks {
@@ -47,5 +46,15 @@
     &:hover,
     &:focus {
         font-weight: unset;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .nav a:first-of-type {
+        align-self: end;
+    }
+
+    .footerInfo {
+        margin-top: 0.5rem;
     }
 }

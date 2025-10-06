@@ -119,7 +119,6 @@
 }
 
 .tag {
-    background-color: var(--white-color);
     color: var(--black-color);
     padding: 0.25rem 0.5rem;
     font-size: var(--font-size-small);

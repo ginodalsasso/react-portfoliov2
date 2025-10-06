@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import styles from "./BurgerMenu.module.css";
-import { Link } from "react-router-dom";
 import type { LinkItem } from "../../../../lib/constants/constants";
 
 export default function BurgerMenu({ navLinks }: { navLinks: LinkItem[] }) {
@@ -23,7 +22,7 @@ export default function BurgerMenu({ navLinks }: { navLinks: LinkItem[] }) {
                 className={styles.burgerButton}
                 aria-expanded={open}
                 aria-controls="mobile-menu"
-                aria-label={open ? "Fermer le menu" : "Ouvrir le menu"}
+                aria-label={open ? "Close menu" : "Open menu"}
                 onClick={() => setOpen((v) => !v)}
             >
                 <span
@@ -44,9 +43,9 @@ export default function BurgerMenu({ navLinks }: { navLinks: LinkItem[] }) {
                 <ul className={styles.navLinks}>
                     {navLinks.map((link) => (
                         <li key={link.title}>
-                            <Link to={link.path} onClick={() => setOpen(false)}>
+                            <a href={link.path} onClick={() => setOpen(false)}>
                                 {link.title}
-                            </Link>
+                            </a>
                         </li>
                     ))}
                 </ul>

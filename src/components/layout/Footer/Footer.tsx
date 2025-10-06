@@ -14,7 +14,7 @@ export default function Footer() {
                 <Logo size={36} bgColor="white" roundColor="black" />
             </div>
             <nav aria-label="Footer Navigation" className={styles.nav}>
-                <FullLogo fontSize="clamp(10rem, 30vw, 18rem)" />
+                <FullLogo fontSize="clamp(11rem, 30vw, 18rem)" />
                 <ul className={styles.navLinks}>
                     <li><Link target="_blank" to="https://github.com/ginodalsasso">[ github ]</Link></li>
                     <li><Link target="_blank" to="https://linkedin.com/in/gino-dalsasso">[ linkedin ]</Link></li>
