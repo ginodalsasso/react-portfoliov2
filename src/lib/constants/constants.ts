@@ -1,14 +1,19 @@
 import gituhubIcon from "../../assets/icons/github.svg";
 import tuttoPastaIcon from "../../assets/icons/tuttoPasta.svg";
 
-
+/**
+ * Media query breakpoints for responsive design.
+ */
 export const BREAKPOINTS = {
     isMobile: "(max-width: 767px)",
     isDesktop: "(min-width: 768px)",
     isReducedMotion: "(prefers-reduced-motion: reduce)",
 } as const;
 
-export type LinkItem = {
+/**
+ * Navigation links.
+ */
+type LinkItem = {
     title: string;
     path: string;
 };
@@ -20,7 +25,10 @@ export const navLinks: LinkItem[] = [
     { title: "goals", path: "#goals" },
 ] as const;
 
-export type Project = {
+/**
+ * Project details.
+ */
+type Project = {
     id: number;
     icon?: string,
     title: string;
@@ -92,7 +100,4 @@ export const projects: Project[] = [
         href: "https://github.com/ginodalsasso/react-portfolio",
         tags: ["React", "Three.js", "JavaScript", "Tailwind"],
     },
-        
-    
-    
 ] as const;

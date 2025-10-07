@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://gino-dalsasso.com/sitemap.xml
+
+Disallow: /src/
+Disallow: /node_modules/
+Disallow: /*.json$
