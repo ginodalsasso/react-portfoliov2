@@ -1,9 +1,7 @@
-import { Link } from "react-router-dom";
 import styles from "./Projects.module.css";
 import { projects } from "../../../lib/constants/constants";
 import { useLayoutEffect, useRef, useState } from "react";
 import { projectsAnimationsScroll } from "../../../lib/animations/projectsAnimations";
-// import gituhubIcon from "../../../assets/icons/github.svg";
 
 export default function Projects() {
     const [currentProjectIndex, setCurrentProjectIndex] = useState(0);
@@ -43,15 +41,15 @@ export default function Projects() {
                                 <header className={styles.projectHeader}>
                                     <h3 id={`project-header-${project.id}`}>
                                         {project.href ? (
-                                            <Link to={project.href}>{project.title}</Link>
+                                            <a href={project.href}>{project.title}</a>
                                         ) : (
                                             <span>{project.title}</span>
                                         )}
                                     </h3>
                                     {project.icon && project.href && (
-                                        <Link to={project.href} target="_blank" rel="noopener noreferrer">
+                                        <a href={project.href} target="_blank" rel="noopener noreferrer">
                                             <img src={project.icon} className={styles.githubIcon} alt="link icon" />
-                                        </Link>
+                                        </a>
                                     )}
                                 </header>
                                 {project.tags && (

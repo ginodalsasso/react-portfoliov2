@@ -1,28 +1,40 @@
-import { BrowserRouter } from "react-router-dom";
+import { lazy, Suspense } from "react";
 import "./App.css";
 import Navbar from "./components/layout/Navbar/Navbar";
-import Hero from "./components/sections/Hero/Hero";
-import About from "./components/sections/About/About";
-import Approach from "./components/sections/Approach/Approach";
-import Goals from "./components/sections/Goals/Goals";
-import Footer from "./components/layout/Footer/Footer";
-import Projects from "./components/sections/Projects/Projects";
+import Loader from "./components/layout/ui/Loader/Loader";
+
+// Lazy loading for performance optimization
+const Hero = lazy(() => import("./components/sections/Hero/Hero"));
+const About = lazy(() => import("./components/sections/About/About"));
+const Projects = lazy(() => import("./components/sections/Projects/Projects"));
+const Approach = lazy(() => import("./components/sections/Approach/Approach"));
+const Goals = lazy(() => import("./components/sections/Goals/Goals"));
+const Footer = lazy(() => import("./components/layout/Footer/Footer"));
 
 function App() {
-
     return (
         <>
-            <BrowserRouter>
-                <Navbar />
-                    <main className="main-content">
-                        <Hero />
-                        <About />
-                        <Projects />
-                        <Approach />
-                        <Goals />
-                    </main>
+            <Navbar />
+            <main className="main-content">
+                <Suspense fallback={<Loader />}>
+                    <Hero />
+                </Suspense>
+                <Suspense fallback={<Loader />}>
+                    <About />
+                </Suspense>
+                <Suspense fallback={<Loader />}>
+                    <Projects />
+                </Suspense>
+                <Suspense fallback={<Loader />}>
+                    <Approach />
+                </Suspense>
+                <Suspense fallback={<Loader />}>
+                    <Goals />
+                </Suspense>
+                <Suspense fallback={<Loader />}>
                     <Footer />
-            </BrowserRouter>
+                </Suspense>
+            </main>
         </>
     );
 }

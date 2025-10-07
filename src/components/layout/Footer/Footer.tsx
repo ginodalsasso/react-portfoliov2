@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import FullLogo from "../ui/Logo/FullLogo";
 import styles from "./Footer.module.css";
 import Button from "../ui/Button/Button";
@@ -16,10 +15,10 @@ export default function Footer() {
             <nav aria-label="Footer Navigation" className={styles.nav}>
                 <FullLogo fontSize="clamp(11rem, 30vw, 18rem)" />
                 <ul className={styles.navLinks}>
-                    <li><Link target="_blank" to="https://github.com/ginodalsasso">[ github ]</Link></li>
-                    <li><Link target="_blank" to="https://linkedin.com/in/gino-dalsasso">[ linkedin ]</Link></li>
+                    <li><a target="_blank" href="https://github.com/ginodalsasso">[ github ]</a></li>
+                    <li><a target="_blank" href="https://linkedin.com/in/gino-dalsasso">[ linkedin ]</a></li>
                     <li>
-                        <Link to="/assets/cv.pdf" target="_blank">
+                        <a href="/assets/cv.pdf" target="_blank">
                             <Button
                                 aria-label="Download my CV"
                                 variant="secondary"
@@ -27,7 +26,7 @@ export default function Footer() {
                             >
                                 my resume
                             </Button>
-                        </Link>
+                        </a>
                     </li>
                 </ul>
             </nav>

@@ -1,0 +1,41 @@
+.wrapper {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.loader {
+    width: 20%;
+    height: 4.8px;
+    display: inline-block;
+    position: relative;
+    background: #ffffff;
+    overflow: hidden;
+}
+.loader::after {
+    content: "";
+    box-sizing: border-box;
+    width: 0;
+    height: 4.8px;
+    background: var(--accent-color);
+    position: absolute;
+    top: 0;
+    left: 0;
+    animation: waitingBar 0.4s linear infinite;
+}
+
+@keyframes waitingBar {
+    0% {
+        width: 0;
+    }
+    100% {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .loader {
+        width: 40%;
+    }
+}

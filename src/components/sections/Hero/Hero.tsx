@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import { useLayoutEffect, useRef, useState } from "react";
 import styles from "./Hero.module.css";
 import Button from "../../layout/ui/Button/Button";
@@ -48,9 +47,9 @@ export default function Hero() {
                         variant={variant}
                         size="medium"
                     >
-                        <Link to="mailto:dalsasso.gino@gmail.com">
+                        <a href="mailto:dalsasso.gino@gmail.com">
                             dalsasso.gino@gmail.com
-                        </Link>
+                        </a>
                     </Button>
                 </div>
                 <span aria-hidden="true" className={styles.heroBackground}>

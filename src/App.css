@@ -55,6 +55,10 @@ a {
     position: relative;
 }
 
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
 .section-title {
     font-family: "Helvetica roman";
     font-size: var(--font-size-small);
@@ -79,9 +83,19 @@ a {
     transform: translate(-50%, -100%);
 }
 
+/** animation rules */
 .layered-animation {
     height: 500vh;
 }
+
+[data-reveal],
+[data-reveal-up],
+[data-word-reveal],
+.split {
+    will-change: transform, opacity;
+}
+
+
 
 @media screen and (max-width: 768px) {
     .section-content {
