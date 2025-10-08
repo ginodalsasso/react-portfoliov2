@@ -39,7 +39,7 @@
 }
 
 body {
-    font-family: "Helvetica medium", "Inter", "Roboto", sans-serif;
+    font-family: "Helvetica roman", "Inter", "Roboto", sans-serif;
     color: var(--black-color);
     background-color: var(--white-color);
     overflow-x: hidden;

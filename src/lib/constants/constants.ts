@@ -13,7 +13,7 @@ export const BREAKPOINTS = {
 /**
  * Navigation links.
  */
-type LinkItem = {
+export type LinkItem = {
     title: string;
     path: string;
 };
@@ -28,7 +28,7 @@ export const navLinks: LinkItem[] = [
 /**
  * Project details.
  */
-type Project = {
+export type Project = {
     id: number;
     icon?: string,
     title: string;

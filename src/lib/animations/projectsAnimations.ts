@@ -27,7 +27,7 @@ function buildTimeline(
             trigger: pin, // section to pin to the viewport
             pin: true, // pin the section
             anticipatePin: 1,
-            scrub: 1, // smooth scrubbing, takes 1 second to catch up
+            scrub: 1.5, // smooth scrubbing, takes 1 second to catch up
             snap: 1 / (panels.length - 1), // snap to the closest panel
             end: () => "+=" + totalDistance,
             invalidateOnRefresh: true,

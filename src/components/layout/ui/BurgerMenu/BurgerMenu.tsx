@@ -37,7 +37,7 @@ export default function BurgerMenu({ navLinks }: { navLinks: LinkItem[] }) {
 
             <nav
                 id="mobile-menu"
-                className={`${styles.menu} ${open ? styles.open : ""}`}
+                className={`${styles.menu} ${open ? styles.open : styles.closed}`}
                 aria-hidden={!open}
             >
                 <ul className={styles.navLinks}>

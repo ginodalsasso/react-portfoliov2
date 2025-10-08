@@ -61,20 +61,24 @@
     background: var(--white-color);
     color: var(--black-color);
     border-right: 1px solid var(--black-color);
-    opacity: 0;
-    transform: translateX(-250px);
+    transform: translateX(-100%);
     transition: transform 0.4s ease;
-    pointer-events: none;
     z-index: 999;
+    pointer-events: none;
 
     display: grid;
     grid-template-rows: 1fr;
+    will-change: transform, opacity;
 }
 
-.open {
-    opacity: 1;
-    transform: none;
+.menu.open {
+    transform: translateX(0);
     pointer-events: auto;
+}
+
+.menu.closing {
+    transform: translateX(-100%);
+    pointer-events: none;
 }
 
 .navLinks {
@@ -86,6 +90,7 @@
     place-content: center;
 }
 .navLinks a {
+    font-family: "Helvetica medium", sans-serif;
     font-size: var(--font-size-xlarge);
     color: var(--black-color);
     text-decoration: none;

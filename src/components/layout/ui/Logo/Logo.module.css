@@ -28,6 +28,7 @@
 .logoText {
     font-weight: bold;
     color: var(--black-color);
+    font-family: "Helvetica medium";
 }
 
 .accent {

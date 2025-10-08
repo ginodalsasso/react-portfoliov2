@@ -17,6 +17,7 @@
 }
 
 .navLinks li a {
+    font-family: "Helvetica medium", sans-serif;
     font-size: var(--font-size-medium);
     letter-spacing: var(--letter-spacing);
 
