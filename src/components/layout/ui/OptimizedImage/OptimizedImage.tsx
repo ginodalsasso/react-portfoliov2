@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 
 interface OptimizedImageProps {
-    src: string;
+    src?: string;
     alt: string;
     className?: string;
     width?: number;

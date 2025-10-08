@@ -2,6 +2,7 @@ import styles from "./Projects.module.css";
 import { projects } from "../../../lib/constants/constants";
 import { useLayoutEffect, useRef, useState } from "react";
 import { projectsAnimationsScroll } from "../../../lib/animations/projectsAnimations";
+import OptimizedImage from "../../layout/ui/OptimizedImage/OptimizedImage";
 
 export default function Projects() {
     const [currentProjectIndex, setCurrentProjectIndex] = useState(0);
@@ -52,12 +53,13 @@ export default function Projects() {
                                         </a>
                                     )}
                                 </header>
+                                <OptimizedImage src={project.image} alt={project.title} />
                                 {project.tags && (
                                     <ul className={styles.tagList}>
                                         {project.tags.map((tag: string) => (
                                             <li
-                                                key={`${project.id}-${tag}`}
-                                                className={styles.tag}
+                                            key={`${project.id}-${tag}`}
+                                            className={styles.tag}
                                             >
                                                 {tag}
                                             </li>
