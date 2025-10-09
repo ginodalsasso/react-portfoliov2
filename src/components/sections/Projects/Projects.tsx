@@ -29,10 +29,12 @@ export default function Projects() {
 
             <div className={styles.projectsWrapper}>
                 {/* Displaying ID project */}
-                <div className={styles.projectNumber}>
-                    {projects[currentProjectIndex]?.id.toString()}
+                <div className={styles.projectInfo}>
+                    <div className={styles.projectNumber}>
+                        {projects[currentProjectIndex]?.id.toString()}
+                    </div>
+                    <p className={styles.projectDescription}>{projects[currentProjectIndex]?.description}</p>
                 </div>
-                <p className={styles.projectDescription}>{projects[currentProjectIndex]?.description}</p>
 
                 {/* List of all projects */}
                 <ul ref={trackRef} className={styles.projectList}>
@@ -49,23 +51,25 @@ export default function Projects() {
                                     </h3>
                                     {project.icon && project.href && (
                                         <a href={project.href} target="_blank" rel="noopener noreferrer">
-                                            <img src={project.icon} className={styles.githubIcon} alt="link icon" />
+                                            <OptimizedImage src={project.icon} className={styles.githubIcon} alt="link icon" />
                                         </a>
                                     )}
                                 </header>
-                                <OptimizedImage src={project.image} alt={project.title} />
-                                {project.tags && (
-                                    <ul className={styles.tagList}>
-                                        {project.tags.map((tag: string) => (
-                                            <li
-                                            key={`${project.id}-${tag}`}
-                                            className={styles.tag}
-                                            >
-                                                {tag}
-                                            </li>
-                                        ))}
-                                    </ul>
-                                )}
+                                <div className={styles.projectImageWrapper}>
+                                    <OptimizedImage src={project.image} alt={project.title} />
+                                    {project.tags && (
+                                        <ul className={styles.tagList}>
+                                            {project.tags.map((tag: string) => (
+                                                <li
+                                                key={`${project.id}-${tag}`}
+                                                className={styles.tag}
+                                                >
+                                                    {tag}
+                                                </li>
+                                            ))}
+                                        </ul>
+                                    )}
+                                </div>
                             </article>
                         </li>
                     ))}

@@ -10,7 +10,7 @@
 }
 
 :root {
-    --white-color: rgb(217, 217, 217);
+    --white-color: rgb(235, 235, 235);
     --black-color: rgb(20, 20, 20);
     --accent-color: rgb(255, 71, 20);
 
@@ -66,7 +66,6 @@ a {
 
 .section-content {
     max-width: 1000px;
-    padding-bottom: var(--vertical-space-section);
 }
 
 .section-content p {
