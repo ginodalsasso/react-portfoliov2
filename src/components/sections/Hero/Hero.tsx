@@ -6,6 +6,9 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { charsRevealAnimation } from "../../../lib/animations/textAnimations";
 import { withResponsive } from "../../../lib/animations/utils/withResponsive";
+import heroImage from "../../../assets/img/Rectangle.webp";
+import OptimizedImage from "../../layout/ui/OptimizedImage/OptimizedImage";
+
 gsap.registerPlugin(ScrollTrigger);
 
 export default function Hero() {
@@ -13,22 +16,24 @@ export default function Hero() {
 
     const buttonRef = useRef<HTMLDivElement>(null);
     useLayoutEffect(() => {
-        const cleanup = withResponsive(async ({ isDesktop, isMobile, isReducedMotion }) => {
-            if (isReducedMotion) return () => {}; // Skip animations if reduced motion is preferred
+        const cleanup = withResponsive(
+            async ({ isDesktop, isMobile, isReducedMotion }) => {
+                if (isReducedMotion) return () => {}; // Skip animations if reduced motion is preferred
 
-            const heroButtonCleanup = heroButtonAnimations({
-                buttonRef,
-                setVariant,
-                enableScrollTrigger: isDesktop && !isMobile,
-            });
+                const heroButtonCleanup = heroButtonAnimations({
+                    buttonRef,
+                    setVariant,
+                    enableScrollTrigger: isDesktop && !isMobile,
+                });
 
-            const charsCleanup = await charsRevealAnimation(".split");
+                const charsCleanup = await charsRevealAnimation(".split");
 
-            return () => {
-                heroButtonCleanup();
-                charsCleanup?.();
-            };
-        });
+                return () => {
+                    heroButtonCleanup();
+                    charsCleanup?.();
+                };
+            }
+        );
         return cleanup;
     }, []);
 
@@ -41,16 +46,23 @@ export default function Hero() {
                         France to NZ
                     </h1>
                 </header>
-                <div ref={buttonRef} className={styles.buttonContainer}>
-                    <Button
-                        aria-label="Contact me"
-                        variant={variant}
-                        size="medium"
-                    >
-                        <a href="mailto:dalsasso.gino@gmail.com">
-                            dalsasso.gino@gmail.com
-                        </a>
-                    </Button>
+                <div className={styles.heroMedia}>
+                    <OptimizedImage
+                        src={heroImage}
+                        alt="hero image"
+                        className={styles.heroImage}
+                    />
+                    <div ref={buttonRef} className={styles.buttonContainer}>
+                        <Button
+                            aria-label="Contact me"
+                            variant={variant}
+                            size="medium"
+                        >
+                            <a href="mailto:dalsasso.gino@gmail.com">
+                                dalsasso.gino@gmail.com
+                            </a>
+                        </Button>
+                    </div>
                 </div>
                 <span aria-hidden="true" className={styles.heroBackground}>
                     full-stack
