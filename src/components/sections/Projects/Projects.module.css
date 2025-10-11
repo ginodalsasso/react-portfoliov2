@@ -30,9 +30,10 @@
 
 .projectDescription {
     font-size: var(--font-size-medium);
-    position: static;
-    padding: 1rem 1.25rem;
-    max-width: 500px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 500px;
 }
 
 .projectList {

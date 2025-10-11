@@ -51,6 +51,8 @@ export default function Hero() {
                         src={heroImage}
                         alt="hero image"
                         className={styles.heroImage}
+                        loading="eager"
+                        priority={true}
                     />
                     <div ref={buttonRef} className={styles.buttonContainer}>
                         <Button
