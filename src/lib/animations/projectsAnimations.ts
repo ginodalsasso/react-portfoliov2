@@ -35,12 +35,12 @@ function buildTimeline(
                 // Calculate which project is currently visible
                 const progress = self.progress;
                 const currentIndex = Math.round(progress * (panels.length - 1));
-                
+
                 // Call the callback to update the current project index
                 if (onProjectChange) {
                     onProjectChange(currentIndex);
                 }
-            }
+            },
         },
     });
 
@@ -48,19 +48,22 @@ function buildTimeline(
     panels.forEach((panel, index) => {
         if (index === 0) return; // Skip the first panel
 
-        timeline.to(panel, { 
-            xPercent: 0,
-        }, ">"); // slide in the next panel
+        timeline.to(
+            panel,
+            {
+                xPercent: 0,
+            },
+        ); // slide in the next panel
     });
 
     return timeline;
 }
 
-export function projectsAnimationsScroll({ 
-    pinRef, 
+export function projectsAnimationsScroll({
+    pinRef,
     trackRef,
     pannelSelector,
-    onProjectChange 
+    onProjectChange,
 }: projectsAnimationsScrollType) {
     const pin = pinRef.current;
     const track = trackRef.current;
@@ -71,14 +74,15 @@ export function projectsAnimationsScroll({
     );
     if (!panels.length) return;
 
-
     const scrollSpeed = 1;
-    const totalDistance = Math.max(0, (panels.length - 1) * window.innerWidth * scrollSpeed); // total scroll distance with math max to avoid negative values
+    const totalDistance = Math.max(
+        0,
+        (panels.length - 1) * window.innerWidth * scrollSpeed
+    ); // total scroll distance with math max to avoid negative values
 
     setupInitialPanelStates(panels);
 
     const timeline = buildTimeline(pin, panels, totalDistance, onProjectChange);
-
 
     // Cleanup
     return () => {

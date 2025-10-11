@@ -1,13 +1,10 @@
 .heroSection {
-    /* height: 80svh; */
     padding-block: var(--vertical-space-section);
 }
 
 .heroContent {
     display: grid;
     grid-template-columns: 2fr 1fr;
-    /* justify-content: space-between; */
-    /* align-items: flex-end; */
     position: relative;
     padding-block: 4rem;
     padding-inline: var(--horizontal-padding-layout);
@@ -53,7 +50,6 @@
 }
 
 .buttonContainer {
-    /* align-self: flex-end; */
     z-index: 1000;
 }
 
@@ -65,7 +61,8 @@
 
 @media screen and (max-width: 768px) {
     .heroContent {
-        gap: 1rem;
+        grid-template-columns: 1fr;
+        gap: 3rem;
     }
 
     .heroTitle {
