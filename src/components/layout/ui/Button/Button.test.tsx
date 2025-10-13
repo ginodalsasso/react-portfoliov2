@@ -2,7 +2,6 @@ import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import Button from "./Button";
 import styles from "./Button.module.css";
-import { it } from "vitest";
 
 describe("Button component", () => {
     it("render children text", () => {
