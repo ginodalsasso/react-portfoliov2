@@ -1,0 +1,73 @@
+name: CD - Deploy to VPS
+
+# when this workflow should run
+on:
+  # Only when pushing to the main branch
+  push:
+    branches: [ main ]
+  # Allows manual triggering from the GitHub interface
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+# Ensure only one deployment to production runs at a time
+concurrency:
+  group: deploy-production
+  cancel-in-progress: true 
+
+jobs:
+  # Deploy job
+  deploy:
+    name: Deploy to VPS
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with: 
+          persist-credentials: false  # Disable GitHub token to avoid permission issues
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+      
+      - name: Install dependencies
+        run: npm ci
+      
+      - name: Build application
+        run: npm run build
+      
+      - name: Deploy to OVH via FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          port: ${{ secrets.FTP_PORT }}
+          protocol: ftps
+          
+          local-dir: ./dist/
+          server-dir: ${{ secrets.FTP_SERVER_DIR }} # ex: /www/react-portfolio
+
+        
+      - name: Notify deployment success
+        if: success()
+        run: |
+          echo "================================"
+          echo "✅  Deployment succeeded !"
+          echo "Date: $(date '+%Y-%m-%d %H:%M:%S')"
+          echo "Commit: ${{ github.event.head_commit.message }}"
+          echo "================================"
+      
+      - name: Notify deployment failure
+        if: failure()
+        run: |
+          echo "================================"
+          echo "❌  Deployment failed !"
+          echo "Date: $(date '+%Y-%m-%d %H:%M:%S')"
+          echo "Commit: ${{ github.event.head_commit.message }}"
+          echo "================================"
+          exit 1
