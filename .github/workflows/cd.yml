@@ -19,7 +19,7 @@ concurrency:
 jobs:
   # Deploy job
   deploy:
-    name: Deploy to VPS
+    name: Deploy
     runs-on: ubuntu-latest
     
     steps:
@@ -41,18 +41,16 @@ jobs:
         run: npm run build
       
       - name: Deploy to OVH via FTP
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        uses: appleboy/scp-action@v0.1.5
         with:
-          server: ${{ secrets.FTP_SERVER }}
+          host: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
           port: ${{ secrets.FTP_PORT }}
-          protocol: ftps
-          
-          local-dir: ./dist/
-          server-dir: ${{ secrets.FTP_SERVER_DIR }} # ex: /www/react-portfolio
+          source: ./dist/
+          target: ${{ secrets.FTP_SERVER_DIR }} # ex: /www/react-portfolio
+          overwrite: true # overwrite files in the target directory
 
-        
       - name: Notify deployment success
         if: success()
         run: |
