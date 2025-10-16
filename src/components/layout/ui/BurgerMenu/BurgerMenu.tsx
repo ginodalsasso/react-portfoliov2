@@ -18,9 +18,11 @@ export default function BurgerMenu({ navLinks }: { navLinks: LinkItem[] }) {
     return (
         <div className={styles.BurgerMenu}>
             <button
+                id="burger-button"
                 type="button"
                 className={styles.burgerButton}
                 aria-expanded={open}
+                aria-hidden={false}
                 aria-controls="mobile-menu"
                 aria-label={open ? "Close menu" : "Open menu"}
                 onClick={() => setOpen((v) => !v)}
@@ -36,8 +38,10 @@ export default function BurgerMenu({ navLinks }: { navLinks: LinkItem[] }) {
             </button>
 
             <nav
-                id="mobile-menu"
+                id="mobile-nav"
+                data-testid="mobile-nav"
                 className={`${styles.menu} ${open ? styles.open : styles.closed}`}
+                role="navigation"
                 aria-hidden={!open}
             >
                 <ul className={styles.navLinks}>
