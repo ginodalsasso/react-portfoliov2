@@ -1,6 +1,6 @@
 .aboutSection {
     padding-top: var(--vertical-space-section);
-    padding-bottom: calc(var(--vertical-space-section) / 2);
+    padding-bottom: calc(var(--vertical-space-section));
     padding-inline: var(--horizontal-padding-layout);
     display: flex;
     gap: var(--space-section-title-content);

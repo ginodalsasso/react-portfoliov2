@@ -1,0 +1,21 @@
+.backToTopButton {
+    position: sticky;
+    bottom: 2rem;
+    left: 2rem;
+    border: none;
+    background-color: var(--white-color);
+    font-size: var(--font-size-medium);
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+
+    &:hover {
+        transform: translateY(0.25rem);
+        background-color: var(--black-color);
+        color: var(--white-color);
+    }
+}

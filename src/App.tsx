@@ -2,6 +2,7 @@ import { lazy, Suspense } from "react";
 import "./App.css";
 import Navbar from "./components/layout/Navbar/Navbar";
 import Loader from "./components/layout/ui/Loader/Loader";
+import BackToTop from "./components/layout/ui/BackToTop/BackToTop";
 
 // Lazy loading for performance optimization
 const Hero = lazy(() => import("./components/sections/Hero/Hero"));
@@ -34,6 +35,7 @@ function App() {
                 <Suspense fallback={<Loader />}>
                     <Footer />
                 </Suspense>
+                <BackToTop />
             </main>
         </>
     );
