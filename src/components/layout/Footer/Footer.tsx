@@ -13,7 +13,7 @@ export default function Footer() {
                 <Logo size={36} bgColor="white" roundColor="black" />
             </div>
             <nav aria-label="Footer Navigation" className={styles.nav}>
-                <FullLogo fontSize="clamp(11rem, 30vw, 18rem)" />
+                <FullLogo className={styles.fullLogo} />
                 <ul className={styles.navLinks}>
                     <li><a target="_blank" href="https://github.com/ginodalsasso">[ github ]</a></li>
                     <li><a target="_blank" href="https://linkedin.com/in/gino-dalsasso">[ linkedin ]</a></li>
@@ -30,12 +30,12 @@ export default function Footer() {
                     </li>
                 </ul>
             </nav>
-            <span className={styles.footerInfo}>
+            <div className={styles.footerInfo}>
                 &copy; 2025, designed by&nbsp;
                 <a href="https://www.studiotuttopasta.com/" target="_blank" rel="noopener noreferrer">
                     Romane
                 </a>
-            </span>
+            </div>
         </footer>
     );
 }

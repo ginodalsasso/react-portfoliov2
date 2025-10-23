@@ -12,7 +12,7 @@ export default function Navbar() {
             aria-label="Main Navigation"
             className={`navbar ${styles.navbar}`}
         >
-            <FullLogo />
+            <FullLogo className={styles.fullLogo} />
             <ul className={styles.navLinks}>
                 {navLinks.map((link) => (
                     <li key={link.title} data-testid={`nav-link-${link.title}`}>

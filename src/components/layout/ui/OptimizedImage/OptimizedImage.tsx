@@ -4,8 +4,8 @@ interface OptimizedImageProps {
     src?: string;
     alt: string;
     className?: string;
-    width?: number;
-    height?: number;
+    width?: string | number;
+    height?: string | number;
     loading?: "lazy" | "eager";
     priority?: boolean;
 }

@@ -1,7 +1,7 @@
 .footer {
     background-color: var(--white-color);
     padding-inline: var(--horizontal-padding-layout);
-    padding-top: calc(var(--vertical-space-section));
+    padding-top: calc(var(--vertical-space-section) / 2);
 }
 
 .nav {
@@ -32,6 +32,7 @@
     }
 }
 
+
 .footerInfo {
     font-size: var(--font-size-small);
     color: var(--grey-color);
@@ -51,10 +52,14 @@
 
 @media screen and (max-width: 768px) {
     .nav a:first-of-type {
-        align-self: end;
+        text-align: end;
+    }
+    
+    .fullLogo {
+        width: 100%;
     }
 
     .footerInfo {
-        margin-top: 0.5rem;
+        margin-top: -2rem;
     }
 }

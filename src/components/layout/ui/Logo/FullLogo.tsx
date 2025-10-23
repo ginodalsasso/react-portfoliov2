@@ -1,21 +1,17 @@
-import styles from "./Logo.module.css";
-import Logo from "../Logo/Logo";
 import type { FullLogoProps } from "./Logo.types";
 import type { JSX } from "react";
+import OptimizedImage from "../OptimizedImage/OptimizedImage";
 
-export default function FullLogo({ href = "/", fontSize = "2rem" }: FullLogoProps) {
+export default function FullLogo({ href = "/", className }: FullLogoProps) {
     const Wrapper = href ? 'a' : 'div' as keyof JSX.IntrinsicElements;
 
     return (
         <Wrapper
-            className={styles.logoContainer}
-            style={{ fontSize }}
             { ...href ? { href } : {} }
             role={href ? "link" : 'img'} // Use 'img' role if not a link
             aria-label="Full Logo"
         >
-            <span className={styles.logoText}>gin</span>
-            <Logo size="0.55em" />
+            <OptimizedImage className={className} src="/logo.svg" alt="Full Logo" loading="eager" />
         </Wrapper>
     );
 }   

@@ -8,5 +8,5 @@ export interface LogoProps {
 
 export interface FullLogoProps {
     href?: string;
-    fontSize?: string;
+    className?: string;
 }
