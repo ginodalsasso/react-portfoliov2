@@ -1,4 +1,4 @@
-import { githubIcon, tuttoPastaIcon } from "../../assets/icons";
+import { githubIcon, tuttoPastaIcon, auxArmesAlsaceIcon } from "../../assets/icons";
 import { bigMeal, illerShop, tuttoPasta, portfolioV1, studioTuttoPasta } from "../../assets/img";
 
 /**
@@ -92,12 +92,20 @@ export const projects: Project[] = [
         tags: ["PHP", "CSS", "MySQL"],
     },
     {
-        id: 7,        
+        id: 7,
+        icon: auxArmesAlsaceIcon,
+        title: "Aux Armes d’Alsace",
+        description: "Worked on the front-end integration and technical adjustments of the e-commerce website, specializing in the sale of collectible firearms within WordPress and WooCommerce environments.",
+        href: "https://auxarmesdalsace.fr/",
+        tags: ["WordPress", "PHP", "JavaScript", "CSS", "WooCommerce"],
+    },
+    {
+        id: 8,        
         icon: githubIcon,
         title: "Portfolio v1",
         description: "My first portfolio website, built with React and Three.js to showcase my projects and skills with a 3D interactive experience.",
         image: portfolioV1,
         href: "https://github.com/ginodalsasso/react-portfolio",
         tags: ["React", "Three.js", "JavaScript", "Tailwind"],
-    },
+    }
 ] as const;
