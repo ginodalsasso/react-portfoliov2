@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import styles from "./BurgerMenu.module.css";
 import type { LinkItem } from "../../../../lib/constants/constants";
+import Button from "../Button/Button";
 
 export default function BurgerMenu({ navLinks }: { navLinks: LinkItem[] }) {
     const [open, setOpen] = useState(false);
@@ -52,6 +53,15 @@ export default function BurgerMenu({ navLinks }: { navLinks: LinkItem[] }) {
                             </a>
                         </li>
                     ))}
+                    <a className={styles.resumeLink} href="/assets/cv.pdf" target="_blank">
+                        <Button
+                            aria-label="Download my CV"
+                            variant="secondary"
+                            size="small"
+                        >
+                            my resume
+                        </Button>
+                    </a>
                 </ul>
             </nav>
         </div>

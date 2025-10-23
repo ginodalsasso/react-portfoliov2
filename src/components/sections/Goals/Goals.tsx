@@ -20,7 +20,7 @@ export default function Goals() {
 
             const textRevealCleanup = await textRevealUpAnimation(section, {
                 childSelector: "[data-reveal-up]",
-                y: isMobile ? 40 : 150,
+                y: isMobile ? 40 : 300,
             });
             const wordCleanup = await wordRevealAnimation(section, {
                 childSelector: "[data-word-reveal]",

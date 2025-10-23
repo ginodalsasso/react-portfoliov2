@@ -1,6 +1,6 @@
 .approachSection {
     background-color: var(--accent-color);
-    padding-top: var(--vertical-space-section);
+    padding-top: calc(var(--vertical-space-section) * 1.2);
     padding-inline: var(--horizontal-padding-layout);
     display: flex;
     flex-direction: column;
@@ -11,7 +11,6 @@
 .approachContentLast {
     font-size: var(--font-size-small);
     text-align: right;
-    margin-top: -200px;
 }
 
 @media screen and (max-width: 768px) {

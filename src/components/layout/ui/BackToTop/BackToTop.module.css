@@ -1,12 +1,11 @@
 .backToTopButton {
     position: sticky;
-    bottom: 2rem;
-    left: 2rem;
+    bottom: 1rem;
+    left: 1rem;
     border: none;
     background-color: var(--white-color);
     font-size: var(--font-size-medium);
-    width: 2rem;
-    height: 2rem;
+    padding: var(--padding-button);
     display: flex;
     align-items: center;
     justify-content: center;
