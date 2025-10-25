@@ -66,6 +66,7 @@
 .projectImageWrapper {
     position: relative;
     overflow: hidden;
+    content-visibility: auto; /* optimize rendering performance */
 }
 
 .projectImageWrapper img {
