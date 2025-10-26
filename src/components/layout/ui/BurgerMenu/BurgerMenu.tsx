@@ -23,10 +23,10 @@ export default function BurgerMenu({ navLinks }: { navLinks: LinkItem[] }) {
                 type="button"
                 className={styles.burgerButton}
                 aria-expanded={open}
-                aria-hidden={false}
-                aria-controls="mobile-menu"
+                aria-controls="mobile-nav"
                 aria-label={open ? "Close menu" : "Open menu"}
                 onClick={() => setOpen((v) => !v)}
+                data-testid="burger-button"
             >
                 <span
                     aria-hidden="true"
@@ -53,7 +53,13 @@ export default function BurgerMenu({ navLinks }: { navLinks: LinkItem[] }) {
                             </a>
                         </li>
                     ))}
-                    <a className={styles.resumeLink} href="/assets/cv.pdf" target="_blank">
+                    <a 
+                        className={styles.resumeLink} 
+                        href="/assets/cv.pdf" 
+                        target="_blank"
+                        rel="noreferrer"
+                        onClick={() => setOpen(false)}
+                    >
                         <Button
                             aria-label="Download my CV"
                             variant="secondary"

@@ -13,7 +13,7 @@ describe("BurgerMenu component", () => {
     it("render nav links", async () => {
         render(<BurgerMenu navLinks={navLinks} />);
         for (const link of navLinks) {
-            const burgerButton = screen.getByRole("button");
+            const burgerButton = screen.getByTestId("burger-button");
             await userEvent.click(burgerButton);
             expect(screen.getByText(link.title)).toBeInTheDocument();
         }
@@ -28,7 +28,7 @@ describe("BurgerMenu component", () => {
 
     it("open and close menu on button click", async () => {
         render(<BurgerMenu navLinks={[]} />);
-        const burgerButton = screen.getByRole("button");
+        const burgerButton = screen.getByTestId("burger-button");
         const menu = screen.getByTestId("mobile-nav");
 
         await userEvent.click(burgerButton);
@@ -75,7 +75,7 @@ describe("BurgerMenu component", () => {
         const burgerButton = screen.getByRole("button");
 
         expect(burgerButton).toHaveAttribute("aria-expanded", "false");
-        expect(burgerButton).toHaveAttribute("aria-controls", "mobile-menu");
+        expect(burgerButton).toHaveAttribute("aria-controls", "mobile-nav");
         expect(burgerButton).toHaveAttribute("aria-label", "Open menu");
 
         await userEvent.click(burgerButton);
