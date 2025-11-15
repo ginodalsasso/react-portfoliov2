@@ -1,5 +1,5 @@
 import { githubIcon, tuttoPastaIcon, auxArmesAlsaceIcon } from "../../assets/icons";
-import { bigMeal, illerShop, tuttoPasta, portfolioV1, studioTuttoPasta } from "../../assets/img";
+import { bigMeal, illerShop, tuttoPasta, portfolioV1, studioTuttoPasta, reactboilerplate, mycliTool, mvcFramework, aaa, myGithub } from "../../assets/img";
 
 /**
  * Media query breakpoints for responsive design.
@@ -53,7 +53,7 @@ export const projects: Project[] = [
         icon: githubIcon,
         title: "React.Net Boilerplate",
         description: "Fullstack boilerplate with ASP.NET Core 8 and React, featuring secure authentication, 2FA, email confirmation and Google login.",
-        image: portfolioV1,
+        image: reactboilerplate,
         href: "https://github.com/ginodalsasso/aspNet-react-auth",
         tags: ["ASP.NET", "React", "TypeScript", "CSS", "Entity Framework"],
     },
@@ -68,6 +68,15 @@ export const projects: Project[] = [
     },
     {
         id: 4,
+        icon: githubIcon,
+        title: "My-cli tool",
+        description: "A CLI tool to store and quickly reuse my React components and JavaScript utility functions.",
+        image: mycliTool,
+        href: "https://github.com/ginodalsasso/react-toolkit",
+        tags: ["Node.js", "JavaScript", "TypeScript"],
+    },
+    {
+        id: 5,
         icon: tuttoPastaIcon,
         title: "Studio TuttoPasta",
         description: "Creative portfolio website for a web designer, built with Webflow and enhanced with GSAP animations for dynamic user interactions.",
@@ -76,36 +85,45 @@ export const projects: Project[] = [
         tags: ["Webflow", "GSAP"],
     },
     {
-        id: 5,
+        id: 6,
         title: "Iller shop",
         description: "Designed and developed an order management web application for restaurateurs, handling full-stack development, collaborating with a supervisor for database integration and ensuring code quality.",
         image: illerShop,
         tags: ["PHP", "MySQL", "CSS", "Jquery", "PWA"],
     },
     {
-        id: 6,
+        id: 7,
         icon: githubIcon,
         title: "MVC Framework",
         description: "A lightweight PHP MVC framework built as a learning project to understand Model-View-Controller architecture, featuring custom routing, template system, and command-line tools for rapid development.",
-        image: portfolioV1,
+        image: mvcFramework,
         href: "https://github.com/ginodalsasso/mvc-framework",
         tags: ["PHP", "CSS", "MySQL"],
     },
     {
-        id: 7,
+        id: 8,
         icon: auxArmesAlsaceIcon,
         title: "Aux Armes d’Alsace",
         description: "Worked on the front-end integration and technical adjustments of the e-commerce website, specializing in the sale of collectible firearms within WordPress and WooCommerce environments.",
+        image: aaa,
         href: "https://auxarmesdalsace.fr/",
         tags: ["WordPress", "PHP", "JavaScript", "CSS", "WooCommerce"],
     },
     {
-        id: 8,        
+        id: 9,        
         icon: githubIcon,
         title: "Portfolio v1",
         description: "My first portfolio website, built with React and Three.js to showcase my projects and skills with a 3D interactive experience.",
         image: portfolioV1,
         href: "https://github.com/ginodalsasso/react-portfolio",
         tags: ["React", "Three.js", "JavaScript", "Tailwind"],
+    },
+    {
+        id: 10,        
+        icon: githubIcon,
+        title: "My GitHub",
+        description: "See more cool projects on my GitHub profile.",
+        image: myGithub,
+        href: "https://github.com/ginodalsasso/",
     }
 ] as const;
