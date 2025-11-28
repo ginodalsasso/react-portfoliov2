@@ -6,14 +6,15 @@ import BackToTop from "./components/layout/ui/BackToTop/BackToTop";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { gsap } from "gsap";
 
-gsap.registerPlugin(ScrollTrigger);
 
-ScrollTrigger.config({
-    limitCallbacks: true, // Limit the number of callbacks
-    ignoreMobileResize: true, // Ignore mobile resize events
-});
+if (typeof window !== "undefined" && typeof window.matchMedia === "function") {
+    gsap.registerPlugin(ScrollTrigger);
 
-// ScrollTrigger.normalizeScroll(true);
+    ScrollTrigger.config({
+        limitCallbacks: true,
+        ignoreMobileResize: true,
+    });
+}
 
 // Lazy loading for performance optimization
 const Hero = lazy(() => import("./components/sections/Hero/Hero"));
