@@ -3,6 +3,17 @@ import "./App.css";
 import Navbar from "./components/layout/Navbar/Navbar";
 import Loader from "./components/layout/ui/Loader/Loader";
 import BackToTop from "./components/layout/ui/BackToTop/BackToTop";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { gsap } from "gsap";
+
+gsap.registerPlugin(ScrollTrigger);
+
+ScrollTrigger.config({
+    limitCallbacks: true, // Limit the number of callbacks
+    ignoreMobileResize: true, // Ignore mobile resize events
+});
+
+// ScrollTrigger.normalizeScroll(true);
 
 // Lazy loading for performance optimization
 const Hero = lazy(() => import("./components/sections/Hero/Hero"));

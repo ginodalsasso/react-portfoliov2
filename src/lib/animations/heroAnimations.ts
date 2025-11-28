@@ -60,16 +60,18 @@ function createButtonScrollTrigger(
                 { y: 10 }, // start position
                 { 
                     y: 0, 
-                    duration: 0.8, 
-                    ease: "power4.out" 
+                    duration: 0.5, 
+                    ease: "power2.out",
+                    force3D: true,
                 } // animate to original position
             );
         },
         onLeaveBack: () => {
             gsap.to(buttonElement, {
                 y: 10,
-                duration: 0.8,
-                ease: "power4.in",
+                duration: 0.5,
+                ease: "power2.in",
+                force3D: true,
             });
         }, 
     });

@@ -28,9 +28,8 @@ function buildTimeline(
             pin: true, // pin the section
             anticipatePin: 1,
             scrub: 1.5, // smooth scrubbing, takes 1 second to catch up
-            snap: 1 / (panels.length - 1), // snap to the closest panel
             end: () => "+=" + totalDistance,
-            invalidateOnRefresh: true,
+            invalidateOnRefresh: false,
             onUpdate: (self) => {
                 // Calculate which project is currently visible
                 const progress = self.progress;
@@ -52,6 +51,7 @@ function buildTimeline(
             panel,
             {
                 xPercent: 0,
+                force3D: true, // improve performance
             },
         ); // slide in the next panel
     });
@@ -77,7 +77,7 @@ export function projectsAnimationsScroll({
     const scrollSpeed = 0.7;
     const totalDistance = Math.max(
         0,
-        (panels.length - 1) * window.innerWidth * scrollSpeed
+        (panels.length - 1) * window.innerWidth * scrollSpeed + 404
     ); // total scroll distance with math max to avoid negative values
 
     setupInitialPanelStates(panels);

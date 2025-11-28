@@ -7,8 +7,10 @@ import heroImage from "./Rectangle.webp";
 import aaa from "./aaa.webp";
 import mvcFramework from "./mvcFramework.webp";
 import mycliTool from "./my-cliTool.webp";
-import myGithub from "./myGitHub.webp";
+import myGithub from "./myGithub.webp";
 import reactboilerplate from "./reactboilerplate.webp";
+import profilePic1 from "./profile-pic1.webp";
+import profilePic2 from "./profile-pic2.webp";
 
 export { 
     bigMeal, 
@@ -22,4 +24,6 @@ export {
     mycliTool,
     myGithub,
     reactboilerplate,
+    profilePic1,
+    profilePic2,
 };

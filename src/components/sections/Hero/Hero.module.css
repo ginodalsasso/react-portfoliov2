@@ -31,6 +31,14 @@
     width: 100%;
     height: auto;
     border: 1px solid var(--black-color);
+    background: url();
+}
+
+.heroImage {
+    display: block;
+    width: 100%;
+    height: auto;
+    border: 1px solid var(--black-color);
 }
 
 .heroBackground {
@@ -63,6 +71,10 @@
     .heroContent {
         grid-template-columns: 1fr;
         gap: 3rem;
+    }
+
+    .heroImage {
+        max-width: 80vw;
     }
 
     .heroTitle {

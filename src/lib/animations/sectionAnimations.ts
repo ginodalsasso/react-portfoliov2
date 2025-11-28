@@ -39,19 +39,15 @@ export function useLayeredAnimation() {
                 pin: true,
                 pinSpacing: false,
                 anticipatePin: 1,
-                invalidateOnRefresh: true,
+                invalidateOnRefresh: false,
                 refreshPriority: -1,
-                scrub: 3,
+                scrub: 0.5,
             });
         });
-        
-        ScrollTrigger.refresh();
 
         return () => {
             ctx.revert();
-            ScrollTrigger.refresh();
         };
-
     }, []);
     
     return ref;
