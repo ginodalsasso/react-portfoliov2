@@ -71,6 +71,7 @@ export async function wordRevealAnimation(
         duration = 0.6,
         ease = "power3.out",
         initialY = 20,
+        initialX = 20,
         initialOpacity = 0,
     } = opts;
 
@@ -85,11 +86,12 @@ export async function wordRevealAnimation(
 
             const split = new SplitText(element, { type: "words" });
 
-            gsap.set(split.words, { opacity: initialOpacity, y: initialY });
+            gsap.set(split.words, { opacity: initialOpacity, y: initialY, x: initialX });
 
             gsap.to(split.words, {
                 opacity: 1,
                 y: 0,
+                x: 0,
                 duration,
                 stagger,
                 ease,

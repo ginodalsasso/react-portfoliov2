@@ -38,6 +38,7 @@ export type WordRevealOptions = {
     duration?: number;
     ease?: string;
     initialY?: number;
+    initialX?: number;
     initialOpacity?: number;
 };
 

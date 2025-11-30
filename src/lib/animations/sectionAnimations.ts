@@ -40,8 +40,7 @@ export function useLayeredAnimation() {
                 pinSpacing: false,
                 anticipatePin: 1,
                 invalidateOnRefresh: false,
-                refreshPriority: -1,
-                scrub: 0.5,
+                scrub: 2,
             });
         });
 

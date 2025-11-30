@@ -21,6 +21,8 @@ export default function Projects() {
         };
     }, []);
 
+    const numberOpacity = 0.25 - currentProjectIndex * 0.02;
+
     return (
         <section id="projects" ref={pinRef} className={styles.projectsSection}>
             <header>
@@ -30,8 +32,10 @@ export default function Projects() {
             <div className={styles.projectsWrapper}>
                 {/* Displaying ID project and description */}
                 <div className={styles.projectInfo}>
-                    <div className={styles.projectNumber}>
-                        {projects[currentProjectIndex]?.id.toString()}
+                    <div className={styles.projectNumber } style={{ opacity: numberOpacity }}>
+                        <span>
+                            {projects[currentProjectIndex]?.id.toString()}
+                        </span>
                     </div>
                     <p className={styles.projectDescription}>{projects[currentProjectIndex]?.description}</p>
                 </div>

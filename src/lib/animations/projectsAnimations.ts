@@ -26,6 +26,7 @@ function buildTimeline(
         scrollTrigger: {
             trigger: pin, // section to pin to the viewport
             pin: true, // pin the section
+            start: "top top",
             anticipatePin: 1,
             scrub: 1.5, // smooth scrubbing, takes 1 second to catch up
             end: () => "+=" + totalDistance,
@@ -47,13 +48,11 @@ function buildTimeline(
     panels.forEach((panel, index) => {
         if (index === 0) return; // Skip the first panel
 
-        timeline.to(
-            panel,
-            {
-                xPercent: 0,
-                force3D: true, // improve performance
-            },
-        ); // slide in the next panel
+        timeline.to(panel, {
+            xPercent: 0,
+            force3D: true, // improve performance
+            ease: "power2.inOut",
+        }); // slide in the next panel
     });
 
     return timeline;

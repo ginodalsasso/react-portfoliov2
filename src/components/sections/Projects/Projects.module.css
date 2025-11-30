@@ -10,9 +10,9 @@
 }
 
 .projectsWrapper {
+    padding-top: 3rem;
     display: flex;
     justify-content: space-between;
-    /* gap: 20%; */
 }
 
 .projectInfo {
@@ -23,9 +23,9 @@
     font-size: clamp(24rem, 27vw, 30rem);
     font-weight: bold;
     color: var(--black-color);
-    opacity: 0.03;
     pointer-events: none;
     user-select: none;
+    transition: opacity 0.3s ease-out;
 }
 
 .projectDescription {
@@ -82,7 +82,7 @@
 .tagList {
     position: absolute;
     left: 0.5rem;
-    bottom: 0.5rem;
+    top: 0.5rem;
     display: flex;
     flex-wrap: wrap;
     gap: 1rem;
@@ -92,7 +92,7 @@
     list-style: none;
     background-color: var(--black-color);
     color: var(--white-color);
-    padding: 0.25rem;
+    padding: 0 0.25rem;
     font-size: var(--font-size-small);
     user-select: none;
 }
@@ -103,6 +103,7 @@
     white-space: nowrap;
     padding: 0.5rem;
     font-weight: 100;
+    color: transparent;
 
     &:before {
         content: "";
@@ -143,12 +144,14 @@
 
 @media (max-width: 1024px) {
     .projectsSection {
+        padding-top: 80px;
         gap: var(--space-section-title-content);
     }
 
     .projectsWrapper {
         position: relative;
         flex-direction: column;
+        padding-top: unset;
     }
 
     .projectInfo {
@@ -161,7 +164,7 @@
     }
 
     .projectHeader {
-        border-right: none;
+        display: none;
     }
 
     .projectHeader h3 {

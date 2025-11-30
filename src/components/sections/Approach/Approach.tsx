@@ -20,7 +20,7 @@ export default function Approach() {
 
             const textRevealCleanup = await textRevealUpAnimation(section, {
                 childSelector: "[data-reveal-up]",
-                y: isMobile ? 40 : 350,
+                y: isMobile ? 40 : 250,
             });
 
             const wordCleanup = await wordRevealAnimation(section, {

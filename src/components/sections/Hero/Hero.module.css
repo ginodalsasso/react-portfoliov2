@@ -1,12 +1,12 @@
 .heroSection {
-    padding-block: var(--vertical-space-section);
+    padding-bottom: var(--vertical-space-section);
 }
 
 .heroContent {
     display: grid;
     grid-template-columns: 2fr 1fr;
     position: relative;
-    padding-block: 4rem;
+    padding-top: var(--horizontal-padding-layout);
     padding-inline: var(--horizontal-padding-layout);
 }
 
@@ -68,6 +68,11 @@
 }
 
 @media screen and (max-width: 768px) {
+    .heroSection {
+        padding-top: 1rem;
+        padding-bottom: unset;
+    }
+
     .heroContent {
         grid-template-columns: 1fr;
         gap: 3rem;
