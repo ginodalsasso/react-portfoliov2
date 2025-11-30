@@ -145,6 +145,7 @@
 @media (max-width: 1024px) {
     .projectsSection {
         padding-top: 80px;
+        padding-bottom: unset;
         gap: var(--space-section-title-content);
     }
 
@@ -178,7 +179,7 @@
     }
 
     .projectImageWrapper img {
-        aspect-ratio: 4 / 5;
+        object-fit: contain;
 
         &:hover {
             transform: scale(1.1);

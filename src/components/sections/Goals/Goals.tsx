@@ -2,7 +2,7 @@ import { useLayoutEffect } from "react";
 import { useLayeredAnimation } from "../../../lib/animations/sectionAnimations";
 import Logo from "../../layout/ui/Logo/Logo";
 import styles from "./Goals.module.css";
-import { wordRevealAnimation } from "../../../lib/animations/textAnimations";
+import { textRevealUpAnimation, wordRevealAnimation } from "../../../lib/animations/textAnimations";
 import { withResponsive } from "../../../lib/animations/utils/withResponsive";
 
 export default function Goals() {
@@ -12,13 +12,19 @@ export default function Goals() {
         const section = sectionRef.current;
         if (!section) return;
 
-        const cleanup = withResponsive(async ({ isReducedMotion }) => {
+        const cleanup = withResponsive(async ({ isMobile, isReducedMotion }) => {
             if (isReducedMotion) return () => {}; // Skip animations if reduced motion is preferred
+
+            const textRevealCleanup = await textRevealUpAnimation(section, {
+                childSelector: "[data-reveal-up]",
+                y: isMobile ? 40 : 300,
+            }); 
             const wordCleanup = await wordRevealAnimation(section, {
                 childSelector: "[data-word-reveal]",
             });
 
             return () => {
+                textRevealCleanup();
                 wordCleanup();
             };
         });
@@ -36,12 +42,12 @@ export default function Goals() {
                 <Logo size={36} bgColor="black" roundColor="accent" />
             </div>
             <header>
-                <h2 className="section-title">
+                <h2 className="section-title" data-reveal-up>
                     [ my goals in NZ ]
                 </h2>
             </header>
 
-            <div className="section-content" data-word-reveal>
+            <div className="section-content" data-word-reveal data-reveal-up>
                 <p>
                     <strong>New Zealand</strong> represents more than just a
                     professional opportunity for me—it's a place where I aspire

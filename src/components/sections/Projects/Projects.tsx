@@ -21,7 +21,7 @@ export default function Projects() {
         };
     }, []);
 
-    const numberOpacity = 0.25 - currentProjectIndex * 0.02;
+    const numberOpacity = 0.25 - currentProjectIndex * 0.03;
 
     return (
         <section id="projects" ref={pinRef} className={styles.projectsSection}>

@@ -29,7 +29,6 @@ function buildTimeline(
             start: "top top",
             scrub: 1,
             end: () => "+=" + totalDistance,
-            invalidateOnRefresh: true,
             onUpdate: (self) => {
                 // Calculate which project is currently visible
                 const progress = self.progress;

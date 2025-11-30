@@ -78,32 +78,28 @@ function createButtonScrollTrigger(
     });
 }
 
-export function heroButtonAnimations({ 
-    buttonRef, 
-    setVariant, 
+export function heroButtonAnimations({
+    buttonRef,
+    setVariant,
     enableScrollTrigger = true,
-}: ButtonAnimationType): (() => void) {
-    // Create scroll trigger for desktop
-    const button = buttonRef.current;
-    if (!button || !enableScrollTrigger) 
-        return () => {};
+}: ButtonAnimationType): () => void {
+    const navbarHeight = getNavbarHeight();
+    if (!navbarHeight) return () => {};
 
     // Setup section observer for variant changes
     const observer = setupSectionObserver(setVariant);
 
-    setTimeout(() => {
-        const navbarHeight = getNavbarHeight();
-        if (!navbarHeight) return () => {}; 
-        const trigger = createButtonScrollTrigger(button, navbarHeight);
+    // Create scroll trigger for desktop
+    const button = buttonRef.current;
+    if (!button || !enableScrollTrigger) return () => observer.disconnect();
 
-        // Cleanup function
-        return () => {
-            trigger.kill();
-            observer.disconnect();
-        };
-    }, 0);
-    
-    return () => {
+    const trigger = createButtonScrollTrigger(button, navbarHeight);
+
+    // Cleanup function
+    const cleanup = () => {
+        trigger.kill();
         observer.disconnect();
     };
+
+    return cleanup;
 }
