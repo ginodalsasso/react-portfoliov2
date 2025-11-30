@@ -58,7 +58,7 @@ export default function Projects() {
                                         </header>
                                         {/* Project Image & Tags */}
                                         <div className={styles.projectImageWrapper}>
-                                            <OptimizedImage src={project.image} alt={project.title} loading="lazy" />
+                                            <OptimizedImage src={project.image} alt={project.title} loading="eager" />
                                             {project.tags && (
                                                 <ul className={styles.tagList}>
                                                     {project.tags.map((tag: string) => (

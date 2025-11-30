@@ -54,6 +54,7 @@ function createButtonScrollTrigger(
         end: "+=99999", // keep active
         pin: true,
         anticipatePin: 1,
+        invalidateOnRefresh: true,
         onEnter: () => {
             gsap.fromTo(
                 buttonElement, // reference to the button element
@@ -82,24 +83,27 @@ export function heroButtonAnimations({
     setVariant, 
     enableScrollTrigger = true,
 }: ButtonAnimationType): (() => void) {
-    const navbarHeight = getNavbarHeight();
-    if (!navbarHeight) return () => {}; 
+    // Create scroll trigger for desktop
+    const button = buttonRef.current;
+    if (!button || !enableScrollTrigger) 
+        return () => {};
 
     // Setup section observer for variant changes
     const observer = setupSectionObserver(setVariant);
 
-    // Create scroll trigger for desktop
-    const button = buttonRef.current;
-    if (!button || !enableScrollTrigger) 
-        return () => observer.disconnect();
+    setTimeout(() => {
+        const navbarHeight = getNavbarHeight();
+        if (!navbarHeight) return () => {}; 
+        const trigger = createButtonScrollTrigger(button, navbarHeight);
 
-    const trigger = createButtonScrollTrigger(button, navbarHeight);
-
-    // Cleanup function
-    const cleanup = () => {
-        trigger.kill();
+        // Cleanup function
+        return () => {
+            trigger.kill();
+            observer.disconnect();
+        };
+    }, 0);
+    
+    return () => {
         observer.disconnect();
     };
-    
-    return cleanup;
 }

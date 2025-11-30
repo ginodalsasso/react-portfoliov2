@@ -27,10 +27,9 @@ function buildTimeline(
             trigger: pin, // section to pin to the viewport
             pin: true, // pin the section
             start: "top top",
-            anticipatePin: 1,
-            scrub: 1.5, // smooth scrubbing, takes 1 second to catch up
+            scrub: 1,
             end: () => "+=" + totalDistance,
-            invalidateOnRefresh: false,
+            invalidateOnRefresh: true,
             onUpdate: (self) => {
                 // Calculate which project is currently visible
                 const progress = self.progress;
@@ -51,7 +50,6 @@ function buildTimeline(
         timeline.to(panel, {
             xPercent: 0,
             force3D: true, // improve performance
-            ease: "power2.inOut",
         }); // slide in the next panel
     });
 

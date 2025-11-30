@@ -40,7 +40,7 @@
     list-style: none;
     position: relative;
     height: 60vh;
-    width: calc(50% + 1.25rem);
+    width: calc(50% + 2rem);
 }
 
 /* project list that contains all project items */

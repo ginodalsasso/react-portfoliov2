@@ -38,9 +38,7 @@ export function useLayeredAnimation() {
                 end: "max",
                 pin: true,
                 pinSpacing: false,
-                anticipatePin: 1,
-                invalidateOnRefresh: false,
-                scrub: 2,
+                invalidateOnRefresh: true,
             });
         });
 
