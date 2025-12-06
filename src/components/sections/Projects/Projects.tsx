@@ -53,12 +53,21 @@ export default function Projects() {
                                                 <span>{project.title}</span>
                                             </h3>
                                             {project.icon && (
-                                                <OptimizedImage src={project.icon} className={styles.githubIcon} alt="link icon" />
+                                                <OptimizedImage 
+                                                    src={project.icon} 
+                                                    className={styles.githubIcon} 
+                                                    alt="link icon" 
+                                                />
                                             )}
                                         </header>
                                         {/* Project Image & Tags */}
                                         <div className={styles.projectImageWrapper}>
-                                            <OptimizedImage src={project.image} alt={project.title} loading="eager" />
+                                            <OptimizedImage 
+                                                src={project.image} 
+                                                alt={project.title} 
+                                                loading="eager" 
+                                                priority={true}
+                                            />
                                             {project.tags && (
                                                 <ul className={styles.tagList}>
                                                     {project.tags.map((tag: string) => (

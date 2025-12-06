@@ -26,9 +26,11 @@ function buildTimeline(
         scrollTrigger: {
             trigger: pin, // section to pin to the viewport
             pin: true, // pin the section
-            start: "top top",
+            anticipatePin: 1,
             scrub: 1,
+            invalidateOnRefresh: true,
             end: () => "+=" + totalDistance,
+            // fastScrollEnd: true,
             onUpdate: (self) => {
                 // Calculate which project is currently visible
                 const progress = self.progress;

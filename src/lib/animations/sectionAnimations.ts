@@ -30,7 +30,7 @@ export function useLayeredAnimation() {
         const index = sections.indexOf(element);
         const { firstLayerStep, layerStep } = setupOffset();
         const offset = calculateOffset(index, firstLayerStep, layerStep);
-
+        
         const ctx = gsap.context(() => {
             ScrollTrigger.create({
                 trigger: element,
@@ -38,7 +38,10 @@ export function useLayeredAnimation() {
                 end: "max",
                 pin: true,
                 pinSpacing: false,
+                anticipatePin: 1,
                 invalidateOnRefresh: true,
+                refreshPriority: -1,
+                scrub: 1,
             });
         });
 
