@@ -1,6 +1,7 @@
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import type { projectsAnimationsScrollType } from "./utils/Animations.types";
+import { refreshGSAP, registerTrigger, unregisterTrigger } from "./utils/gsapManager";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -28,9 +29,9 @@ function buildTimeline(
             pin: true, // pin the section
             anticipatePin: 1,
             scrub: 1,
-            invalidateOnRefresh: true,
+            invalidateOnRefresh: false,
             end: () => "+=" + totalDistance,
-            // fastScrollEnd: true,
+            fastScrollEnd: true,
             onUpdate: (self) => {
                 // Calculate which project is currently visible
                 const progress = self.progress;
@@ -82,9 +83,18 @@ export function projectsAnimationsScroll({
 
     const timeline = buildTimeline(pin, panels, totalDistance, onProjectChange);
 
+    if (timeline.scrollTrigger) {
+        registerTrigger(timeline.scrollTrigger);
+    }
+
     // Cleanup
     return () => {
-        timeline.scrollTrigger?.kill();
+
+        if (timeline.scrollTrigger) {
+            unregisterTrigger(timeline.scrollTrigger);
+            timeline.scrollTrigger.kill();
+        }
         timeline.kill();
+        refreshGSAP();
     };
 }

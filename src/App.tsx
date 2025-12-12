@@ -1,4 +1,4 @@
-import { lazy, Suspense, useEffect, useState } from "react";
+import { lazy, Suspense } from "react";
 import "./App.css";
 import Navbar from "./components/layout/Navbar/Navbar";
 import Loader from "./components/layout/ui/Loader/Loader";
@@ -25,19 +25,8 @@ const Goals = lazy(() => import("./components/sections/Goals/Goals"));
 const Footer = lazy(() => import("./components/layout/Footer/Footer"));
 
 function App() {
-    const [isInitialLoadComplete, setIsInitialLoadComplete] = useState(false);
-
-    useEffect(() => {
-        const timer = setTimeout(() => {
-            setIsInitialLoadComplete(true);
-        }, 2000); // Simulate a 2-second loading time
-
-        return () => clearTimeout(timer);
-    }, []);
-
     return (
         <>
-            {!isInitialLoadComplete && <Loader />}
             <Navbar />
             <main className="main-content">
                 <Suspense fallback={<Loader />}>
