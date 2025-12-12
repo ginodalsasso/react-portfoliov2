@@ -10,7 +10,7 @@ export default function Footer() {
     return (
         <footer className={`${styles.footer} layered-animation`} ref={footerRef}>
             <div className="centered-section-logo">
-                <Logo size={36} bgColor="white" roundColor="black" />
+                <Logo size={40} bgColor="white" roundColor="black" />
             </div>
             <nav aria-label="Footer Navigation" className={styles.nav}>
                 <FullLogo className={styles.fullLogo} />

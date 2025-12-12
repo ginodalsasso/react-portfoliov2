@@ -5,7 +5,6 @@
 .heroContent {
     display: grid;
     grid-template-columns: 2fr 1fr;
-    position: relative;
     padding-top: var(--horizontal-padding-layout);
     padding-inline: var(--horizontal-padding-layout);
 }
@@ -15,6 +14,10 @@
     flex-direction: column;
     align-items: flex-end;
     gap: 1rem;
+}
+
+.heroHeader {
+    position: relative;
 }
 
 .heroTitle {
@@ -47,7 +50,7 @@
     left: 50%;
     transform: translate(-50%, -50%);
     font-weight: 900;
-    font-size: clamp(5rem, 18vw, 30rem);
+    font-size: clamp(4rem, 14vw, 26rem);
     line-height: 0.9;
     letter-spacing: -0.5rem;
     color: var(--black-color);

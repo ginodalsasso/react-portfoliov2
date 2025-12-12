@@ -116,8 +116,8 @@ export async function charsRevealAnimation(
     
     const {
         ease = "none",
-        duration = 0.05,
-        stagger = 0.08,
+        duration = 0.1,
+        stagger = 0.09,
         yoyo = true,
     } = opts;
 

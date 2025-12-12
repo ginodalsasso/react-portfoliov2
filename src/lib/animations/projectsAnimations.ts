@@ -89,7 +89,6 @@ export function projectsAnimationsScroll({
 
     // Cleanup
     return () => {
-
         if (timeline.scrollTrigger) {
             unregisterTrigger(timeline.scrollTrigger);
             timeline.scrollTrigger.kill();

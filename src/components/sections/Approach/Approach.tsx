@@ -20,7 +20,7 @@ export default function Approach() {
 
             const textRevealCleanup = await textRevealUpAnimation(section, {
                 childSelector: "[data-reveal-up]",
-                y: isMobile ? 40 : 250,
+                y: isMobile ? 40 : 300,
             });
 
             const wordCleanup = await wordRevealAnimation(section, {
@@ -43,7 +43,7 @@ export default function Approach() {
             ref={sectionRef}
         >
             <div className="centered-section-logo">
-                <Logo size={36} bgColor="accent" roundColor="white" />
+                <Logo size={40} bgColor="accent" roundColor="white" />
             </div>
             <header>
                 <h2 className="section-title" data-reveal-up>

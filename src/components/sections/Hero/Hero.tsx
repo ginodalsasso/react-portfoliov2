@@ -46,18 +46,24 @@ export default function Hero() {
     return (
         <section className={styles.heroSection} aria-labelledby="hero-title">
             <div className={styles.heroContent}>
-                <header>
+                <header className={styles.heroHeader}>
                     <h1 id="hero-title" className={`${styles.heroTitle} split`}>
                         Hi, I’m Gino, <br /> full-stack developer <br /> from
                         France to NZ
                     </h1>
+                    <span aria-hidden="true" className={styles.heroBackground}>
+                        full-stack
+                        <br />
+                        developer
+                    </span>
                 </header>
                 <div className={styles.heroMedia}>
                     <OptimizedImage
                         src={profilePic2}
                         alt="Portrait"
                         className={`${styles.heroImage} ${styles.img2}`}
-                        loading="lazy"
+                        loading="eager"
+                        priority={true}
                     />
                     <div ref={buttonRef} className={styles.buttonContainer}>
                         <Button
@@ -71,11 +77,6 @@ export default function Hero() {
                         </Button>
                     </div>
                 </div>
-                <span aria-hidden="true" className={styles.heroBackground}>
-                    full-stack
-                    <br />
-                    developer
-                </span>
             </div>
         </section>
     );

@@ -21,7 +21,7 @@
 
 .projectNumber {
     font-size: clamp(24rem, 27vw, 30rem);
-    font-weight: bold;
+    font-weight: 900;
     color: var(--black-color);
     pointer-events: none;
     user-select: none;

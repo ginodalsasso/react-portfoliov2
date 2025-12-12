@@ -50,7 +50,7 @@ function createButtonScrollTrigger(
         start: `top top+=${navbarHeight}`,
         end: "+=99999", // keep active
         pin: true,
-        // anticipatePin: 1,
+        anticipatePin: 1,
         invalidateOnRefresh: false,
         onEnter: () => {
             gsap.fromTo(
@@ -59,8 +59,8 @@ function createButtonScrollTrigger(
                 { 
                     y: 0, 
                     duration: 0.5, 
-                    // ease: "power2.out",
-                    // force3D: true,
+                    ease: "power2.out",
+                    force3D: true,
                 } // animate to original position
             );
         },
@@ -69,7 +69,7 @@ function createButtonScrollTrigger(
                 y: 10,
                 duration: 0.5,
                 ease: "power2.in",
-                // force3D: true,
+                force3D: true,
             });
         }, 
     });

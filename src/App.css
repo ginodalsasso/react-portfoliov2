@@ -85,7 +85,7 @@ a {
 
 /** animation rules */
 .layered-animation {
-    height: 500vh;
+    height: 300vh;
 }
 
 [data-reveal],

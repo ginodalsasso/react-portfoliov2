@@ -39,7 +39,7 @@ export default function Goals() {
             aria-labelledby="goals-title"
         >
             <div className="centered-section-logo">
-                <Logo size={36} bgColor="black" roundColor="accent" />
+                <Logo size={40} bgColor="black" roundColor="accent" />
             </div>
             <header>
                 <h2 className="section-title" data-reveal-up>
