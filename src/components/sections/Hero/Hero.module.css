@@ -22,7 +22,7 @@
 
 .heroTitle {
     font-size: var(--font-size-xlarge);
-    font-weight: 300;
+    font-weight: 600;
     line-height: var(--global-line-height);
     color: var(--primary-color);
     letter-spacing: var(--letter-spacing);
@@ -35,6 +35,7 @@
     height: auto;
     border: 1px solid var(--black-color);
     background: url();
+    filter: grayscale(1);
 }
 
 .heroImage {
