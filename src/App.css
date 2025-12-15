@@ -12,6 +12,7 @@
 :root {
     --white-color: rgb(235, 235, 235);
     --black-color: rgb(20, 20, 20);
+    --grey-color: rgba(0, 0, 0, 0.15);
     --accent-color: rgb(255, 71, 20);
 
     --font-size-small: clamp(0.875rem, 1vw + 0.5rem, 1rem);
@@ -45,8 +46,8 @@ body {
         to right,
         var(--white-color),
         var(--white-color) calc(25% - 0.5px),
-        rgba(0, 0, 0, 0.15) calc(25% - 0.5px),
-        rgba(0, 0, 0, 0.15) calc(25% + 0.5px),
+        var(--grey-color) calc(25% - 0.5px),
+        var(--grey-color) calc(25% + 0.5px),
         var(--white-color) calc(25% + 0.5px)
     );
 }
@@ -91,7 +92,7 @@ a {
 
 /** animation rules */
 .layered-animation {
-    height: 300vh;
+    height: 200vh;
 }
 
 [data-reveal],

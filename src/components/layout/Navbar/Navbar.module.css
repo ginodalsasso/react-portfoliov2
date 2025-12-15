@@ -6,7 +6,7 @@
     position: sticky;
     top: 0;
     background-color: var(--white-color);
-    border-bottom: var(--black-color) 1px solid;
+    border-bottom: 1px solid var(--grey-color);
     z-index: 1000;
 }
 

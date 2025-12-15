@@ -13,7 +13,7 @@
     display: flex;
     flex-direction: column;
     align-items: flex-end;
-    gap: 1rem;
+    gap: 0.5rem;
 }
 
 .heroHeader {
@@ -30,18 +30,10 @@
 
 .heroImage {
     display: block;
-    max-width: 45vw;
-    size: 100%;
+    height: 80vh;
+    max-width: 40vw;
     border: 1px solid var(--black-color);
-    background: url();
-    filter: grayscale(1);
-}
-
-.heroImage {
-    display: block;
-    width: 100%;
-    height: auto;
-    border: 1px solid var(--black-color);
+    filter: grayscale(100%);
 }
 
 .heroBackground {
