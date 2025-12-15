@@ -19,14 +19,11 @@
     --font-size-large: clamp(1.6rem, 2.5vw + 0.5rem, 2.4rem);
     --font-size-xlarge: clamp(4rem, 6vw + 1rem, 6rem);
 
-    
     /*  Spacing variables */
     --horizontal-padding-layout: clamp(1rem, 2vw, 2rem);
     --vertical-space-section: clamp(10rem, 20vw, 24rem);
     --padding-button: 0.5rem 0.75rem;
-    --space-section-title-content: clamp(1rem, 4vw, 2rem
-); /* Space between section title and content */
-
+    --space-section-title-content: clamp(1rem, 4vw, 2rem); /* Space between section title and content */
 
     --letter-spacing: -0.05rem;
     --global-line-height: 1;
@@ -41,10 +38,17 @@
 body {
     font-family: "Helvetica roman", "Inter", "Roboto", sans-serif;
     color: var(--black-color);
-    background-color: var(--white-color);
     overflow-x: hidden;
     scroll-behavior: smooth;
     -webkit-tap-highlight-color: transparent;
+    background: repeating-linear-gradient(
+        to right,
+        var(--white-color),
+        var(--white-color) calc(25% - 0.5px),
+        rgba(0, 0, 0, 0.15) calc(25% - 0.5px),
+        rgba(0, 0, 0, 0.15) calc(25% + 0.5px),
+        var(--white-color) calc(25% + 0.5px)
+    );
 }
 
 a {
@@ -57,7 +61,9 @@ a {
 }
 
 @keyframes spin {
-    to { transform: rotate(360deg); }
+    to {
+        transform: rotate(360deg);
+    }
 }
 
 .section-title {
@@ -95,12 +101,10 @@ a {
     will-change: transform, opacity;
 }
 
-
-
 @media screen and (max-width: 768px) {
     .section-content {
         padding-bottom: calc(var(--vertical-space-section) / 2);
-    }   
+    }
 
     .layered-animation {
         height: 300vh;

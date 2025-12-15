@@ -1,5 +1,12 @@
 .projectsSection {
-    background-color: var(--white-color);
+    background: repeating-linear-gradient(
+        to right,
+        rgb(248, 248, 248),
+        rgb(248, 248, 248) calc(25% - 0.5px),
+        rgba(0, 0, 0, 0.05) calc(25% - 0.5px),
+        rgba(0, 0, 0, 0.05) calc(25% + 0.5px),
+        rgb(248, 248, 248) calc(25% + 0.5px)
+    );
     padding-left: var(--horizontal-padding-layout);
     padding-top: 100px;
     padding-bottom: var(--vertical-space-section);

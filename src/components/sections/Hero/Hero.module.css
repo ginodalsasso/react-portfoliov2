@@ -31,8 +31,7 @@
 .heroImage {
     display: block;
     max-width: 45vw;
-    width: 100%;
-    height: auto;
+    size: 100%;
     border: 1px solid var(--black-color);
     background: url();
     filter: grayscale(1);
