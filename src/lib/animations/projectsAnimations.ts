@@ -34,13 +34,12 @@ function buildTimeline(
             fastScrollEnd: true,
             onUpdate: (self) => {
                 // Calculate which project is currently visible
-                const progress = self.progress;
-                const currentIndex = Math.round(progress * (panels.length - 1));
-
+                const currentIndex = Math.min(
+                    panels.length - 1,
+                    Math.floor(self.progress * panels.length)
+                );
                 // Call the callback to update the current project index
-                if (onProjectChange) {
-                    onProjectChange(currentIndex);
-                }
+                onProjectChange?.(currentIndex);
             },
         },
     });

@@ -44,46 +44,44 @@ export default function Projects() {
                 <ul ref={trackRef} className={styles.projectList}>
                     {projects.map((project) => (
                         <li key={project.id}>
-                            {project.href && (
-                                <a href={project.href} target="_blank" rel="noopener noreferrer">
-                                    <article className={`${styles.projectItem} project-item-animation`}>
-                                        {/* Project Header */}
-                                        <header className={styles.projectHeader}>
-                                            <h3 id={`project-header-${project.id}`}>
-                                                <span>{project.title}</span>
-                                            </h3>
-                                            {project.icon && (
-                                                <OptimizedImage 
-                                                    src={project.icon} 
-                                                    className={styles.githubIcon} 
-                                                    alt="link icon" 
-                                                />
-                                            )}
-                                        </header>
-                                        {/* Project Image & Tags */}
-                                        <div className={styles.projectImageWrapper}>
+                            <a href={project.href} target="_blank" rel="noopener noreferrer">
+                                <article className={`${styles.projectItem} project-item-animation`}>
+                                    {/* Project Header */}
+                                    <header className={styles.projectHeader}>
+                                        <h3 id={`project-header-${project.id}`}>
+                                            <span>{project.title}</span>
+                                        </h3>
+                                        {project.icon && (
                                             <OptimizedImage 
-                                                src={project.image} 
-                                                alt={project.title} 
-                                                loading="eager" 
-                                                priority={true}
+                                                src={project.icon} 
+                                                className={styles.githubIcon} 
+                                                alt="link icon" 
                                             />
-                                            {project.tags && (
-                                                <ul className={styles.tagList}>
-                                                    {project.tags.map((tag: string) => (
-                                                        <li
-                                                        key={`${project.id}-${tag}`}
-                                                        className={styles.tag}
-                                                        >
-                                                            {tag}
-                                                        </li>
-                                                    ))}
-                                                </ul>
-                                            )}
-                                        </div>
-                                    </article>
-                                </a> 
-                            )}
+                                        )}
+                                    </header>
+                                    {/* Project Image & Tags */}
+                                    <div className={styles.projectImageWrapper}>
+                                        <OptimizedImage 
+                                            src={project.image} 
+                                            alt={project.title} 
+                                            loading="eager" 
+                                            priority={true}
+                                        />
+                                        {project.tags && (
+                                            <ul className={styles.tagList}>
+                                                {project.tags.map((tag: string) => (
+                                                    <li
+                                                    key={`${project.id}-${tag}`}
+                                                    className={styles.tag}
+                                                    >
+                                                        {tag}
+                                                    </li>
+                                                ))}
+                                            </ul>
+                                        )}
+                                    </div>
+                                </article>
+                            </a>
                         </li>
                                     
                     ))}
