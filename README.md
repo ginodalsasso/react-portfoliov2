@@ -52,6 +52,8 @@ This project has been instrumental in deepening my front-end development skills:
 - **Performance Optimization**: Implemented lazy loading, code splitting, and intersection observers
 - **Responsive Design**: Created a fluid, mobile-first design with advanced CSS techniques
 - **TypeScript**: Strengthened type safety and developer experience
+- **Unit Testing**: Learned the fundamentals of writing and running unit tests with Vitest
+- **CI/CD Pipelines**: Acquired foundational knowledge of continuous integration and continuous deployment through GitHub Actions, including automated testing and deployment workflows
 - **Testing**: Established comprehensive test coverage with Vitest
 - **CI/CD**: Set up automated pipelines for quality assurance and deployment
 - **Accessibility**: Ensured WCAG compliance and semantic HTML structure
@@ -79,7 +81,7 @@ The project uses GitHub Actions for automated deployment:
 
 ## Conclusion
 
-This portfolio represents more than just a collection of projects—it embodies my transition from carpentry to software development and my dedication to mastering front-end technologies. Building this site has significantly enhanced my understanding of advanced animations, performance optimization, and modern web development practices. It stands as a testament to my ability to create sophisticated, user-friendly applications and my readiness to contribute to New Zealand's tech community.
+This portfolio represents more than just a collection of projects—it embodies my transition from carpentry to software development and my dedication to mastering front-end technologies. Building this site has significantly enhanced my understanding of advanced animations, performance optimization, unit testing, CI/CD pipelines, and modern web development practices. It stands as a testament to my ability to create sophisticated, user-friendly applications and my readiness to contribute to New Zealand's tech community.
 
 ---
 
