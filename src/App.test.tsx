@@ -1,6 +1,23 @@
 import { render, screen, waitFor } from "@testing-library/react";
 import App from "./App";
 
+// Mock the LoadingScreen to immediately call onComplete
+vi.mock("./components/layout/ui/LoadingScreen/LoadingScreen", async () => {
+    const React = await import("react");
+
+    const MockLoadingScreen = ({ onComplete }: { onComplete: () => void }) => {
+        React.useEffect(() => {
+            onComplete();
+        }, [onComplete]);
+
+        return <div data-testid="loading-screen" />;
+    };
+
+    return {
+        default: MockLoadingScreen,
+    };
+});
+    
 
 // Mock all the sections and layout components used in App component
 // to avoid issues with lazy loading during tests
@@ -31,7 +48,7 @@ vi.mock("./components/layout/Footer/Footer", () => ({
 describe("App component", () => {
     it("renders all main sections", async () => {
         render(<App />);
-        expect(screen.getByRole("navigation")).toBeInTheDocument();
+        expect(await screen.findByRole("navigation")).toBeInTheDocument();
 
         const main = screen.getByRole("main");
         expect(main).toHaveClass("main-content");
