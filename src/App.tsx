@@ -32,7 +32,6 @@ function App() {
         <>
             {!loadingComplete && (
                 <LoadingScreen 
-                    duration={2000}
                     onComplete={() => setIsLoadingComplete(true)} 
                 />
             )}

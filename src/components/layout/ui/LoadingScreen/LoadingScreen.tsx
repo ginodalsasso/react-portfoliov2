@@ -3,27 +3,28 @@ import Logo from "../Logo/Logo";
 import styles from "./LoadingScreen.module.css";
 
 interface LoadingScreenProps {
-    duration?: number;
     onComplete: () => void;
 }
 
-export default function LoadingScreen({ duration = 2000, onComplete }: LoadingScreenProps) {
+export default function LoadingScreen({ onComplete }: LoadingScreenProps) {
     const [isAnimating, setIsAnimating] = useState(false);
 
     useEffect(() => {
+        const logoDisplayTime = 1000;
+        const overlayDuration = 800; 
+
         const startTimer = setTimeout(() => {
             setIsAnimating(true);
-        }, 500);
+        }, logoDisplayTime);
 
         const endTimer = setTimeout(() => {
             onComplete();
-        }, duration);
-
+        }, logoDisplayTime + overlayDuration);
         return () => {
             clearTimeout(startTimer);
             clearTimeout(endTimer);
         };
-    }, [duration, onComplete]);
+    }, [onComplete]);
 
     return (
         <div
@@ -32,7 +33,7 @@ export default function LoadingScreen({ duration = 2000, onComplete }: LoadingSc
             }`}
         >
             <div className={styles.content}>
-                <Logo size={80} ariaLabel="Logo de chargement" />
+                <Logo size={100} ariaLabel="Logo de chargement" />
             </div>
 
             <div className={styles.overlay} />

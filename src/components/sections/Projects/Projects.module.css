@@ -143,19 +143,31 @@
 
 @media (max-width: 1024px) {
     .projectsSection {
+        /* height: 100lvh; */
         padding-top: 80px;
-        padding-bottom: unset;
+        /* padding-bottom: unset; */
         gap: var(--space-section-title-content);
     }
 
     .projectsWrapper {
         position: relative;
-        flex-direction: column;
+        flex-direction: column-reverse;
         padding-top: unset;
     }
 
     .projectInfo {
-        display: none;
+        /* display: none; */
+    }
+
+    .projectNumber {
+        font-size: var(--font-size-medium);
+    }
+
+    .projectDescription {
+        position: static;
+        width: 100%;
+        max-width: 350px;
+        margin-top: 1rem;
     }
 
     .projectList {
