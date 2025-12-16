@@ -1,8 +1,9 @@
-import { lazy, Suspense } from "react";
+import { lazy, Suspense, useState } from "react";
 import "./App.css";
 import Navbar from "./components/layout/Navbar/Navbar";
 import Loader from "./components/layout/ui/Loader/Loader";
 import BackToTop from "./components/layout/ui/BackToTop/BackToTop";
+import LoadingScreen from "./components/layout/ui/LoadingScreen/LoadingScreen";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { gsap } from "gsap";
 
@@ -25,20 +26,33 @@ const Goals = lazy(() => import("./components/sections/Goals/Goals"));
 const Footer = lazy(() => import("./components/layout/Footer/Footer"));
 
 function App() {
+    const [loadingComplete, setIsLoadingComplete] = useState(false);
+
     return (
         <>
-            <Navbar />
-            <main className="main-content">
-                <Suspense fallback={<Loader />}>
-                    <Hero />
-                    <About />
-                    <Projects />
-                    <Approach />
-                    <Goals />
-                    <Footer />
-                </Suspense>
-                <BackToTop />
-            </main>
+            {!loadingComplete && (
+                <LoadingScreen 
+                    duration={2000}
+                    onComplete={() => setIsLoadingComplete(true)} 
+                />
+            )}
+
+            {loadingComplete && (
+                <>
+                    <Navbar />
+                    <main className="main-content">
+                        <Suspense fallback={<Loader />}>
+                            <Hero />
+                            <About />
+                            <Projects />
+                            <Approach />
+                            <Goals />
+                            <Footer />
+                        </Suspense>
+                        <BackToTop />
+                    </main>
+                </>
+            )}
         </>
     );
 }
