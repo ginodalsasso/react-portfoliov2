@@ -143,9 +143,6 @@
 
 @media (max-width: 1024px) {
     .projectsSection {
-        /* height: 100lvh; */
-        padding-top: 80px;
-        /* padding-bottom: unset; */
         gap: var(--space-section-title-content);
     }
 
@@ -156,7 +153,9 @@
     }
 
     .projectInfo {
-        /* display: none; */
+        position: absolute;
+        bottom: 0;
+        left: 0;
     }
 
     .projectNumber {
@@ -164,41 +163,17 @@
     }
 
     .projectDescription {
-        position: static;
+        position: unset;
         width: 100%;
-        max-width: 350px;
-        margin-top: 1rem;
+        max-width: 340px;
     }
 
     .projectList {
         width: 100%;
-        margin: 0 auto;
+        position: relative;
     }
 
     .projectHeader {
         display: none;
-    }
-
-    .projectHeader h3 {
-        writing-mode: unset;
-        transform: unset;
-    }
-
-    .projectHeader h3:before {
-        margin-right: 1rem;
-        margin-bottom: unset;
-    }
-
-    .projectImageWrapper img {
-        object-fit: contain;
-
-        &:hover {
-            transform: scale(1.1);
-        }
-    }
-
-    .projectItem {
-        display: flex;
-        flex-direction: column-reverse;
     }
 }
