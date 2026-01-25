@@ -29,7 +29,7 @@ export default function Goals() {
             };
         });
         return cleanup;
-    }, [sectionRef]);
+    }, []);
 
     return (
         <section

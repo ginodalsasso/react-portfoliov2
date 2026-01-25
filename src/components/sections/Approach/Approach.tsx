@@ -33,7 +33,7 @@ export default function Approach() {
             };
         });
         return cleanup;
-    }, [sectionRef]);
+    }, []);
 
     return (
         <section

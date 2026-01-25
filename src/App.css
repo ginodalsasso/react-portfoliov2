@@ -40,7 +40,6 @@ body {
     font-family: "Helvetica roman", "Inter", "Roboto", sans-serif;
     color: var(--black-color);
     overflow-x: hidden;
-    scroll-behavior: smooth;
     -webkit-tap-highlight-color: transparent;
     background: repeating-linear-gradient(
         to right,
@@ -93,13 +92,6 @@ a {
 /** animation rules */
 .layered-animation {
     height: 200vh;
-}
-
-[data-reveal],
-[data-reveal-up],
-[data-word-reveal],
-.split {
-    will-change: transform, opacity;
 }
 
 @media screen and (max-width: 768px) {

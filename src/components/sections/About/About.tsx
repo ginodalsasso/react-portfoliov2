@@ -24,7 +24,7 @@ export default function About() {
             };
         });
         return cleanup;
-    }, [sectionRef]);
+    }, []);
 
     return (
         <section

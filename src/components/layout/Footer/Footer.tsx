@@ -15,10 +15,10 @@ export default function Footer() {
             <nav aria-label="Footer Navigation" className={styles.nav}>
                 <FullLogo className={styles.fullLogo} />
                 <ul className={styles.navLinks}>
-                    <li><a target="_blank" href="https://github.com/ginodalsasso">[ github ]</a></li>
-                    <li><a target="_blank" href="https://linkedin.com/in/gino-dalsasso">[ linkedin ]</a></li>
+                    <li><a target="_blank" rel="noopener noreferrer" href="https://github.com/ginodalsasso">[ github ]</a></li>
+                    <li><a target="_blank" rel="noopener noreferrer" href="https://linkedin.com/in/gino-dalsasso">[ linkedin ]</a></li>
                     <li>
-                        <a href="/assets/cv.pdf" target="_blank">
+                        <a href="/assets/cv.pdf" target="_blank" rel="noopener noreferrer">
                             <Button
                                 aria-label="Download my CV"
                                 variant="secondary"
