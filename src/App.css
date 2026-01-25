@@ -60,12 +60,6 @@ a {
     position: relative;
 }
 
-@keyframes spin {
-    to {
-        transform: rotate(360deg);
-    }
-}
-
 .section-title {
     font-family: "Helvetica roman";
     font-size: var(--font-size-small);

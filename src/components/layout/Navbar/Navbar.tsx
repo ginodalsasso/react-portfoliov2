@@ -8,7 +8,6 @@ export default function Navbar() {
         <nav
             id="desktop-nav"
             data-testid="desktop-nav"
-            role="navigation"
             aria-label="Main Navigation"
             className={`navbar ${styles.navbar}`}
         >

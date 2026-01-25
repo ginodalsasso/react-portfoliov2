@@ -7,6 +7,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { charsRevealAnimation } from "../../../lib/animations/textAnimations";
 import { withResponsive } from "../../../lib/animations/utils/withResponsive";
 import { profilePic2 } from "../../../assets/img";
+import OptimizedImage from "../../layout/ui/OptimizedImage/OptimizedImage";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -46,22 +47,18 @@ export default function Hero() {
         <section className={styles.heroSection} aria-labelledby="hero-title">
             <div className={styles.heroContent}>
                 <header className={styles.heroHeader}>
-                    {/* <h1 id="hero-title" className={`${styles.heroTitle} split`}>
-                        Hi, I’m Gino, <br /> full-stack developer <br /> from
-                        France to NZ
-                    </h1> */}
-                    <span aria-hidden="true" className={styles.heroBackground}>
+                    <h1 className={styles.heroBackground}>
                         full-stack
                         <br />
                         developer
-                    </span>
+                    </h1>
                 </header>
                 <div className={styles.heroMedia}>
-                    <img
+                    <OptimizedImage
                         src={profilePic2}
                         alt="Portrait"
                         className={`${styles.heroImage} ${styles.img2}`}
-                        loading="eager"
+                        priority={true}
                     />
                     <div ref={buttonRef} className={styles.buttonContainer}>
                         <Button

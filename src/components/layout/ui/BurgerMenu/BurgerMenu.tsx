@@ -42,7 +42,7 @@ export default function BurgerMenu({ navLinks }: { navLinks: LinkItem[] }) {
                 id="mobile-nav"
                 data-testid="mobile-nav"
                 className={`${styles.menu} ${open ? styles.open : styles.closed}`}
-                role="navigation"
+                aria-label="Mobile Navigation"
                 aria-hidden={!open}
             >
                 <ul className={styles.navLinks}>
@@ -53,21 +53,23 @@ export default function BurgerMenu({ navLinks }: { navLinks: LinkItem[] }) {
                             </a>
                         </li>
                     ))}
-                    <a 
-                        className={styles.resumeLink} 
-                        href="/assets/cv.pdf" 
-                        target="_blank"
-                        rel="noreferrer"
-                        onClick={() => setOpen(false)}
-                    >
-                        <Button
-                            aria-label="Download my CV"
-                            variant="secondary"
-                            size="small"
+                    <li>
+                        <a
+                            className={styles.resumeLink}
+                            href="/assets/cv.pdf"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            onClick={() => setOpen(false)}
                         >
-                            my resume
-                        </Button>
-                    </a>
+                            <Button
+                                aria-label="Download my CV"
+                                variant="secondary"
+                                size="small"
+                            >
+                                my resume
+                            </Button>
+                        </a>
+                    </li>
                 </ul>
             </nav>
         </div>

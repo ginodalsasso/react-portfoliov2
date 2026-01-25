@@ -52,19 +52,22 @@ export default function Projects() {
                                             <span>{project.title}</span>
                                         </h3>
                                         {project.icon && (
-                                            <OptimizedImage 
-                                                src={project.icon} 
-                                                className={styles.githubIcon} 
-                                                alt="link icon" 
+                                            <OptimizedImage
+                                                src={project.icon}
+                                                className={styles.githubIcon}
+                                                alt="link icon"
+                                                width={24}
+                                                height={24}
                                             />
                                         )}
                                     </header>
                                     {/* Project Image & Tags */}
                                     <div className={styles.projectImageWrapper}>
-                                        <OptimizedImage 
-                                            src={project.image} 
-                                            alt={project.title} 
-                                            loading="eager" 
+                                        <OptimizedImage
+                                            src={project.image}
+                                            alt={project.title}
+                                            width={600}
+                                            height={400}
                                             priority={true}
                                         />
                                         {project.tags && (

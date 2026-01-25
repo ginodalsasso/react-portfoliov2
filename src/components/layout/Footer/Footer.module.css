@@ -54,8 +54,12 @@
     .nav a:first-of-type {
         text-align: end;
     }
-    
+
     .fullLogo {
         width: 100%;
+    }
+
+    .footerInfo {
+        justify-content: flex-start;
     }
 }
