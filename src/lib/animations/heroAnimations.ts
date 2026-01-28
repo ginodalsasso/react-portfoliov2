@@ -48,20 +48,21 @@ function createButtonScrollTrigger(
     return ScrollTrigger.create({
         trigger: buttonElement,
         start: `top top+=${navbarHeight}`,
-        end: "+=99999", // keep active
+        end: "max",
         pin: true,
         anticipatePin: 1,
         invalidateOnRefresh: false,
+        fastScrollEnd: true,
         onEnter: () => {
             gsap.fromTo(
-                buttonElement, // reference to the button element
-                { y: 10 }, // start position
-                { 
-                    y: 0, 
-                    duration: 0.5, 
+                buttonElement,
+                { y: 10 },
+                {
+                    y: 0,
+                    duration: 0.5,
                     ease: "power2.out",
                     force3D: true,
-                } // animate to original position
+                }
             );
         },
         onLeaveBack: () => {
@@ -71,7 +72,7 @@ function createButtonScrollTrigger(
                 ease: "power2.in",
                 force3D: true,
             });
-        }, 
+        },
     });
 }
 

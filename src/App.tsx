@@ -39,14 +39,14 @@ function App() {
             {loadingComplete && (
                 <main className="main-content">
                     <Navbar />
-                    <Suspense fallback={<Loader />}>
+                    {/* <Suspense fallback={<Loader />}> */}
                         <Hero />
                         <About />
                         <Projects />
                         <Approach />
                         <Goals />
                         <Footer />
-                    </Suspense>
+                    {/* </Suspense> */}
                     <BackToTop />
                 </main>
             )}

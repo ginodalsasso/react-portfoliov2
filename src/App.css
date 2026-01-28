@@ -45,14 +45,6 @@ body {
     color: var(--black-color);
     -webkit-tap-highlight-color: transparent;
     background-color: var(--white-color);
-    background-image: repeating-linear-gradient(
-        to right,
-        transparent,
-        transparent calc(25% - 1px),
-        var(--grey-color) calc(25% - 0.5px),
-        var(--grey-color) 25%,
-        transparent 25%
-    );
 }
 
 a {

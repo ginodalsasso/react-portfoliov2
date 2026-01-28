@@ -1,5 +1,12 @@
 .heroSection {
     padding-bottom: var(--vertical-space-section);
+    background-image: repeating-linear-gradient(
+        to right,
+        transparent 0,
+        transparent calc(25% - 1px),
+        var(--grey-color) calc(25% - 1px),
+        var(--grey-color) 25%
+    );
 }
 
 .heroContent {

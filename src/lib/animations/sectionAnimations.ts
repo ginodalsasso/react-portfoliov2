@@ -42,10 +42,11 @@ export function useLayeredAnimation() {
                 pin: true,
                 pinSpacing: false,
                 anticipatePin: 1,
-                invalidateOnRefresh: true,
+                invalidateOnRefresh: false,
                 refreshPriority: -1,
                 scrub: 0.5,
-                fastScrollEnd: true, // to improve performance on fast scrolls
+                fastScrollEnd: true,
+                preventOverlaps: true,
             });
         });
         if (createdTrigger) {

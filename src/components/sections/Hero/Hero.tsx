@@ -58,6 +58,7 @@ export default function Hero() {
                         src={profilePic2}
                         alt="Portrait"
                         className={`${styles.heroImage} ${styles.img2}`}
+                        height="80vh"
                         priority={true}
                     />
                     <div ref={buttonRef} className={styles.buttonContainer}>

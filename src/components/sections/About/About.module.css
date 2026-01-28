@@ -3,6 +3,13 @@
     padding-inline: var(--horizontal-padding-layout);
     display: flex;
     gap: var(--space-section-title-content);
+    background-image: repeating-linear-gradient(
+        to right,
+        transparent 0,
+        transparent calc(25% - 1px),
+        var(--grey-color) calc(25% - 1px),
+        var(--grey-color) 25%
+    );
 }
 
 @media screen and (max-width: 1200px) {

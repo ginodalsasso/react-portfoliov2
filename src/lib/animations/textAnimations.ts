@@ -15,50 +15,45 @@ export async function textRevealUpAnimation(
     opts: TextRevealOptions = {}
 ) {
     await ensureFontsReady();
-    
+
     const {
         childSelector = "[data-reveal-up]",
         x = 0,
         y = 180,
-        start = "top bottom", // when top of section hit the bottom of viewport
-        end = "bottom top", // until bottom hit top of viewport
-        scrub = 1, // smooth
+        start = "top bottom",
+        end = "bottom top",
+        scrub = 1,
     } = opts;
-    // Determine the container and target selector based on the type of 'target'
 
     const container = typeof target === "string" ? document : target;
     const targetSelector = typeof target === "string" ? target : childSelector;
+    const targets = container.querySelectorAll<HTMLElement>(targetSelector);
 
-    const ctx = gsap.context(() => {
-        const targets = container.querySelectorAll<HTMLElement>(targetSelector);
+    if (!targets.length) return () => {};
 
-        targets.forEach((element) => {
-            gsap.fromTo(
-                element,
-                {
-                    y: 0,
-                    x: 0,
-                },
-                {
-                    y: -y,
-                    x,
-                    ease: "none",
-                    scrollTrigger: {
-                        trigger: container as HTMLElement,
-                        start,
-                        end,
-                        scrub,
-                        invalidateOnRefresh: true,
-                    },
-                }
-            );
-        });
-    }, container);
+    // Use a single ScrollTrigger for all targets in this container
+    const trigger = ScrollTrigger.create({
+        trigger: container as HTMLElement,
+        start,
+        end,
+        scrub,
+        invalidateOnRefresh: false,
+        onUpdate: (self) => {
+            const progress = self.progress;
+            targets.forEach((element) => {
+                gsap.set(element, {
+                    y: -y * progress,
+                    x: x * progress,
+                    force3D: true,
+                });
+            });
+        },
+    });
 
-    return () => ctx.revert();
+    return () => trigger.kill();
 }
 
-// Word Reveal Animation giving whether a reference to a container or a selector string
+// Word Reveal Animation using ScrollTrigger.batch for better performance
 export async function wordRevealAnimation(
     target: HTMLElement | string,
     opts: WordRevealOptions = {}
@@ -75,36 +70,62 @@ export async function wordRevealAnimation(
         initialOpacity = 0,
     } = opts;
 
-    // Determine the container and target selector based on the type of 'target'
     const container = typeof target === "string" ? document : target;
     const targetSelector = typeof target === "string" ? target : childSelector;
+    const targets = container.querySelectorAll<HTMLElement>(targetSelector);
 
-    const ctx = gsap.context(() => {
-        const targets = container.querySelectorAll(targetSelector);
+    if (!targets.length) return () => {};
 
-        targets.forEach((element) => {
+    // Store splits for cleanup
+    const splits: SplitText[] = [];
 
-            const split = new SplitText(element, { type: "words" });
+    // Prepare all elements
+    targets.forEach((element) => {
+        const split = new SplitText(element, { type: "words" });
+        splits.push(split);
+        gsap.set(split.words, { opacity: initialOpacity, y: initialY, x: initialX });
+    });
 
-            gsap.set(split.words, { opacity: initialOpacity, y: initialY, x: initialX });
-
-            gsap.to(split.words, {
-                opacity: 1,
-                y: 0,
-                x: 0,
-                duration,
-                stagger,
-                ease,
-                scrollTrigger: {
-                    trigger: element,
-                    start: "top 80%",
-                    toggleActions: "play none none reverse",
-                },
+    // Use batch for a single ScrollTrigger instead of one per element
+    ScrollTrigger.batch(targets, {
+        start: "top 80%",
+        onEnter: (batch) => {
+            batch.forEach((el) => {
+                const split = splits[Array.from(targets).indexOf(el as HTMLElement)];
+                if (split) {
+                    gsap.to(split.words, {
+                        opacity: 1,
+                        y: 0,
+                        x: 0,
+                        duration,
+                        stagger,
+                        ease,
+                    });
+                }
             });
-        });
-    }, container);
+        },
+        onLeaveBack: (batch) => {
+            batch.forEach((el) => {
+                const split = splits[Array.from(targets).indexOf(el as HTMLElement)];
+                if (split) {
+                    gsap.to(split.words, {
+                        opacity: initialOpacity,
+                        y: initialY,
+                        x: initialX,
+                        duration: duration * 0.5,
+                        ease,
+                    });
+                }
+            });
+        },
+    });
 
-    return () => ctx.revert();
+    return () => {
+        splits.forEach((split) => split.revert());
+        ScrollTrigger.getAll()
+            .filter((st) => st.vars && st.vars.batchMax)
+            .forEach((st) => st.kill());
+    };
 }
 
 // ________ TEXT ANIMATIONS __________

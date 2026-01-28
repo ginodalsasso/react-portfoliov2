@@ -1,5 +1,3 @@
-import { useState } from "react";
-
 interface OptimizedImageProps {
     src?: string;
     alt: string;
@@ -30,7 +28,7 @@ export default function OptimizedImage({
     loading = "lazy",
     priority = false,
 }: OptimizedImageProps) {
-    const [isLoaded, setIsLoaded] = useState(false);
+    // const [isLoaded, setIsLoaded] = useState(priority);
 
     return (
         <img
@@ -42,11 +40,6 @@ export default function OptimizedImage({
             loading={priority ? "eager" : loading}
             decoding={priority ? "sync" : "async"}
             fetchPriority={priority ? "high" : "auto"}
-            onLoad={() => setIsLoaded(true)}
-            style={{
-                opacity: isLoaded ? 1 : 0,
-                transition: "opacity 0.3s ease",
-            }}
         />
     );
 }
