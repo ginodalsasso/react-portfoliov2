@@ -36,8 +36,6 @@
 
 .footerInfo {
     font-size: var(--font-size-small);
-    display: flex;
-    justify-self: flex-end;
     text-align: right;
 }
 
@@ -52,10 +50,6 @@
 }
 
 @media screen and (max-width: 768px) {
-    .nav a:first-of-type {
-        text-align: end;
-    }
-
     .fullLogo {
         width: 100%;
     }

@@ -123,7 +123,6 @@ export async function wordRevealAnimation(
     return () => {
         splits.forEach((split) => split.revert());
         ScrollTrigger.getAll()
-            .filter((st) => st.vars && st.vars.batchMax)
             .forEach((st) => st.kill());
     };
 }
