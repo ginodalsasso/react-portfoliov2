@@ -38,6 +38,7 @@
     font-size: var(--font-size-small);
     display: flex;
     justify-self: flex-end;
+    text-align: right;
 }
 
 .footerInfo a {
@@ -57,9 +58,5 @@
 
     .fullLogo {
         width: 100%;
-    }
-
-    .footerInfo {
-        justify-content: flex-start;
     }
 }

@@ -149,7 +149,7 @@
     .projectsWrapper {
         position: relative;
         flex-direction: column-reverse;
-        padding-top: unset;
+        /* padding-top: unset; */
     }
 
     .projectInfo {

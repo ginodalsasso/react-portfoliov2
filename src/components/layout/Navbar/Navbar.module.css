@@ -3,11 +3,14 @@
     align-items: center;
     justify-content: space-between;
     padding: 0.5rem var(--horizontal-padding-layout);
+    position: -webkit-sticky; /* Safari */
     position: sticky;
     top: 0;
     background-color: var(--white-color);
     border-bottom: 1px solid var(--grey-color);
     z-index: 1000;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
 }
 
 .navLinks {
