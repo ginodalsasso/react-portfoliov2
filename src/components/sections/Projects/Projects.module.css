@@ -146,10 +146,13 @@
         gap: var(--space-section-title-content);
     }
 
+    .projectsSection h2 {
+        margin-top: 20px;
+    }
+
     .projectsWrapper {
         position: relative;
         flex-direction: column-reverse;
-        /* padding-top: unset; */
     }
 
     .projectInfo {
