@@ -18,7 +18,7 @@ export default function Navbar() {
                         <a href={link.path}>{link.title}</a>
                     </li>
                 ))}
-            </ul>
+            </ul> 
 
             <BurgerMenu navLinks={navLinks} />
         </nav>
