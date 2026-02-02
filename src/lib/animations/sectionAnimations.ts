@@ -2,7 +2,7 @@ import { useLayoutEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { refreshGSAP, registerTrigger, unregisterTrigger } from "./utils/gsapManager";
-import { getNavbarHeight } from "./utils/getNavbarHeight";
+import { getNavbarHeight, invalidateNavbarHeight } from "./utils/getNavbarHeight";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -10,14 +10,19 @@ function calculateOffset (index: number, firstLayerStep: number, layerStep: numb
     return index === 0 ? firstLayerStep : index * layerStep + firstLayerStep;
 };
 
-function setupOffset() {
-    const navHeight = getNavbarHeight();
+// Cache offsets to avoid recalculating on every hook call
+let cachedOffset: { firstLayerStep: number; layerStep: number } | null = null;
 
+function setupOffset() {
+    if (cachedOffset) return cachedOffset;
+
+    const navHeight = getNavbarHeight();
     const centeredLogos = Array.from(document.querySelectorAll(".centered-section-logo")) as HTMLElement[];
     const layerStep = centeredLogos[0].offsetHeight;
-
     const firstLayerStep = navHeight + layerStep;
-    return { firstLayerStep, layerStep };
+
+    cachedOffset = { firstLayerStep, layerStep };
+    return cachedOffset;
 }
 
 export function useLayeredAnimation() {
@@ -59,6 +64,8 @@ export function useLayeredAnimation() {
                 createdTrigger.kill();
             }
             ctx.revert();
+            cachedOffset = null;
+            invalidateNavbarHeight();
             refreshGSAP();
         };
     }, []);

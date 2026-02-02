@@ -11,7 +11,7 @@ export default function LoadingScreen({ onComplete }: LoadingScreenProps) {
 
     useEffect(() => {
         const logoDisplayTime = 600;
-        const overlayDuration = 600;
+        const overlayDuration = 300;
 
         const startTimer = setTimeout(() => {
             setIsAnimating(true);

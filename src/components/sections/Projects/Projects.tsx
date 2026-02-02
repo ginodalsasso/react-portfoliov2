@@ -68,7 +68,7 @@ export default function Projects() {
                                             alt={project.title}
                                             width={600}
                                             height={400}
-                                            priority={true}
+                                            priority={project.id === projects[0].id}
                                         />
                                         {project.tags && (
                                             <ul className={styles.tagList}>
