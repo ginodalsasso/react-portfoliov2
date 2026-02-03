@@ -71,13 +71,11 @@
 
 @media screen and (max-width: 768px) {
     .heroSection {
-        padding-top: 1rem;
         padding-bottom: 80px;
     }
 
     .heroContent {
         grid-template-columns: 1fr;
-        gap: 3rem;
     }
 
     .heroImage {

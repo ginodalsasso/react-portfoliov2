@@ -81,8 +81,7 @@ export function heroButtonAnimations({
     setVariant,
     enableScrollTrigger = true,
 }: ButtonAnimationType): () => void {
-    const navbarHeight = getNavbarHeight();
-    if (!navbarHeight) return () => {};
+    const navbarHeight = getNavbarHeight;
 
     // Setup section observer for variant changes
     const observer = setupSectionObserver(setVariant);

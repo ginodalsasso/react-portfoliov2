@@ -2,7 +2,7 @@ import { useLayoutEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { refreshGSAP, registerTrigger, unregisterTrigger } from "./utils/gsapManager";
-import { getNavbarHeight, invalidateNavbarHeight } from "./utils/getNavbarHeight";
+import { getNavbarHeight } from "./utils/getNavbarHeight";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -16,7 +16,7 @@ let cachedOffset: { firstLayerStep: number; layerStep: number } | null = null;
 function setupOffset() {
     if (cachedOffset) return cachedOffset;
 
-    const navHeight = getNavbarHeight();
+    const navHeight = getNavbarHeight;
     const centeredLogos = Array.from(document.querySelectorAll(".centered-section-logo")) as HTMLElement[];
     const layerStep = centeredLogos[0].offsetHeight;
     const firstLayerStep = navHeight + layerStep;
@@ -65,7 +65,6 @@ export function useLayeredAnimation() {
             }
             ctx.revert();
             cachedOffset = null;
-            invalidateNavbarHeight();
             refreshGSAP();
         };
     }, []);

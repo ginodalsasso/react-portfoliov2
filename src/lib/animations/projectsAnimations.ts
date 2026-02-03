@@ -2,6 +2,7 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import type { projectsAnimationsScrollType } from "./utils/Animations.types";
 import { refreshGSAP, registerTrigger, unregisterTrigger } from "./utils/gsapManager";
+import { getNavbarHeight } from "./utils/getNavbarHeight";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -27,6 +28,8 @@ function buildTimeline(
         scrollTrigger: {
             trigger: pin, // section to pin to the viewport
             pin: true, // pin the section
+            pinSpacing: true,
+            start: () => `top top+=${getNavbarHeight}`,
             anticipatePin: 1,
             scrub: 1,
             invalidateOnRefresh: false,
@@ -36,15 +39,14 @@ function buildTimeline(
                 // Calculate which project is currently visible
                 const currentIndex = Math.min(
                     panels.length - 1,
-                    Math.floor(self.progress * panels.length)
+                    Math.floor(self.progress * panels.length),
                 );
                 // Call the callback to update the current project index
                 onProjectChange?.(currentIndex);
             },
         },
     });
-
-    // Slide panels into view
+        // Slide panels into view
     panels.forEach((panel, index) => {
         if (index === 0) return; // Skip the first panel
 

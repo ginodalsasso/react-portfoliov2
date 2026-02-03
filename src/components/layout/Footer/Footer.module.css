@@ -37,6 +37,7 @@
 .footerInfo {
     font-size: var(--font-size-small);
     text-align: right;
+    margin-top: -2rem;
 }
 
 .footerInfo a {
