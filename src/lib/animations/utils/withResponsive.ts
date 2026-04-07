@@ -1,21 +1,30 @@
-import { gsap } from "gsap";
 import { BREAKPOINTS } from "../../constants/constants";
 import type { ResponsiveConditions } from "./Animations.types";
 
+function getConditions(): ResponsiveConditions {
+    return {
+        isMobile: window.matchMedia(BREAKPOINTS.isMobile).matches,
+        isDesktop: window.matchMedia(BREAKPOINTS.isDesktop).matches,
+        isReducedMotion: window.matchMedia(BREAKPOINTS.isReducedMotion).matches,
+    };
+}
+
 /**
- * A utility function to handle responsive animations.
- * @param animationCallback - A callback function that receives the current responsive conditions and returns a cleanup function.
- * @returns A function that can be called to revert the animations.
+ * Reads the current responsive conditions once and passes them to the animation callback.
+ * Returns a cleanup function that reverts whatever the callback set up.
  */
-export function withResponsive<T>(
-    animationCallback: (conditions: ResponsiveConditions) => T
+export function withResponsive(
+    animationCallback: (conditions: ResponsiveConditions) => (() => void) | Promise<() => void>
 ): () => void {
-    const mm = gsap.matchMedia();
+    let cleanup: (() => void) | null = null;
 
-    mm.add(BREAKPOINTS, (context) => {
-        const conditions = context.conditions as ResponsiveConditions;
-        return animationCallback(conditions);
-    });
+    const result = animationCallback(getConditions());
 
-    return () => mm.revert();
+    if (result instanceof Promise) {
+        result.then((fn) => { cleanup = fn; });
+    } else {
+        cleanup = result;
+    }
+
+    return () => cleanup?.();
 }

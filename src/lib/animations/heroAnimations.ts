@@ -1,13 +1,9 @@
 import { gsap } from "gsap";
-import { TextPlugin } from "gsap/TextPlugin";
-import { SplitText } from "gsap/SplitText";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import type { ButtonAnimationType } from "./utils/Animations.types";
 import React from "react";
 import { refreshGSAP, registerTrigger, unregisterTrigger } from "./utils/gsapManager";
 import { getNavbarHeight } from "./utils/getNavbarHeight";
-
-gsap.registerPlugin(TextPlugin, SplitText, ScrollTrigger);
 
 // ________ BUTTON ANIMATIONS __________
 function getAccentColor() {
@@ -20,20 +16,22 @@ function setupSectionObserver(
     setVariant: React.Dispatch<React.SetStateAction<"primary" | "secondary">>
 ) {
     const accentColor = getAccentColor();
-    
-    const observer = new IntersectionObserver(
-        (entries) => {
-            // Check if any section is intersecting
-            const visibleSection = entries.find(entry => entry.isIntersecting);
-            if (!visibleSection) return;
 
-            const sectionBg = getComputedStyle(visibleSection.target).backgroundColor;
-            const sameBg = sectionBg === accentColor;
-            setVariant(sameBg ? "secondary" : "primary");
-        }
-    );
+    // Pre-compute once — section backgrounds never change at runtime
+    const sectionBgMap = new WeakMap<Element, boolean>();
+    document.querySelectorAll("section").forEach((section) => {
+        const bg = getComputedStyle(section).backgroundColor;
+        sectionBgMap.set(section, bg === accentColor);
+    });
 
-    // Observe all sections
+    const observer = new IntersectionObserver((entries) => {
+        const visibleSection = entries.find(entry => entry.isIntersecting);
+        if (!visibleSection) return;
+
+        const isAccentBg = sectionBgMap.get(visibleSection.target) ?? false;
+        setVariant(isAccentBg ? "secondary" : "primary");
+    });
+
     document.querySelectorAll("section").forEach((section) =>
         observer.observe(section)
     );

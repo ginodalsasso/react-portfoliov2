@@ -1,10 +1,7 @@
 import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import type { projectsAnimationsScrollType } from "./utils/Animations.types";
 import { refreshGSAP, registerTrigger, unregisterTrigger } from "./utils/gsapManager";
 import { getNavbarHeight } from "./utils/getNavbarHeight";
-
-gsap.registerPlugin(ScrollTrigger);
 
 function setupInitialPanelStates(panels: HTMLElement[]): void {
     panels.forEach((panel, index) => {
@@ -75,9 +72,12 @@ export function projectsAnimationsScroll({
     if (!panels.length) return;
 
     const scrollSpeed = 0.7;
+    // Extra padding (30% of viewport) ensures the last panel is fully visible
+    // before the section unpins. Proportional to viewport width, not a fixed px value.
+    const trailingPadding = window.innerWidth * 0.3;
     const totalDistance = Math.max(
         0,
-        (panels.length - 1) * window.innerWidth * scrollSpeed + 404
+        (panels.length - 1) * window.innerWidth * scrollSpeed + trailingPadding
     ); // total scroll distance with math max to avoid negative values
 
     setupInitialPanelStates(panels);

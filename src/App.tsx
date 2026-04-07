@@ -4,11 +4,13 @@ import Navbar from "./components/layout/Navbar/Navbar";
 import BackToTop from "./components/layout/ui/BackToTop/BackToTop";
 import LoadingScreen from "./components/layout/ui/LoadingScreen/LoadingScreen";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { SplitText } from "gsap/SplitText";
+import { TextPlugin } from "gsap/TextPlugin";
 import { gsap } from "gsap";
 
-// GSAP ScrollTrigger configuration for better performance
+// Single registration point for all GSAP plugins used across the app
 if (typeof window !== "undefined" && typeof window.matchMedia === "function") {
-    gsap.registerPlugin(ScrollTrigger);
+    gsap.registerPlugin(ScrollTrigger, SplitText, TextPlugin);
 
     ScrollTrigger.config({
         limitCallbacks: true,

@@ -8,8 +8,6 @@ import type {
 } from "./utils/Animations.types";
 import { ensureFontsReady } from "./utils/ensureFontsReady";
 
-gsap.registerPlugin(SplitText, ScrollTrigger);
-
 export async function textRevealUpAnimation(
     target: HTMLElement | string,
     opts: TextRevealOptions = {}
@@ -87,7 +85,7 @@ export async function wordRevealAnimation(
     });
 
     // Use batch for a single ScrollTrigger instead of one per element
-    ScrollTrigger.batch(targets, {
+    const batchTriggers = ScrollTrigger.batch(targets, {
         start: "top 80%",
         onEnter: (batch) => {
             batch.forEach((el) => {
@@ -122,8 +120,7 @@ export async function wordRevealAnimation(
 
     return () => {
         splits.forEach((split) => split.revert());
-        ScrollTrigger.getAll()
-            .forEach((st) => st.kill());
+        batchTriggers.forEach((st) => st.kill());
     };
 }
 
