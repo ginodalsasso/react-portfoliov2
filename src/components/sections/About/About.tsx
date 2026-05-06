@@ -52,7 +52,7 @@ export default function About() {
                 </p>
                 <p>
                     That spark became a flame: one year of intensive training,
-                    two years of relentless self-learning, and countless
+                    three years of relentless self-learning, and countless
                     projects fueled by pure curiosity.
                 </p>
                 <p>Sometimes the best journeys take you full circle.</p>
